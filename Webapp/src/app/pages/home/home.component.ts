@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {ICountry} from '../../Interfaces/Icountry';
+import {APIService} from '../../Services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  countries$: Observable<ICountry[]>;
+
+  constructor(private dataService: APIService) { }
 
   ngOnInit() {
+    this.countries$ = this.dataService.getCountries();
   }
 
 }

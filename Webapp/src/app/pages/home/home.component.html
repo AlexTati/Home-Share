@@ -1,1 +1,124 @@
-<p>home works!</p>
+<form>
+  <div class="container">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-interval="2000">
+          <h4>Carousel 1</h4>
+          <img src="" class="d-block w-100" alt="...">
+          <p>Bhaaaaaa</p>
+        </div>
+        <div class="carousel-item" data-interval="2000">
+          <h4>Carousel 2</h4>
+          <img src="" class="d-block w-100" alt="...">
+          <p>Hoooooo</p>
+        </div>
+        <div class="carousel-item" data-interval="2000">
+          <h4>Carousel 3</h4>
+          <img src="" class="d-block w-100" alt="...">
+          <p>Lalalala</p>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <hr>
+
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <label for="inputSearchHome">Me recherche</label>
+        <input type="text" class="form-control" id="inputSearchHome" placeholder="Je cherche...">
+      </div>
+      <div class="form-group col-md-3">
+        <label inputSearchTypeHom for="inputSearchTypeHome">Choisir mon type de bien</label>
+        <select class="custom-select mr-sm-2" id="inputSearchTypeHome">
+          <option selected value="1">Villa</option>
+          <option value="2">Maison</option>
+          <option value="3">Caravane</option>
+          <option value="4">Appartement</option>
+          <option value="5">Château</option>value="1"
+        </select>
+     </div>
+      <div class="form-group col-md-2 d-flex align-items-end justify-content-center">
+        <button type="submit" class="btn btn-info" style="width: 300px">Chercher</button>
+      </div>
+      <div class="form-group col-md-2 d-flex align-items-end justify-content-center">
+        <button href="" type="button" class="btn btn-info" style="width: 300px">Plus de critères</button>
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label>Pays</label>
+        <ng-select [items]="countries$ | async"
+                   bindLabel="Name"
+                   autofocus
+                   bindValue="Id">
+        </ng-select>
+      </div>
+      <div class="form-group col-md-4">
+        <label  for="inputCapacity">Nombre de personnes</label>
+        <select class="custom-select " id="inputCapacity">
+          <option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+          <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+          <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+          <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+          <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-check col-md-2">
+        <input class="form-check-input" type="checkbox" id="jardin">
+        <label class="form-check-label" for="jardin">
+          Jardin
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <input class="form-check-input" type="checkbox"  id="Piscine">
+        <label class="form-check-label" for="Piscine">
+          Piscine
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <input class="form-check-input" type="checkbox" id="Internet">
+        <label class="form-check-label" for="Internet">
+          Internet
+        </label>
+      </div>
+
+      <div class="form-check col-md-2">
+        <input class="form-check-input" type="checkbox" id="Laver">
+        <label class="form-check-label" for="Laver">
+          Machine à laver
+        </label>
+      </div>
+      <div class="form-check col-md-2">
+        <input class="form-check-input" type="checkbox" id="Animaux">
+        <label class="form-check-label" for="Animaux">
+          Animaux admis
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group marg-btn">
+      <button type="submit" class="btn btn-info">Démarer ma rechercher</button>
+    </div>
+
+  </div>
+</form>

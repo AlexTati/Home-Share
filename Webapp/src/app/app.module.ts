@@ -12,12 +12,16 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ZoneComponent } from './pages/Member/zone/zone.component';
+import { ListHouseComponent } from './pages/Member/list-house/list-house.component';
 
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'member/register', component: RegisterComponent },
-  { path: 'member/connexion', component: RegisterComponent },
+  { path: 'member/connexion', component: ConnexionComponent },
+  { path: 'member/zone', component: ZoneComponent },
+  { path: 'member/listHouse', component: ListHouseComponent}
   //{ path: 'hero/:id',      component: HeroDetailComponent },
   //{ path: '**', component: PageNotFoundComponent }
 ];
@@ -29,7 +33,9 @@ const appRoutes: Routes = [
     HomeComponent,
     RegisterComponent,
     ConnexionComponent,
-    FormAddressComponent
+    FormAddressComponent,
+    ZoneComponent,
+    ListHouseComponent
   ],
   imports: [
     BrowserModule,
