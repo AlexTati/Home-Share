@@ -3,7 +3,7 @@
   margin-bottom: 20px;
 }
 
-.border-formulaire{
+.border-zone{
   border-style: solid;
   border-color: lightseagreen;
   border-width: 1px;
@@ -11,6 +11,6 @@
   margin-top: 20px;
 }
 
-.marg-btn{
-  margin: 0px;
+.mar-image{
+  margin-top: 20px;
 }
