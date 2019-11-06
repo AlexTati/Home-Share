@@ -1,0 +1,27 @@
+.drop-zone { 
+    background-color: #f6f6f6;
+    border: dotted 3px #dedddd; 
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.file-input-container {
+
+    text-align: right;
+
+    input[type="file"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        text-decoration: underline
+    }
+}
+
+.nv-file-over { 
+    border: dotted 3px red; 
+}

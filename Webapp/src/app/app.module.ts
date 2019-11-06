@@ -14,7 +14,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ZoneComponent } from './pages/Member/zone/zone.component';
 import { ListHouseComponent } from './pages/Member/list-house/list-house.component';
-import { EditComponent } from './pages/house/edit/edit.component';
+import {FileUploadComponent} from './Components/file-upload/file-upload.component';
+import { EditHouseComponent } from './pages/house/edit-house/edit-house.component';
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 
 const appRoutes: Routes = [
@@ -22,9 +25,10 @@ const appRoutes: Routes = [
   { path: 'member/register', component: RegisterComponent },
   { path: 'member/connexion', component: ConnexionComponent },
   { path: 'member/zone', component: ZoneComponent },
-  { path: 'member/listHouse', component: ListHouseComponent}
+  { path: 'member/listHouse', component: ListHouseComponent},
+  { path: 'house/edit', component: EditHouseComponent },
   //{ path: 'hero/:id',      component: HeroDetailComponent },
-  //{ path: '**', component: PageNotFoundComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 
@@ -37,7 +41,8 @@ const appRoutes: Routes = [
     FormAddressComponent,
     ZoneComponent,
     ListHouseComponent,
-    EditComponent
+    FileUploadComponent,
+    EditHouseComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,6 @@
+<p>edit-house works!</p>
+
+<form (ngSubmit)="onFromSubmit()">
+  <app-multi-file-upload (fileSelected)="OnFileSelected($event)"></app-multi-file-upload>
+  <input type="submit" value="Envoyer">
+</form>

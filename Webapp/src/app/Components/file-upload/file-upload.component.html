@@ -1,0 +1,24 @@
+<div class="multi-from-upload">
+  <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+       (fileOver)="fileOverBase($event)"
+       [uploader]="uploader" class="drop-zone"
+       (onFileDrop)="onFileSelect($event)"
+        *ngIf="!url">
+    <div class="file-input-container">
+      <label>
+        <input type="file" ng2FileSelect
+               [uploader]="uploader"
+               (onFileSelected)="onFileSelect($event)"
+               (change)="createPreview($event)"
+               accept="image/*"
+               required  />
+        Cliker pour ajouter un fichier
+      </label>
+    </div>
+  </div>
+
+  <div  [hidden]="uploader?.queue?.length == 0">
+    <img [src]="url" alt="" style="max-width: 100%; max-height: 100%">
+  </div>
+
+</div>

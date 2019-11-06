@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
-import {IMembre} from "../../../Interfaces/imembre";
+import {IMembre} from '../../../Interfaces/imembre';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +9,7 @@ import {IMembre} from "../../../Interfaces/imembre";
 })
 export class RegisterComponent implements OnInit {
 
-  localMembre : IMembre = {
+  localMembre: IMembre = {
     Email: '',
     Firstname: '',
     Home_box: '',
@@ -26,15 +26,37 @@ export class RegisterComponent implements OnInit {
     Phone: '',
     Role: null,
     Username: '',
-  }
+  };
 
-  constructor(private srv: APIService) { }
+  constructor(private srv: APIService) {
+  }
 
   ngOnInit() {
   }
 
-  onFormSubmit(){
-    this.srv.registerMembre(this.localMembre).subscribe(data => {
+  onFormSubmit() {
+
+    let fd = new FormData();
+
+    if (this.localMembre.Home_city_id) fd.append('Home_city_id', this.localMembre.Home_city_id.toString());
+    if (this.localMembre.Home_Country_id) fd.append('Home_Country_id', this.localMembre.Home_Country_id.toString());
+    if (this.localMembre.Id) fd.append('Id', this.localMembre.Id.toString());
+    if (this.localMembre.Role) fd.append('Role', this.localMembre.Role.toString());
+
+    fd.append('Email', this.localMembre.Email);
+    fd.append('Firstname', this.localMembre.Firstname);
+    fd.append('Home_box', this.localMembre.Home_box);
+    fd.append('Home_City_Name', this.localMembre.Home_City_Name);
+    fd.append('Home_City_Zip', this.localMembre.Home_City_Zip);
+    fd.append('Home_Country_Name', this.localMembre.Home_Country_Name);
+    fd.append('Home_num', this.localMembre.Home_num);
+    fd.append('Home_street', this.localMembre.Home_street);
+    fd.append('Lastname', this.localMembre.Lastname);
+    fd.append('Password', this.localMembre.Password);
+    fd.append('Phone', this.localMembre.Phone);
+    fd.append('Username', this.localMembre.Username);
+
+    this.srv.registerMembre(fd).subscribe(data => {
       console.log('ok');
     });
   }
