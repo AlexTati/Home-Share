@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {IMembre} from '../../../Interfaces/imembre';
 
 @Component({
   selector: 'app-register',
@@ -12,4 +13,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddressChanged(address: IMembre) {
+    console.log(address);
+  }
 }
