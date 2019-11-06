@@ -14,6 +14,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ZoneComponent } from './pages/Member/zone/zone.component';
 import { ListHouseComponent } from './pages/Member/list-house/list-house.component';
+import { EditComponent } from './pages/house/edit/edit.component';
 
 
 const appRoutes: Routes = [
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     ConnexionComponent,
     FormAddressComponent,
     ZoneComponent,
-    ListHouseComponent
+    ListHouseComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
