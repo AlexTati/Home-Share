@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ICountry} from '../Interfaces/Icountry';
 import {ICity} from '../Interfaces/Icity';
+import {IMembre} from '../Interfaces/imembre';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,9 @@ export class APIService {
   getCities(Id){
     return this.http.get<ICity[]>(this.UrlBase + '/countries/'+ Id +'/cities');
   }
+
+  registerMembre(membre) {
+   return this.http.post<IMembre>(this.UrlBase + '/members', membre);
+}
 
 }
