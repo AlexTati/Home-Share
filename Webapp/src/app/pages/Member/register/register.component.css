@@ -1,3 +1,8 @@
+.container{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 .border-formulaire{
   border-style: solid;
   border-color: lightseagreen;
@@ -5,3 +10,7 @@
   padding: 15px;
   margin-top: 20px;
 }
+
+.marg-btn{
+  margin: 0px;
+ }

@@ -3,65 +3,45 @@
   <form class="border-formulaire">
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputNom">Nom</label>
-        <input type="text" class="form-control" id="inputNom" placeholder="Nom">
+        <label for="inputNom">Nom*</label>
+        <input type="text" class="form-control" id="inputNom">
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPrenom">Prénom</label>
-        <input type="text" class="form-control" id="inputPrenom" placeholder="Prénom">
+        <label for="inputPrenom">Prénom*</label>
+        <input type="text" class="form-control" id="inputPrenom" >
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
-        <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputPassword1">Mot de passe</label>
-        <input type="password" class="form-control" id="inputPassword1" placeholder="Mot de passe">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputPassword2">Confirmer le mot de passe</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="Confirmer le mot de passe">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-2">
-        <label for="inputPhone">Téléphone</label>
+        <label for="inputPhone">Téléphone*</label>
         <input type="text" class="form-control" id="inputPhone">
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputAddress">Adresse</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Rue...">
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputNumber">Numéro</label>
-        <input type="text" class="form-control" id="inputNumber">
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputBox">Bte</label>
-        <input type="text" class="form-control" id="inputBox">
+      <div class="form-group col-md-8">
+        <label for="inputEmail">Email*</label>
+        <input type="email" class="form-control" id="inputEmail" >
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
-        <label for="inputCity">Ville</label>
-        <input type="text" class="form-control" id="inputCity">
+        <label for="inputPassword1">Mot de passe*</label>
+        <input type="password" class="form-control" id="inputPassword1" >
       </div>
-      <div class="form-group col-md-2">
-        <label for="inputPostalCode">Code postal</label>
-        <input type="text" class="form-control" id="inputPostalCode">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputCountry">Pays</label>
-        <input type="text" class="form-control" id="inputCountry">
+      <div class="form-group col-md-6">
+        <label for="inputPassword2">Confirmation du mot de passe*</label>
+        <input type="password" class="form-control" id="inputPassword2" >
       </div>
     </div>
+
+
+     <app-form-address></app-form-address>
+
+    <p>*Champs requis</p>
+    <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>
     <div class="form-row d-flex justify-content-center">
-      <div class="form-group col-md-2 d-flex align-items-center justify-content-center">
+      <div class="form-group col-md-2 d-flex align-items-center justify-content-center marg-btn">
       <button type="submit" class="btn btn-info">S'inscrire</button>
       </div>
-      <div class="form-group col-md-2 d-flex align-items-center justify-content-center">
+      <div class="form-group col-md-2 d-flex align-items-center justify-content-center marg-btn">
         <button type="reset" class="btn btn-info">Annuler</button>
       </div>
     </div>
