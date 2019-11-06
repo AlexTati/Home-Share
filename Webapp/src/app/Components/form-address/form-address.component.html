@@ -1,0 +1,55 @@
+
+<div class="form-group">
+  <label>Pays</label>
+  <ng-select [items]="countries$ | async"
+             bindLabel="Name"
+             autofocus
+             bindValue="Id"
+             (change)="updateCities($event)"
+             [(ngModel)]="selectedCountryId">
+  </ng-select>
+</div>
+
+<div class="form-row">
+  <div class="form-group col-md-8">
+    <label for="street">Rue*</label>
+    <input class="form-control" type="text" name="street" id="street">
+  </div>
+
+  <div class="form-group col-md-2">
+    <label for="num">Numéro*</label>
+    <input class="form-control" type="text" name="num" id="num">
+  </div>
+
+  <div class="form-group col-md-2">
+    <label for="box">Boîte*</label>
+    <input class="form-control" type="text" name="box" id="box">
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label>Code Postal*</label>
+    <ng-select [items]="cities$ | async"
+               bindLabel="Zip"
+               autofocus
+               bindValue="Id"
+               (change)="updateCityFromZip($event)"
+               [(ngModel)]="selectedCityId">
+    </ng-select>
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>Ville*</label>
+    <ng-select [items]="cities$ | async"
+               bindLabel="Name"
+               autofocus
+               bindValue="Id"
+               (change)="updateZip($event)"
+               [(ngModel)]="selectedCityId">
+    </ng-select>
+  </div>
+</div>
+
+
+
+
