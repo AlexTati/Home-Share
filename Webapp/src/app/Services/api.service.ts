@@ -23,6 +23,8 @@ export class APIService {
 
   registerMembre(membre) {
    return this.http.post<IMembre>(this.UrlBase + '/members', membre);
+
+    console.log(membre);
 }
 
 }
