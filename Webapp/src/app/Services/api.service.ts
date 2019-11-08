@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ICountry} from '../Interfaces/Icountry';
 import {ICity} from '../Interfaces/Icity';
 import {IMembre} from '../Interfaces/imembre';
+import {IHouse} from "../Interfaces/ihouse";
 import {ILoginResponse} from '../Interfaces/ilogin-response';
 import {IHouseType} from '../Interfaces/ihouse-type';
 
@@ -30,6 +31,10 @@ export class APIService {
 
   testPicture(data) {
     return this.http.post(this.UrlBase + '/test/picture', data);
+  }
+
+  addHouse(house) {
+    return this.http.post<IHouse>(this.UrlBase + '/houses', house);
   }
 
   login(login){
