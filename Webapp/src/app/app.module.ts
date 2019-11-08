@@ -19,7 +19,7 @@ import { EditHouseComponent } from './pages/house/edit-house/edit-house.componen
 import { FileUploadModule } from 'ng2-file-upload';
 import { CardMembreComponent } from './Components/card-membre/card-membre.component';
 import { AddHouseComponent } from './pages/house/add-house/add-house.component';
-import { SearchResultComponent } from './Components/search-result-card/search-result.component';
+// @ts-ignore
 import { SearchResultCardComponent } from './Components/search-result-card/search-result-card.component';
 
 
@@ -47,10 +47,9 @@ const appRoutes: Routes = [
     ListHouseComponent,
     FileUploadComponent,
     EditHouseComponent,
-    CardMembreComponent
-    AddHouseComponent
     CardMembreComponent,
-    SearchResultComponent,
+    AddHouseComponent,
+    CardMembreComponent,
     SearchResultCardComponent
   ],
   imports: [

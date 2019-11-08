@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {IHouse} from '../../Interfaces/ihouse';
 
 @Component({
   selector: 'app-search-result-card',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SearchResultCardComponent implements OnInit {
 
-  @Input()fiche:
+  @Input()fiche: IHouse
 
   constructor() { }
 
