@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
 import {AuthService} from '../../../Services/auth.service';
 import {Router} from '@angular/router';
@@ -10,10 +10,12 @@ import {Router} from '@angular/router';
 })
 export class ConnexionComponent implements OnInit {
 
-  login = "";
-  pswd = "";
+  login = '';
+  pswd = '';
+  rememberMe = false;
 
-  constructor(private srv: APIService, private auth: AuthService, private router: Router) { }
+  constructor(private srv: APIService, private auth: AuthService, private router: Router) {
+  }
 
   ngOnInit() {
   }
@@ -23,8 +25,8 @@ export class ConnexionComponent implements OnInit {
     fd.append('email', this.login);
     fd.append('password', this.pswd);
     this.srv.login(fd).subscribe(data => {
-      if(data.status == 'success'){
-        this.auth.setCurrentUser(data.data)
+      if (data.status == 'success') {
+        this.auth.setCurrentUser(data.data, this.rememberMe);
         this.router.navigateByUrl('/home');
       } else {
         console.log('not ok');

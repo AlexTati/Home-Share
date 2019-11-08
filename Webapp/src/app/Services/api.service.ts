@@ -7,6 +7,7 @@ import {IHouse} from '../Interfaces/ihouse';
 import {ILoginResponse} from '../Interfaces/ilogin-response';
 import {IHouseType} from '../Interfaces/ihouse-type';
 import {IHousesResponse} from '../Interfaces/ihouses-response';
+import {IOptions} from '../Interfaces/ioptions';
 
 @Injectable({
   providedIn: 'root'
@@ -38,15 +39,23 @@ export class APIService {
     return this.http.post<IHouse>(this.UrlBase + '/houses', house);
   }
 
-  login(login){
+  login(login) {
     return this.http.post<ILoginResponse>(this.UrlBase + '/auth/login', login);
   }
 
-  getHouseType(){
+  getHouseType() {
     return this.http.get<IHouseType[]>(this.UrlBase + '/house-types');
   }
 
-  getAllHouses(){
+  getAllHouses() {
     return this.http.get<IHousesResponse>(this.UrlBase + '/houses');
+  }
+
+  getHousesForMember(memberId) {
+    return this.http.get<IHousesResponse>(this.UrlBase + '/members/' + memberId + '/houses');
+  }
+
+  getOptions(){
+    return this.http.get<IOptions[]>(this.UrlBase + '/options');
   }
 }

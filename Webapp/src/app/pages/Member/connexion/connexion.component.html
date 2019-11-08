@@ -11,6 +11,12 @@
       <label for="inputPassword">Mot de passe*</label>
       <input type="password" class="form-control" id="inputPassword"  name="inputPassword" [(ngModel)]="pswd">
     </div>
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe" [(ngModel)]="rememberMe">
+      <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+    </div>
+
     <p>*Champs requis</p>
     <br>
     <div class="form-group d-flex align-items-center justify-content-center marg-btn">

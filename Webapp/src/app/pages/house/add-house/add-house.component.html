@@ -2,7 +2,7 @@
   <h3>Inscrivez-vous</h3>
   <form class="border-formulaire" (ngSubmit)="onFormSubmit()">
 
-    <app-multi-file-upload (fileSelected)="OnFileSelected($event)"></app-multi-file-upload>
+    <app-multi-file-upload (change)="OnFileSelected($event)"></app-multi-file-upload>
 
 
     <div class="form-row">
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <app-form-address (AddressChanged)="onAddressChanged($event)"></app-form-address>
+    <app-form-address (change)="onAddressChanged($event)"></app-form-address>
 
     <p>*Champs requis</p>
     <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>

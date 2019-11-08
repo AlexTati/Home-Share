@@ -1,22 +1,21 @@
 <div class="container">
   <h3>Votre espace membre</h3>
   <div class="form-row d-flex align-items-center">
-    <div class="col-md-6 d-flex justify-content-center">
-    <app-card-membre [membre]="auth.currentUser"></app-card-membre>
+    <div class="col-md-3">
+      <app-card-membre [membre]="auth.currentUser"></app-card-membre>
+      <a href="#" class="btn btn-info btn-block ">Modifier</a>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-9">
       <button routerLink="/member/listHouse" type="button" class="btn btn-info btn-lg btn-block">Mes biens</button>
         <br>
-      <button href="#"  type="button" class="btn btn-info btn-lg btn-block">Ajouter un bien</button>
+      <button href="#"  type="button" class="btn btn-info btn-lg btn-block" routerLink="/house/add-house">Ajouter un bien</button>
         <br>
       <button href="#" type="button" class="btn btn-info btn-lg btn-block">Les demandes d'échange</button>
         <br>
     </div>
   </div>
   <br>
-  <div class="col-md-6 d-flex justify-content-center">
-    <a href="#" class="btn btn-info ">Modifier</a>
-  </div>
+
 </div>
 
 

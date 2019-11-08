@@ -1,6 +1,11 @@
 <p>edit-house works!</p>
 
 <form (ngSubmit)="onFromSubmit()">
-  <app-multi-file-upload (fileSelected)="OnFileSelected($event)"></app-multi-file-upload>
+  <app-multi-file-upload (change)="OnFileSelected($event)"></app-multi-file-upload>
   <input type="submit" value="Envoyer">
 </form>
+
+<app-options-selector (change)="optionsChanged($event)"></app-options-selector>
+<app-house-type-selector (change)="houseTypeChanged($event)"></app-house-type-selector>
+<app-country-selector (change)="onCountryChange($event)"></app-country-selector>
+<app-options-displayer [options]="options"></app-options-displayer>

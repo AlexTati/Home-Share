@@ -22,6 +22,10 @@ import { AddHouseComponent } from './pages/house/add-house/add-house.component';
 // @ts-ignore
 import { SearchResultCardComponent } from './Components/search-result-card/search-result-card.component';
 import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
+import { OptionsSelectorComponent } from './Components/options-selector/options-selector.component';
+import { HouseTypeSelectorComponent } from './Components/house-type-selector/house-type-selector.component';
+import { CountrySelectorComponent } from './Components/country-selector/country-selector.component';
+import { OptionsDisplayerComponent } from './Components/options-displayer/options-displayer.component';
 
 
 
@@ -51,7 +55,11 @@ const appRoutes: Routes = [
     CardMembreComponent,
     AddHouseComponent,
     CardMembreComponent,
-    SearchResultCardComponent
+    SearchResultCardComponent,
+    OptionsSelectorComponent,
+    HouseTypeSelectorComponent,
+    CountrySelectorComponent,
+    OptionsDisplayerComponent
   ],
   imports: [
     BrowserModule,

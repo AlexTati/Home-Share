@@ -12,7 +12,7 @@ import {Iadress} from '../../Interfaces/iadress';
 })
 export class FormAddressComponent implements OnInit {
 
-  @Output() AddressChanged = new EventEmitter<Iadress>();
+  @Output() change = new EventEmitter<Iadress>();
 
   localAddress: Iadress = {
     City_Name: '',
@@ -63,7 +63,7 @@ export class FormAddressComponent implements OnInit {
   }
 
   dataChanged() {
-    this.AddressChanged.emit(this.localAddress);
+    this.change.emit(this.localAddress);
   }
 
 }
