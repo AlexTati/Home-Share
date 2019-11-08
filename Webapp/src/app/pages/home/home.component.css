@@ -3,6 +3,10 @@
   margin-bottom: 20px;
 }
 
+.form-check {
+  margin-left: 20px;
+  }
+
 .border-formulaire{
   border-style: solid;
   border-color: lightseagreen;
@@ -13,4 +17,5 @@
 
 .marg-btn{
   margin: 0px;
+  margin-top: 20px;
 }

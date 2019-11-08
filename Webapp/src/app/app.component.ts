@@ -12,4 +12,9 @@ export class AppComponent {
   }
 
   title = 'webapp';
+
+  doLogout() {
+    this.auth.doLogout();
+
+  }
 }

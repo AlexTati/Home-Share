@@ -1,4 +1,11 @@
 <div class="container">
-  <app-card-membre></app-card-membre>
+  <div class="row d-flex flex-wrap-reverse">
+    <div class=" col-md-9 d-flex flex-wrap justify-content-center">
+      <app-search-result-card *ngFor="let house of houseListe"  [editable]="false" [fiche]="house"></app-search-result-card>
+    </div>
+    <div class=" col-md-3 d-flex justify-content-center">
+      <app-card-membre></app-card-membre>
+    </div>
+  </div>
 </div>
 
