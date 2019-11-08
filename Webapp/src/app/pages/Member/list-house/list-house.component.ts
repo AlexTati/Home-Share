@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {IHousesResponse} from '../../../Interfaces/ihouses-response';
+import {APIService} from '../../../Services/api.service';
+import {IHouse} from '../../../Interfaces/ihouse';
 
 @Component({
   selector: 'app-list-house',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListHouseComponent implements OnInit {
 
-  constructor() { }
+  houseListe: IHouse[] = [];
+  constructor(private dataService: APIService) { }
 
   ngOnInit() {
+    this.dataService.getAllHouses().subscribe(data => {
+
+      this.houseListe = data.data;
+    });
   }
 
 }

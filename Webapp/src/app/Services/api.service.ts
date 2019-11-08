@@ -6,6 +6,7 @@ import {IMembre} from '../Interfaces/imembre';
 import {IHouse} from '../Interfaces/ihouse';
 import {ILoginResponse} from '../Interfaces/ilogin-response';
 import {IHouseType} from '../Interfaces/ihouse-type';
+import {IHousesResponse} from '../Interfaces/ihouses-response';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,9 @@ export class APIService {
 
   getHouseType(){
     return this.http.get<IHouseType[]>(this.UrlBase + '/house-types');
+  }
+
+  getAllHouses(){
+    return this.http.get<IHousesResponse>(this.UrlBase + '/houses');
   }
 }
