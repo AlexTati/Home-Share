@@ -21,6 +21,7 @@ import { CardMembreComponent } from './Components/card-membre/card-membre.compon
 import { AddHouseComponent } from './pages/house/add-house/add-house.component';
 // @ts-ignore
 import { SearchResultCardComponent } from './Components/search-result-card/search-result-card.component';
+import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
 
 
 
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    NgxBootstrapSliderModule,
     FileUploadModule
   ],
   providers: [],

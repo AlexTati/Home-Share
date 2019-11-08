@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {IHouse} from '../../../Interfaces/ihouse';
+import {Iadress} from '../../../Interfaces/iadress';
 import {APIService} from '../../../Services/api.service';
+import {FileLikeObject} from "ng2-file-upload";
+import {IHouseType} from "../../../Interfaces/ihouse-type";
 
 // @ts-ignore
 @Component({
@@ -9,6 +12,10 @@ import {APIService} from '../../../Services/api.service';
   styleUrls: ['./add-house.component.css']
 })
 export class AddHouseComponent implements OnInit {
+
+  selectedFile: FileLikeObject;
+
+  houseType: IHouseType[] = [];
 
   localHouse: IHouse = {
     Id: null,
@@ -38,6 +45,9 @@ export class AddHouseComponent implements OnInit {
   constructor(private srv: APIService) { }
 
   ngOnInit() {
+    this.srv.getHouseType().subscribe(data => {
+      this.houseType = data;
+    });
   }
 
   onFormSubmit() {
@@ -55,6 +65,9 @@ export class AddHouseComponent implements OnInit {
     if (this.localHouse.Membre_id) { fd.append('Membre_id', this.localHouse.Membre_id.toString()); }
     if (this.localHouse.House_type_id) { fd.append('House_type_id', this.localHouse.House_type_id.toString()); }
     if (this.localHouse.Note) { fd.append('Note', this.localHouse.Note.toString()); }
+    if (this.selectedFile) {
+      fd.append('picture', this.selectedFile.rawFile, this.selectedFile.name);
+    }
 
     fd.append('Title', this.localHouse.Title);
     fd.append('Short_description', this.localHouse.Short_description);
@@ -67,6 +80,14 @@ export class AddHouseComponent implements OnInit {
     fd.append('City_Zip', this.localHouse.City_Zip);
     fd.append('Country_Name', this.localHouse.Country_Name);
     fd.append('House_type_name', this.localHouse.House_type_name);
+
   }
 
+  onAddressChanged($event: Iadress) {
+
+  }
+
+  OnFileSelected($event: FileLikeObject) {
+    this.selectedFile = $event;
+  }
 }

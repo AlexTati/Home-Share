@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {ICountry} from '../../interfaces/icountry';
 import {ICity} from '../../interfaces/icity';
 import {APIService} from '../../Services/api.service';
-import {IMembre} from '../../Interfaces/imembre';
+import {Iadress} from '../../Interfaces/iadress';
 
 @Component({
   selector: 'app-form-address',
@@ -12,25 +12,17 @@ import {IMembre} from '../../Interfaces/imembre';
 })
 export class FormAddressComponent implements OnInit {
 
-  @Output() AddressChanged = new EventEmitter<IMembre>();
+  @Output() AddressChanged = new EventEmitter<Iadress>();
 
-  localAddress: IMembre = {
-    Home_street: '',
-    Home_num: '',
-    Home_box: '',
-    Home_city_id: 0,
-    Home_City_Name : '',
-    Home_City_Zip: '',
-    Home_Country_id: 0,
-    Home_Country_Name: '',
-    Email: undefined,
-    Firstname: undefined,
-    Id: undefined,
-    Lastname: undefined,
-    Password: undefined,
-    Phone: undefined,
-    Role: undefined,
-    Username: undefined,
+  localAddress: Iadress = {
+    City_Name: '',
+    City_Zip: '',
+    City_id: 0,
+    Country_Name: '',
+    Country_id: 0,
+    Street: '',
+    Num: '',
+    Box: ''
   };
 
   countries$: Observable<ICountry[]>;
@@ -49,28 +41,28 @@ export class FormAddressComponent implements OnInit {
 
   onCountryChanged($event: ICountry) {
     this.cities$ = this.dataService.getCities(this.selectedCountryId);
-    this.localAddress.Home_Country_Name = $event.Name;
-    this.localAddress.Home_Country_id = $event.Id;
+    this.localAddress.Country_Name = $event.Name;
+    this.localAddress.Country_id = $event.Id;
     this.dataChanged();
   }
 
   OnCityChanged(event: ICity) {
     this.selectedZip = event.Zip;
-    this.localAddress.Home_city_id = event.Id;
-    this.localAddress.Home_City_Name = event.Name;
-    this.localAddress.Home_city_id = event.Id;
+    this.localAddress.City_id = event.Id;
+    this.localAddress.City_Name = event.Name;
+    this.localAddress.City_id = event.Id;
     this.dataChanged();
   }
 
   onZipChanged($event: ICity) {
     this.selectedCityId = $event.Id;
-    this.localAddress.Home_city_id = $event.Id;
-    this.localAddress.Home_City_Name = $event.Name;
-    this.localAddress.Home_city_id = $event.Id;
+    this.localAddress.City_id = $event.Id;
+    this.localAddress.City_Name = $event.Name;
+    this.localAddress.City_id = $event.Id;
     this.dataChanged();
   }
 
-  dataChanged(){
+  dataChanged() {
     this.AddressChanged.emit(this.localAddress);
   }
 

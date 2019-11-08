@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
 import {IMembre} from '../../../Interfaces/imembre';
+import {Iadress} from '../../../Interfaces/iadress';
 
 @Component({
   selector: 'app-register',
@@ -62,14 +63,14 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  onAddressChanged($event: IMembre) {
-    this.localMembre.Home_street = $event.Home_street;
-    this.localMembre.Home_num = $event.Home_num;
-    this.localMembre.Home_box = $event.Home_box;
-    this.localMembre.Home_Country_Name = $event.Home_Country_Name;
-    this.localMembre.Home_Country_id = $event.Home_Country_id;
-    this.localMembre.Home_City_Name = $event.Home_City_Name;
-    this.localMembre.Home_City_Zip = $event.Home_City_Zip;
-    this.localMembre.Home_city_id = $event.Home_city_id;
+  onAddressChanged($event: Iadress) {
+    this.localMembre.Home_street = $event.Street;
+    this.localMembre.Home_num = $event.Num;
+    this.localMembre.Home_box = $event.Box;
+    this.localMembre.Home_Country_Name = $event.Country_Name;
+    this.localMembre.Home_Country_id = $event.Country_id;
+    this.localMembre.Home_City_Name = $event.City_Name;
+    this.localMembre.Home_City_Zip = $event.City_Zip;
+    this.localMembre.Home_city_id = $event.City_id;
   }
 }

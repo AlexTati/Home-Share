@@ -13,17 +13,17 @@
 <div class="form-row">
   <div class="form-group col-md-8">
     <label for="street">Rue*</label>
-    <input class="form-control" type="text" name="street" id="street" [(ngModel)]="localAddress.Home_street" (change)="dataChanged()">
+    <input class="form-control" type="text" name="street" id="street" [(ngModel)]="localAddress.Street" (change)="dataChanged()">
   </div>
 
   <div class="form-group col-md-2">
     <label for="num">Numéro*</label>
-    <input class="form-control" type="text" name="num" id="num" [(ngModel)]="localAddress.Home_num" (change)="dataChanged()">
+    <input class="form-control" type="text" name="num" id="num" [(ngModel)]="localAddress.Num" (change)="dataChanged()">
   </div>
 
   <div class="form-group col-md-2">
     <label for="box">Boîte</label>
-    <input class="form-control" type="text" name="box" id="box" [(ngModel)]="localAddress.Home_box" (change)="dataChanged()">
+    <input class="form-control" type="text" name="box" id="box" [(ngModel)]="localAddress.Box" (change)="dataChanged()">
   </div>
 </div>
 <div class="form-row">
