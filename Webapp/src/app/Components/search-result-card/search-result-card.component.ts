@@ -8,7 +8,8 @@ import {IHouse} from '../../Interfaces/ihouse';
 })
 export class SearchResultCardComponent implements OnInit {
 
-  @Input()fiche: IHouse
+  @Input()fiche: IHouse;
+  @Input()editable: boolean;
 
   constructor() { }
 

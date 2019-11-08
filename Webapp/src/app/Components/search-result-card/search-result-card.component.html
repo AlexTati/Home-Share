@@ -1,13 +1,37 @@
-<div class="card border-zone" style="width: 20rem;">
+<div class="card border-zone marg-zone" style="width: 20rem;">
   <div class=" mar-image d-flex justify-content-center">
     <img src="assets/Images/perso.png" class="card-img-top" style="width: 10rem;" alt="profile">
   </div>
   <div class="card-body">
-    <p class="card-text d-flex justify-content-center" ></p>
+    <p class="card-text d-flex justify-content-center">{{fiche.Picture}}pic</p>
     <hr>
-    <p class="card-text d-flex justify-content-center"></p>
+    <p class="card-text d-flex justify-content-center">{{fiche.Title}}titre</p>
     <hr>
-    <p class="card-text d-flex justify-content-center" ></p>
+    <p class="card-text d-flex justify-content-center" *ngIf="editable">{{fiche.Creation_date}}date créa</p>
+    <hr *ngIf="editable">
+    <p class="card-text d-flex justify-content-center">{{fiche.Short_description}}descri</p>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+      <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche.Nb_guest}}guest</p>
+      </div>
+      <div class="col-md-6">
+      <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche.Country_Name}}pay</p>
+      </div>
+    </div>
+    <hr>
+    <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche.Note}}note</p>
 
+    <div class="marg-btn d-flex justify-content-center" *ngIf="!editable">
+      <button type="submit" class="btn btn-info">Voir détails</button>
+    </div>
+    <div class="row">
+      <div class=" col-md-6 marg-btn d-flex justify-content-center" *ngIf="editable">
+        <button type="submit" class="btn btn-info" style="width: 10rem;">Modifier</button>
+      </div>
+      <div class="col-md-6 marg-btn d-flex justify-content-center" *ngIf="editable">
+        <button type="submit" class="btn btn-info" style="width: 10rem;" >Supprimer</button>
+      </div>
+    </div>
   </div>
 </div>
