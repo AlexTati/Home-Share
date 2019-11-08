@@ -37,88 +37,86 @@
     <hr>
 
     <div class="form-row">
-      <div class="form-group col-md-5">
+      <div class="form-group col-lg-5">
         <label for="inputSearchHome">Me recherche</label>
         <input type="text" class="form-control" id="inputSearchHome" placeholder="Je cherche...">
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-lg-3">
         <label inputSearchTypeHom for="inputSearchTypeHome">Choisir mon type de bien</label>
         <select class="custom-select mr-sm-2" id="inputSearchTypeHome">
-          <option selected value="1">Villa</option>
-          <option value="2">Maison</option>
-          <option value="3">Caravane</option>
-          <option value="4">Appartement</option>
-          <option value="5">Château</option>value="1"
+          <option value="{{sorte.Id}}" *ngFor="let sorte of houseType">{{sorte.Name}}</option>
         </select>
      </div>
-      <div class="form-group col-md-2 d-flex align-items-end justify-content-center">
+      <div class="form-group col-lg-2 d-flex align-items-end justify-content-center">
         <button type="submit" class="btn btn-info" style="width: 300px">Chercher</button>
       </div>
-      <div class="form-group col-md-2 d-flex align-items-end justify-content-center">
-        <button href="" type="button" class="btn btn-info" style="width: 300px">Plus de critères</button>
+      <div class="form-group col-lg-2 d-flex align-items-end justify-content-center">
+        <button href="" type="button" class="btn btn-info" style="width: 300px" (click)="toggleAdvanceSearch()">Plus de critères</button>
       </div>
     </div>
 
 
-    <div class="form-row">
-      <div class="form-group col-md-8">
-        <label>Pays</label>
-        <ng-select [items]="countries$ | async"
-                   bindLabel="Name"
-                   autofocus
-                   bindValue="Id">
-        </ng-select>
-      </div>
-      <div class="form-group col-md-4">
-        <label  for="inputCapacity">Nombre de personnes</label>
-        <select class="custom-select " id="inputCapacity">
-          <option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-          <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-          <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
-          <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-          <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
-          <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
-        </select>
-      </div>
-    </div>
+   <div *ngIf="showadvancesearch">
+     <div class="form-row">
+       <div class="form-group col-md-8">
+         <label>Pays</label>
+         <ng-select [items]="countries$ | async"
+                    bindLabel="Name"
+                    autofocus
+                    bindValue="Id">
+         </ng-select>
+       </div>
+       <div class="form-group col-md-4">
+         <label  for="inputCapacity">Nombre de personnes</label>
+         <select class="custom-select " id="inputCapacity">
+           <option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+           <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+           <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+           <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+           <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+           <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+         </select>
+       </div>
+     </div>
 
-    <div class="form-row">
-      <div class="form-check col-md-2">
-        <input class="form-check-input" type="checkbox" id="jardin">
-        <label class="form-check-label" for="jardin">
-          Jardin
-        </label>
-      </div>
-      <div class="form-check col-md-2">
-        <input class="form-check-input" type="checkbox"  id="Piscine">
-        <label class="form-check-label" for="Piscine">
-          Piscine
-        </label>
-      </div>
-      <div class="form-check col-md-2">
-        <input class="form-check-input" type="checkbox" id="Internet">
-        <label class="form-check-label" for="Internet">
-          Internet
-        </label>
-      </div>
+     <div class="form-row">
+       <div class="form-check col-md-2">
+         <input class="form-check-input" type="checkbox" id="jardin">
+         <label class="form-check-label" for="jardin">
+           Jardin
+         </label>
+       </div>
+       <div class="form-check col-md-2">
+         <input class="form-check-input" type="checkbox"  id="Piscine">
+         <label class="form-check-label" for="Piscine">
+           Piscine
+         </label>
+       </div>
+       <div class="form-check col-md-2">
+         <input class="form-check-input" type="checkbox" id="Internet">
+         <label class="form-check-label" for="Internet">
+           Internet
+         </label>
+       </div>
 
-      <div class="form-check col-md-2">
-        <input class="form-check-input" type="checkbox" id="Laver">
-        <label class="form-check-label" for="Laver">
-          Machine à laver
-        </label>
-      </div>
-      <div class="form-check col-md-2">
-        <input class="form-check-input" type="checkbox" id="Animaux">
-        <label class="form-check-label" for="Animaux">
-          Animaux admis
-        </label>
-      </div>
-    </div>
+       <div class="form-check col-md-2">
+         <input class="form-check-input" type="checkbox" id="Laver">
+         <label class="form-check-label" for="Laver">
+           Machine à laver
+         </label>
+       </div>
+       <div class="form-check col-md-2">
+         <input class="form-check-input" type="checkbox" id="Animaux">
+         <label class="form-check-label" for="Animaux">
+           Animaux admis
+         </label>
+       </div>
+     </div>
 
-    <div class="form-group marg-btn">
-      <button type="submit" class="btn btn-info">Démarer ma rechercher</button>
-    </div>
+     <div class="form-group marg-btn">
+       <button type="submit" class="btn btn-info">Démarer ma rechercher</button>
+     </div>
+   </div>
 
   </div>
 </form>

@@ -4,6 +4,8 @@ import {ICountry} from '../Interfaces/Icountry';
 import {ICity} from '../Interfaces/Icity';
 import {IMembre} from '../Interfaces/imembre';
 import {IHouse} from "../Interfaces/ihouse";
+import {ILoginResponse} from '../Interfaces/ilogin-response';
+import {IHouseType} from '../Interfaces/ihouse-type';
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +37,11 @@ export class APIService {
     return this.http.post<IHouse>(this.UrlBase + '/houses', house);
   }
 
+  login(login){
+    return this.http.post<ILoginResponse>(this.UrlBase + '/auth/login', login);
+  }
+
+  getHouseType(){
+    return this.http.get<IHouseType[]>(this.UrlBase + '/house-types');
+  }
 }
