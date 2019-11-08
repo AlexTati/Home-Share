@@ -18,6 +18,8 @@ import {FileUploadComponent} from './Components/file-upload/file-upload.componen
 import { EditHouseComponent } from './pages/house/edit-house/edit-house.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { CardMembreComponent } from './Components/card-membre/card-membre.component';
+import { SearchResultComponent } from './Components/search-result-card/search-result.component';
+import { SearchResultCardComponent } from './Components/search-result-card/search-result-card.component';
 
 
 
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     ListHouseComponent,
     FileUploadComponent,
     EditHouseComponent,
-    CardMembreComponent
+    CardMembreComponent,
+    SearchResultComponent,
+    SearchResultCardComponent
   ],
   imports: [
     BrowserModule,
