@@ -37,24 +37,20 @@
     <hr>
 
     <div class="form-row">
-      <div class="form-group col-md-5">
+      <div class="form-group col-lg-5">
         <label for="inputSearchHome">Me recherche</label>
         <input type="text" class="form-control" id="inputSearchHome" placeholder="Je cherche...">
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-lg-3">
         <label inputSearchTypeHom for="inputSearchTypeHome">Choisir mon type de bien</label>
         <select class="custom-select mr-sm-2" id="inputSearchTypeHome">
-          <option selected value="1">Villa</option>
-          <option value="2">Maison</option>
-          <option value="3">Caravane</option>
-          <option value="4">Appartement</option>
-          <option value="5">Château</option>value="1"
+          <option value="{{sorte.Id}}" *ngFor="let sorte of houseType">{{sorte.Name}}</option>
         </select>
      </div>
-      <div class="form-group col-md-2 d-flex align-items-end justify-content-center">
+      <div class="form-group col-lg-2 d-flex align-items-end justify-content-center">
         <button type="submit" class="btn btn-info" style="width: 300px">Chercher</button>
       </div>
-      <div class="form-group col-md-2 d-flex align-items-end justify-content-center">
+      <div class="form-group col-lg-2 d-flex align-items-end justify-content-center">
         <button href="" type="button" class="btn btn-info" style="width: 300px">Plus de critères</button>
       </div>
     </div>
