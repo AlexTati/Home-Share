@@ -15,4 +15,9 @@ export class AuthService {
     this.currentUser = user;
     this.isLogged = true;
   }
+
+  doLogout(){
+    this.currentUser = undefined;
+    this.isLogged = false;
+  }
 }

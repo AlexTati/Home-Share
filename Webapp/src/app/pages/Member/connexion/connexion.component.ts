@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {APIService} from '../../../Services/api.service';
 import {AuthService} from '../../../Services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-connexion',
@@ -12,7 +13,7 @@ export class ConnexionComponent implements OnInit {
   login = "";
   pswd = "";
 
-  constructor(private srv: APIService, private auth: AuthService) { }
+  constructor(private srv: APIService, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +25,7 @@ export class ConnexionComponent implements OnInit {
     this.srv.login(fd).subscribe(data => {
       if(data.status == 'success'){
         this.auth.setCurrentUser(data.data)
-        console.log(this.auth.isLogged);
+        this.router.navigateByUrl('/home');
       } else {
         console.log('not ok');
       }
