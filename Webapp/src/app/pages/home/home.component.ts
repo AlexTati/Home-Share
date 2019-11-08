@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   houseType: IHouseType[] = [];
   countries$: Observable<ICountry[]>;
+  showadvancesearch: boolean = false;
 
   constructor(private dataService: APIService) { }
 
@@ -23,4 +24,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  toggleAdvanceSearch() {
+    this.showadvancesearch = !this.showadvancesearch;
+  }
 }

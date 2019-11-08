@@ -17,6 +17,7 @@ import { ListHouseComponent } from './pages/Member/list-house/list-house.compone
 import {FileUploadComponent} from './Components/file-upload/file-upload.component';
 import { EditHouseComponent } from './pages/house/edit-house/edit-house.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { CardMembreComponent } from './Components/card-membre/card-membre.component';
 
 
 
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     ZoneComponent,
     ListHouseComponent,
     FileUploadComponent,
-    EditHouseComponent
+    EditHouseComponent,
+    CardMembreComponent
   ],
   imports: [
     BrowserModule,
