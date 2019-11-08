@@ -17,6 +17,7 @@ import { ListHouseComponent } from './pages/Member/list-house/list-house.compone
 import {FileUploadComponent} from './Components/file-upload/file-upload.component';
 import { EditHouseComponent } from './pages/house/edit-house/edit-house.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { AddHouseComponent } from './pages/house/add-house/add-house.component';
 
 
 
@@ -27,7 +28,7 @@ const appRoutes: Routes = [
   { path: 'member/zone', component: ZoneComponent },
   { path: 'member/listHouse', component: ListHouseComponent},
   { path: 'house/edit', component: EditHouseComponent },
-  //{ path: 'hero/:id',      component: HeroDetailComponent },
+  { path: 'house/add-house', component: AddHouseComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     ZoneComponent,
     ListHouseComponent,
     FileUploadComponent,
-    EditHouseComponent
+    EditHouseComponent,
+    AddHouseComponent
   ],
   imports: [
     BrowserModule,
