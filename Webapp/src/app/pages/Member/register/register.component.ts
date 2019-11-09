@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
 import {IMembre} from '../../../Interfaces/imembre';
 import {Iadress} from '../../../Interfaces/iadress';
+import {AuthService} from '../../../Services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -29,20 +30,29 @@ export class RegisterComponent implements OnInit {
     Username: '',
   };
 
-  constructor(private srv: APIService) {
+  constructor(private srv: APIService, private auth: AuthService) {
   }
 
   ngOnInit() {
+    this.auth.needToBeLoggedOff();
   }
 
   onFormSubmit() {
 
     let fd = new FormData();
 
-    if (this.localMembre.Home_city_id) fd.append('Home_city_id', this.localMembre.Home_city_id.toString());
-    if (this.localMembre.Home_Country_id) fd.append('Home_Country_id', this.localMembre.Home_Country_id.toString());
-    if (this.localMembre.Id) fd.append('Id', this.localMembre.Id.toString());
-    if (this.localMembre.Role) fd.append('Role', this.localMembre.Role.toString());
+    if (this.localMembre.Home_city_id) {
+      fd.append('Home_city_id', this.localMembre.Home_city_id.toString());
+    }
+    if (this.localMembre.Home_Country_id) {
+      fd.append('Home_Country_id', this.localMembre.Home_Country_id.toString());
+    }
+    if (this.localMembre.Id) {
+      fd.append('Id', this.localMembre.Id.toString());
+    }
+    if (this.localMembre.Role) {
+      fd.append('Role', this.localMembre.Role.toString());
+    }
 
     fd.append('Email', this.localMembre.Email);
     fd.append('Firstname', this.localMembre.Firstname);

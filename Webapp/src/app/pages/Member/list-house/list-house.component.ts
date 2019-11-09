@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {IHousesResponse} from '../../../Interfaces/ihouses-response';
 import {APIService} from '../../../Services/api.service';
 import {IHouse} from '../../../Interfaces/ihouse';
 import {AuthService} from '../../../Services/auth.service';
@@ -16,9 +15,10 @@ export class ListHouseComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.auth.currentUser)
+    this.auth.needToBeLoggedIn();
+
     this.dataService.getHousesForMember(this.auth.currentUser.Id).subscribe(data => {
-      this.houseListe = data.data;
+      this.houseListe = data;
     });
   }
 

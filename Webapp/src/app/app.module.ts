@@ -26,6 +26,12 @@ import { OptionsSelectorComponent } from './Components/options-selector/options-
 import { HouseTypeSelectorComponent } from './Components/house-type-selector/house-type-selector.component';
 import { CountrySelectorComponent } from './Components/country-selector/country-selector.component';
 import { OptionsDisplayerComponent } from './Components/options-displayer/options-displayer.component';
+import { NgDateRangePickerModule } from 'ng-daterangepicker';
+import { AvailibilitiesManagerComponent } from './Components/availibilities-manager/availibilities-manager.component';
+import {AvailibilityComponent} from './Components/availibility/availibility.component';
+import { AvailibilityPickerComponent } from './Components/availibility-picker/availibility-picker.component';
+import { ErrorBannerComponent } from './Components/error-banner/error-banner.component';
+
 
 
 
@@ -59,13 +65,17 @@ const appRoutes: Routes = [
     OptionsSelectorComponent,
     HouseTypeSelectorComponent,
     CountrySelectorComponent,
-    OptionsDisplayerComponent
+    OptionsDisplayerComponent,
+    AvailibilityComponent,
+    AvailibilitiesManagerComponent,
+    AvailibilityPickerComponent,
+    ErrorBannerComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     NgSelectModule,
     FormsModule,
@@ -73,7 +83,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgbModule,
     NgxBootstrapSliderModule,
-    FileUploadModule
+    FileUploadModule,
+    NgDateRangePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

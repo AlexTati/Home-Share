@@ -4,10 +4,9 @@ import {ICountry} from '../Interfaces/Icountry';
 import {ICity} from '../Interfaces/Icity';
 import {IMembre} from '../Interfaces/imembre';
 import {IHouse} from '../Interfaces/ihouse';
-import {ILoginResponse} from '../Interfaces/ilogin-response';
 import {IHouseType} from '../Interfaces/ihouse-type';
-import {IHousesResponse} from '../Interfaces/ihouses-response';
 import {IOptions} from '../Interfaces/ioptions';
+import {IAvailibility} from '../Interfaces/iavailibility';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +39,7 @@ export class APIService {
   }
 
   login(login) {
-    return this.http.post<ILoginResponse>(this.UrlBase + '/auth/login', login);
+    return this.http.post<IMembre>(this.UrlBase + '/auth/login', login);
   }
 
   getHouseType() {
@@ -48,14 +47,30 @@ export class APIService {
   }
 
   getAllHouses() {
-    return this.http.get<IHousesResponse>(this.UrlBase + '/houses');
+    return this.http.get<IHouse[]>(this.UrlBase + '/houses');
   }
 
   getHousesForMember(memberId) {
-    return this.http.get<IHousesResponse>(this.UrlBase + '/members/' + memberId + '/houses');
+    return this.http.get<IHouse[]>(this.UrlBase + '/members/' + memberId + '/houses');
   }
 
-  getOptions(){
+  getOptions() {
     return this.http.get<IOptions[]>(this.UrlBase + '/options');
+  }
+
+  getAvailibilitiesForHouse(houseId) {
+    return this.http.get<IAvailibility[]>(this.UrlBase + '/houses/' + houseId + '/availibilities');
+  }
+
+  deleteAvailibility(id) {
+    return this.http.delete(this.UrlBase + '/availibilities/' + id, {});
+  }
+
+  createAvailibility(a: IAvailibility) {
+    let fd = new FormData();
+    fd.append('Start_date', a.Start_date.toISOString());
+    fd.append('End_date', a.End_date.toISOString());
+    fd.append('House_id', a.House_id.toString());
+    return this.http.post(this.UrlBase + '/availibilities', fd);
   }
 }

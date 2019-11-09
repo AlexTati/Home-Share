@@ -1,0 +1,8 @@
+<div class="card border-info mb-3">
+  <div class="card-body text-info"  style="align-items: center;display: flex;justify-content: space-between;">
+    <span class="card-text">
+      {{ availibility.Start_date | date: 'fullDate'}} - {{ availibility.End_date | date: 'fullDate' }}
+    </span>
+    <button type="button"  class="float-right btn btn-danger" (click)="doDelete()" *ngIf="editable">Supprimer</button>
+  </div>
+</div>

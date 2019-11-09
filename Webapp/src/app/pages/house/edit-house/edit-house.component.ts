@@ -4,6 +4,7 @@ import {FileLikeObject} from 'ng2-file-upload';
 import {IOptions} from '../../../Interfaces/ioptions';
 import {IHouseType} from '../../../Interfaces/ihouse-type';
 import {ICountry} from '../../../Interfaces/Icountry';
+import {$e} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-edit-house',
@@ -54,5 +55,9 @@ export class EditHouseComponent implements OnInit {
 
   onCountryChange($event: ICountry) {
     console.log($event);
+  }
+
+  rangeChanged($event: Date[]) {
+    console.log($event[0].toDateString() + '    ' + $event[1].toDateString());
   }
 }

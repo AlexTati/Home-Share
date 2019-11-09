@@ -18,19 +18,22 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.needToBeLoggedOff();
   }
 
   onsubmit() {
     const fd = new FormData();
     fd.append('email', this.login);
     fd.append('password', this.pswd);
-    this.srv.login(fd).subscribe(data => {
-      if (data.status == 'success') {
-        this.auth.setCurrentUser(data.data, this.rememberMe);
+    this.srv.login(fd).subscribe(
+      data => {
+        this.auth.setCurrentUser(data, this.rememberMe);
         this.router.navigateByUrl('/home');
-      } else {
-        console.log('not ok');
+       },
+      error => {
+
       }
-    });
+
+    );
   }
 }
