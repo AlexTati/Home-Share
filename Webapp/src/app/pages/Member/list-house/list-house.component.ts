@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
 import {IHouse} from '../../../Interfaces/ihouse';
-import {AuthService} from '../../../Services/auth.service';
+import {Auth_Types, AuthService} from '../../../Services/auth.service';
 
 @Component({
   selector: 'app-list-house',
@@ -14,8 +14,7 @@ export class ListHouseComponent implements OnInit {
   constructor(private dataService: APIService, private auth: AuthService) { }
 
   ngOnInit() {
-
-    this.auth.needToBeLoggedIn();
+    this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
 
     this.dataService.getHousesForMember(this.auth.currentUser.Id).subscribe(data => {
       this.houseListe = data;

@@ -4,7 +4,7 @@ import {FileLikeObject} from 'ng2-file-upload';
 import {IOptions} from '../../../Interfaces/ioptions';
 import {IHouseType} from '../../../Interfaces/ihouse-type';
 import {ICountry} from '../../../Interfaces/Icountry';
-import {$e} from 'codelyzer/angular/styles/chars';
+import {Auth_Types, AuthService} from '../../../Services/auth.service';
 
 @Component({
   selector: 'app-edit-house',
@@ -22,14 +22,15 @@ export class EditHouseComponent implements OnInit {
     {Id: 1, Name: 'Sam'},
   ];
 
-  constructor(private api: APIService) {
+  constructor(private api: APIService, private auth: AuthService) {
   }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.PUBLIC);
   }
 
   onFromSubmit() {
-    let formData = new FormData();
+    const formData = new FormData();
 
     if (this.selectedFile) {
       formData.append('picture', this.selectedFile.rawFile, this.selectedFile.name);

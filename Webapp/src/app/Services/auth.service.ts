@@ -11,6 +11,7 @@ export class AuthService {
   public isLogged: boolean = false;
   public currentUser: IMembre = undefined;
 
+
   constructor(private router: Router) {
   }
 
@@ -36,7 +37,7 @@ export class AuthService {
       if (localStorage.getItem('rememberMe') === 'false') {
         let loginTime = Date.parse(localStorage.getItem('loginDate'));
         let now = Date.now();
-        let minutes = Math.abs(Math.round(((loginTime - now) / 1000) / 60))  ;
+        let minutes = Math.abs(Math.round(((loginTime - now) / 1000) / 60));
         if (minutes > 10) {
           this.doLogout();
         }
@@ -50,15 +51,28 @@ export class AuthService {
     return false;
   }
 
-  needToBeLoggedIn() {
-    if (!this.isLogged) {
-      this.router.navigate(['/member/connexion']);
-    }
-  }
+  checkAuthorizations(authorizationType: Auth_Types) {
+    localStorage.setItem('loginDate', Date());
 
-  needToBeLoggedOff() {
-    if (this.isLogged) {
-      this.router.navigate(['/member/zone']);
+    switch (authorizationType) {
+      case Auth_Types.ANONYMOUS_ONLY:
+        if (this.isLogged) {
+          this.router.navigate(['/member/zone']);
+        }
+        break;
+
+      case Auth_Types.MEMBER_ONLY:
+        if (!this.isLogged) {
+          this.router.navigate(['/member/connexion']);
+        }
+        break;
     }
   }
+}
+
+
+export enum Auth_Types {
+  MEMBER_ONLY = 1,
+  ANONYMOUS_ONLY,
+  PUBLIC,
 }

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
 import {IMembre} from '../../../Interfaces/imembre';
 import {Iadress} from '../../../Interfaces/iadress';
-import {AuthService} from '../../../Services/auth.service';
+import {Auth_Types, AuthService} from '../../../Services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.needToBeLoggedOff();
+    this.auth.checkAuthorizations(Auth_Types.ANONYMOUS_ONLY);
   }
 
   onFormSubmit() {

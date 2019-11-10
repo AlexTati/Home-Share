@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IHouse} from '../../../Interfaces/ihouse';
 import {Iadress} from '../../../Interfaces/iadress';
 import {APIService} from '../../../Services/api.service';
-import {FileLikeObject} from "ng2-file-upload";
-import {IHouseType} from "../../../Interfaces/ihouse-type";
+import {FileLikeObject} from 'ng2-file-upload';
+import {IHouseType} from '../../../Interfaces/ihouse-type';
+import {Auth_Types, AuthService} from '../../../Services/auth.service';
 
 // @ts-ignore
 @Component({
@@ -42,9 +43,10 @@ export class AddHouseComponent implements OnInit {
     Note: null,
   };
 
-  constructor(private srv: APIService) { }
+  constructor(private srv: APIService, private auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
     this.srv.getHouseType().subscribe(data => {
       this.houseType = data;
     });

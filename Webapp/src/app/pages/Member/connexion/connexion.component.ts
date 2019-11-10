@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {APIService} from '../../../Services/api.service';
-import {AuthService} from '../../../Services/auth.service';
+import {Auth_Types, AuthService} from '../../../Services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.needToBeLoggedOff();
+    this.auth.checkAuthorizations(Auth_Types.ANONYMOUS_ONLY);
   }
 
   onsubmit() {

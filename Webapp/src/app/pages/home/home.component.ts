@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ICountry} from '../../Interfaces/Icountry';
 import {APIService} from '../../Services/api.service';
 import {IHouseType} from '../../Interfaces/ihouse-type';
+import {Auth_Types, AuthService} from '../../Services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +16,11 @@ export class HomeComponent implements OnInit {
   countries$: Observable<ICountry[]>;
   showadvancesearch: boolean = false;
 
-  constructor(private dataService: APIService) { }
+  constructor(private dataService: APIService, private auth: AuthService) {
+  }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.PUBLIC);
     this.countries$ = this.dataService.getCountries();
     this.dataService.getHouseType().subscribe(data => {
       this.houseType = data;
