@@ -16,7 +16,7 @@ export class ListHouseComponent implements OnInit {
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
 
-    this.dataService.getHousesForMember(this.auth.currentUser.Id).subscribe(data => {
+    this.dataService.getHousesForMember(this.auth.localUser.Id).subscribe(data => {
       this.houseListe = data;
     });
   }

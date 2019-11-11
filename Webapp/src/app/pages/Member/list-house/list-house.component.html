@@ -4,7 +4,7 @@
       <app-search-result-card *ngFor="let house of houseListe"  [editable]="true" [fiche]="house"></app-search-result-card>
     </div>
     <div class=" col-md-3 d-flex justify-content-center">
-      <app-card-membre [membre]="auth.currentUser"></app-card-membre>
+      <app-card-membre [membre]="auth.localUser"></app-card-membre>
     </div>
   </div>
 </div>

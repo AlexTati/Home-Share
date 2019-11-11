@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.13",
     "@ng-bootstrap/ng-bootstrap": "^5.1.2",
     "@ng-select/ng-select": "^3.5.0",
+    "angularx-social-login": "^2.1.1",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "ng-daterangepicker": "^1.1.0",

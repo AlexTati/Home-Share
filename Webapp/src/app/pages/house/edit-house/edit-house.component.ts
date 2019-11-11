@@ -61,4 +61,12 @@ export class EditHouseComponent implements OnInit {
   rangeChanged($event: Date[]) {
     console.log($event[0].toDateString() + '    ' + $event[1].toDateString());
   }
+
+  LoginWithGoogle() {
+    this.auth.signInWithGoogle();
+  }
+
+  doLogout() {
+    this.auth.doLogout();
+  }
 }
