@@ -9,6 +9,7 @@ import {AuthService} from './Services/auth.service';
 export class AppComponent {
 
   constructor(private auth: AuthService) {
+    auth.checkIfLoggedIn();
   }
 
   title = 'webapp';
