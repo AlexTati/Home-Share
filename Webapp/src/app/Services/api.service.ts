@@ -128,7 +128,7 @@ export class APIService {
     if (house.Note) { fd.append('Note', house.Note.toString()); }
     if (house.Options) { fd.append('Options', JSON.stringify(house.Options)); }
     if (selectedFile) {
-     // fd.append('picture', selectedFile.rawFile, selectedFile.name);
+     fd.append('picture', selectedFile.rawFile, selectedFile.name);
     }
 
     fd.append('Title', house.Title);

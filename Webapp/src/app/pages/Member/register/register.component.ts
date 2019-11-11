@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.checkAuthorizations(Auth_Types.ANONYMOUS_ONLY);
   }
 
   createMember($event: IMembre) {

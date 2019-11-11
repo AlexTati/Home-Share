@@ -44,7 +44,7 @@ export class AuthService {
     this.api.login(fd).subscribe(
       data => {
         this.setCurrentUser(data, undefined, Account_Types.local, rememberMe);
-        this.router.navigateByUrl('/home');
+        //this.router.navigateByUrl('/home');
       },
       error => {
         console.log(error);
@@ -63,8 +63,7 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('loginDate', Date());
 
-    this.router.navigate(['/member/zone']);
-
+    //this.router.navigate(['/member/zone']);
   }
 
   doLogout() {
@@ -95,13 +94,13 @@ export class AuthService {
     switch (authorizationType) {
       case Auth_Types.ANONYMOUS_ONLY:
         if (this.isLogged) {
-          this.router.navigate(['/member/zone']);
+          //this.router.navigate(['/member/zone']);
         }
         break;
 
       case Auth_Types.MEMBER_ONLY:
         if (!this.isLogged) {
-          this.router.navigate(['/member/connexion']);
+          //this.router.navigate(['/member/connexion']);
         }
         break;
     }

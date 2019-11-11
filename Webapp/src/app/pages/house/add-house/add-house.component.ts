@@ -5,7 +5,7 @@ import {APIService} from '../../../Services/api.service';
 import {FileLikeObject} from 'ng2-file-upload';
 import {IHouseType} from '../../../Interfaces/ihouse-type';
 import {Auth_Types, AuthService} from '../../../Services/auth.service';
-import {IOptions} from "../../../Interfaces/ioptions";
+import {IOptions} from '../../../Interfaces/ioptions';
 
 // @ts-ignore
 @Component({
@@ -26,7 +26,7 @@ export class AddHouseComponent implements OnInit {
     Long_description: '',
     Nb_guest: null,
     Picture: '',
-    Active: null,
+    Active: 1,
     Deletion_time: null,
     Creation_date: null,
     Insurance_mandatory: 0,
@@ -45,7 +45,8 @@ export class AddHouseComponent implements OnInit {
     Options: [],
   };
 
-  constructor(private srv: APIService, private auth: AuthService) { }
+  constructor(private srv: APIService, private auth: AuthService) {
+  }
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
@@ -55,15 +56,16 @@ export class AddHouseComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data=>{
-      console.log(data); });
+    this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
+      console.log(data);
+    });
   }
 
   onAddressChanged($event: Iadress) {
-      this.localHouse.Street= $event.Street;
-      this.localHouse.Num= $event.Num;
-      this.localHouse.Box= $event.Box;
-      this.localHouse.City_id= $event.City_id;
+    this.localHouse.Street = $event.Street;
+    this.localHouse.Num = $event.Num;
+    this.localHouse.Box = $event.Box;
+    this.localHouse.City_id = $event.City_id;
   }
 
   OnFileSelected($event: FileLikeObject) {

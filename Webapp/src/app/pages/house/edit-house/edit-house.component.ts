@@ -26,13 +26,13 @@ export class EditHouseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.checkAuthorizations(Auth_Types.PUBLIC);
   }
 
   onFromSubmit() {
     const formData = new FormData();
 
     if (this.selectedFile) {
+      console.log(this.selectedFile);
       formData.append('picture', this.selectedFile.rawFile, this.selectedFile.name);
     }
 
