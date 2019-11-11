@@ -15,4 +15,5 @@ export interface IMembre {
   Home_City_Zip: string;
   Home_Country_id: number;
   Home_Country_Name: string;
+  Account_type: number;
 }
