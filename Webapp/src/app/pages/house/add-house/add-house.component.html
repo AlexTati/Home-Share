@@ -13,12 +13,7 @@
     </div>
 
     <div class="form-row">
-    <div class="form-group col-lg-3">
-      <label inputSearchTypeHom for="inputSearchTypeHome">Choisir mon type de bien</label>
-      <select class="custom-select mr-sm-2" id="inputSearchTypeHome">
-        <option value="{{sorte.Id}}" *ngFor="let sorte of houseType">{{sorte.Name}}</option>
-      </select>
-    </div>
+      <app-house-type-selector (change)="houseTypeChanged($event)"></app-house-type-selector>
     </div>
 
     <div class="form-row">
@@ -42,6 +37,8 @@
         <mv-slider [(value)]="localHouse.Nb_guest" [min]="1" [max]="10" [enabled]="enabled" (change)="change()"></mv-slider>
       </div>
     </div>
+
+    <app-options-selector (change)="optionsChanged($event)"></app-options-selector>
 
     <app-form-address (change)="onAddressChanged($event)"></app-form-address>
 

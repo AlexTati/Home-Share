@@ -1,3 +1,5 @@
+import {IOptions} from "./ioptions";
+
 export interface IHouse {
   Id: number;
   Title: string;
@@ -8,7 +10,7 @@ export interface IHouse {
   Active: number;
   Deletion_time: Date;
   Creation_date: Date;
-  Insurance_mandatory: string;
+  Insurance_mandatory: number;
   Street: string;
   Num: string;
   Box: string;
@@ -21,4 +23,5 @@ export interface IHouse {
   House_type_id: number;
   House_type_name: string;
   Note: number;
+  Options: IOptions[];
 }
