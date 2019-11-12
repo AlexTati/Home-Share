@@ -9,7 +9,7 @@ import {IMembre} from '../../Interfaces/imembre';
 })
 export class FileUploadComponent implements OnInit {
 
-  @Output() fileSelected = new EventEmitter<FileLikeObject>();
+  @Output() fileChanged = new EventEmitter<FileLikeObject>();
 
   public uploader: FileUploader = new FileUploader({});
   public hasBaseDropZoneOver = false;
@@ -27,7 +27,7 @@ export class FileUploadComponent implements OnInit {
     let file = this.uploader.queue.map((fileItem) => {
       return fileItem.file;
     });
-    this.fileSelected.emit(file[0]);
+    this.fileChanged.emit(file[0]);
   }
 
   createPreview(fileInput: any) {

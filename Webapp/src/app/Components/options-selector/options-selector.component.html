@@ -1,0 +1,10 @@
+<ng-select
+  [items]="options$ | async"
+  [multiple]="true"
+  [closeOnSelect]="false"
+  [searchable]="true"
+  bindLabel="Name"
+  placeholder="Options"
+  [(ngModel)]="options"
+  (change)="onChange()">
+</ng-select>

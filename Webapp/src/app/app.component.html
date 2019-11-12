@@ -6,13 +6,19 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/member/register" routerLinkActive="active">Enregistrez-vous</a>
+        <a class="nav-link" href="#" routerLink="/member/register" routerLinkActive="active" *ngIf="!auth.isLogged">Enregistrez-vous</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/member/connexion" routerLinkActive="active">Connexion</a>
+        <a class="nav-link" href="#" routerLink="/member/connexion" routerLinkActive="active" *ngIf="!auth.isLogged">Connexion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/member/zone" routerLinkActive="active">Zone membre</a>
+        <a class="nav-link" href="#" routerLink="/member/zone" routerLinkActive="active" *ngIf="auth.isLogged">Zone membre</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/house/add-house" routerLinkActive="active" *ngIf="auth.isLogged">Ajouter un bien</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"  routerLink="/home" *ngIf="auth.isLogged" (click)="doLogout()">Se déconnecter</a>
       </li>
 
     </ul>

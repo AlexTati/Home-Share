@@ -1,27 +1,21 @@
 <div class="container">
   <h3>Votre espace membre</h3>
   <div class="form-row d-flex align-items-center">
-    <div class="col-md-6 d-flex justify-content-center">
-      <div class="card border-zone" style="width: 20rem;">
-        <div class=" mar-image d-flex justify-content-center">
-          <img src="assets/Images/perso.png" class="card-img-top" style="width: 10rem;" alt="profile">
-        </div>
-        <div class="card-body">
-          <p class="card-text d-flex justify-content-center">ici le nom</p>
-          <p class="card-text d-flex justify-content-center">ici le prénom</p>
-          <a href="#" class="btn btn-info d-flex justify-content-center">Modifier</a>
-        </div>
-      </div>
+    <div class="col-md-3">
+      <app-card-membre [membre]="auth.localUser"></app-card-membre>
+      <a routerLink="/member/edit-profile" class="btn btn-info btn-block ">Modifier</a>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-9">
       <button routerLink="/member/listHouse" type="button" class="btn btn-info btn-lg btn-block">Mes biens</button>
         <br>
-      <button href="#"  type="button" class="btn btn-info btn-lg btn-block">Ajouter un bien</button>
+      <button type="button" class="btn btn-info btn-lg btn-block" routerLink="/house/add-house">Ajouter un bien</button>
         <br>
-      <button href="#" type="button" class="btn btn-info btn-lg btn-block">Les demandes d'échange</button>
+      <button type="button" class="btn btn-info btn-lg btn-block">Les demandes d'échange</button>
         <br>
     </div>
   </div>
+  <br>
+
 </div>
 
 

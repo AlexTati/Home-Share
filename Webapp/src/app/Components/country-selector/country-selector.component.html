@@ -1,0 +1,6 @@
+<ng-select [items]="countries$ | async"
+           bindLabel="Name"
+           autofocus
+           bindValue="Id"
+           (change)="onCountryChanged($event)">
+</ng-select>

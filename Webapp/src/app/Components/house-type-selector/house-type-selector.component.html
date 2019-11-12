@@ -1,0 +1,6 @@
+<ng-select [items]="houseTypes$ | async"
+           bindLabel="Name"
+           autofocus
+           bindValue="Id"
+           (change)="onChange($event)" >
+</ng-select>

@@ -1,0 +1,16 @@
+.border-zone{
+  border-style: solid;
+  border-color: lightseagreen;
+  border-width: 1px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.marg-zone{
+  margin: 20px;
+}
+
+.marg-btn{
+  margin-bottom: 0px;
+  margin-top: 15px;
+}

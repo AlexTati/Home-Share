@@ -1,0 +1,17 @@
+<div class="availibility-manager">
+  <button type="button" class="btn btn-info float-right" *ngIf="!showAddPanel && editable" (click)="togglePannel()">Ajouter une disponibilité</button>
+  <div style="clear: both;margin-bottom: 10px"></div>
+
+  <div class="card bg-light mb-3" *ngIf="showAddPanel">
+    <div class="card-body"   style="align-items: center;display: flex;justify-content: space-between;">
+      <app-availibility-picker (change)="newAvailibilityChanged($event)"></app-availibility-picker>
+      <span>
+          <button type="button" class="btn btn-info float-right"  style="margin: 0 10px" (click)="togglePannel()">Annuler</button>
+          <button type="button" class="btn btn-info float-right"(click)="addAvailibility()">Ajouter</button>
+      </span>
+    </div>
+  </div>
+
+  <div style="clear: both;margin-bottom: 10px"></div>
+  <app-availibility *ngFor="let a of availibilities" [availibility]="a" (onDelete)="delete($event)" [editable]="editable"></app-availibility>
+</div>

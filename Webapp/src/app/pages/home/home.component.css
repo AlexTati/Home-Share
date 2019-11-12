@@ -5,9 +5,17 @@
 
 .form-check {
   margin-left: 20px;
+  }
+
+.border-formulaire{
+  border-style: solid;
+  border-color: lightseagreen;
+  border-width: 1px;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 .marg-btn{
+  margin: 0px;
   margin-top: 20px;
-;
 }

@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ICountry} from '../../interfaces/icountry';
 import {ICity} from '../../interfaces/icity';
 import {APIService} from '../../Services/api.service';
-import {IMembre} from '../../Interfaces/imembre';
+import {Iadress} from '../../Interfaces/iadress';
 
 @Component({
   selector: 'app-form-address',
@@ -12,25 +12,24 @@ import {IMembre} from '../../Interfaces/imembre';
 })
 export class FormAddressComponent implements OnInit {
 
-  @Output() AddressChanged = new EventEmitter<IMembre>();
+  @Input() address: Iadress;
+  @Output() change = new EventEmitter<Iadress>();
 
-  localAddress: IMembre = {
-    Home_street: '',
-    Home_num: '',
-    Home_box: '',
-    Home_city_id: 0,
-    Home_City_Name : '',
-    Home_City_Zip: '',
-    Home_Country_id: 0,
-    Home_Country_Name: '',
-    Email: undefined,
-    Firstname: undefined,
-    Id: undefined,
-    Lastname: undefined,
-    Password: undefined,
-    Phone: undefined,
-    Role: undefined,
-    Username: undefined,
+  countries$: Observable<ICountry[]>;
+  cities$: Observable<ICity[]>;
+
+  selectedCountryId = 0;
+  selectedCityId = 0;
+  selectedZip = '';
+  localAddress: Iadress = {
+    City_Name: '',
+    City_Zip: '',
+    City_id: 0,
+    Country_Name: '',
+    Country_id: 0,
+    Street: '',
+    Num: '',
+    Box: ''
   };
 
   countries$: Observable<ICountry[]>;
@@ -39,39 +38,51 @@ export class FormAddressComponent implements OnInit {
   selectedCountryId = '0';
   selectedCityId = 0;
   selectedZip = '';
+  pays = '';
+  rue = '';
+  numero = '';
+  zip = '';
+  ville = '';
 
   constructor(private dataService: APIService) {
   }
 
   ngOnInit() {
     this.countries$ = this.dataService.getCountries();
+    this.localAddress.Street = this.address.Street;
+    this.localAddress.Num = this.address.Num;
+    this.localAddress.Box = this.address.Box;
+    this.selectedCountryId = this.address.Country_id;
+    this.onCountryChanged({Id : this.address.Country_id, Name :this.address.Country_Name});
+    this.selectedCityId = this.address.City_id;
+    this.selectedZip = this.address.City_Zip;
   }
 
   onCountryChanged($event: ICountry) {
     this.cities$ = this.dataService.getCities(this.selectedCountryId);
-    this.localAddress.Home_Country_Name = $event.Name;
-    this.localAddress.Home_Country_id = $event.Id;
+    this.localAddress.Country_Name = $event.Name;
+    this.localAddress.Country_id = $event.Id;
     this.dataChanged();
   }
 
   OnCityChanged(event: ICity) {
     this.selectedZip = event.Zip;
-    this.localAddress.Home_city_id = event.Id;
-    this.localAddress.Home_City_Name = event.Name;
-    this.localAddress.Home_city_id = event.Id;
+    this.localAddress.City_id = event.Id;
+    this.localAddress.City_Name = event.Name;
+    this.localAddress.City_id = event.Id;
     this.dataChanged();
   }
 
   onZipChanged($event: ICity) {
     this.selectedCityId = $event.Id;
-    this.localAddress.Home_city_id = $event.Id;
-    this.localAddress.Home_City_Name = $event.Name;
-    this.localAddress.Home_city_id = $event.Id;
+    this.localAddress.City_id = $event.Id;
+    this.localAddress.City_Name = $event.Name;
+    this.localAddress.City_id = $event.Id;
     this.dataChanged();
   }
 
-  dataChanged(){
-    this.AddressChanged.emit(this.localAddress);
+  dataChanged() {
+    this.change.emit(this.localAddress);
   }
 
 }
