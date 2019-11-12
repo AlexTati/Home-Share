@@ -155,6 +155,10 @@ export class APIService {
     return this.http.get<IHouse[]>(this.UrlBase + '/members/' + memberId + '/houses');
   }
 
+  getHouse(houseId: number){
+    return this.http.get<IHouse>(this.UrlBase + 'houses/' + houseId + '/detailed');
+  }
+
 
   /* ---------   AVAILABILITIES   --------- */
 

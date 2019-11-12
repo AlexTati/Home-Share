@@ -38,6 +38,10 @@ import { EditProfileComponent } from './pages/Member/edit-profile/edit-profile.c
 import { MemberEditComponent } from './Components/member-edit/member-edit.component';
 import { RegisterFromSocialComponent } from './pages/Member/register-from-social/register-from-social.component';
 import { HouseEditComponent } from './Components/house-edit/house-edit.component';
+import { MeteoComponent } from './Components/meteo/meteo.component';
+import { TestComponent } from './pages/test/test.component';
+import { EchangeHouseComponent } from './pages/house/echange-house/echange-house.component';
+import { DetailsHouseSwitchComponent } from './Components/details-house-switch/details-house-switch.component';
 
 
 const config = new AuthServiceConfig([
@@ -58,6 +62,7 @@ export function provideConfig() {
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'test', component: TestComponent},
   {path: 'member/register', component: RegisterComponent},
   {path: 'member/connexion', component: ConnexionComponent},
   {path: 'member/zone', component: ZoneComponent},
@@ -65,7 +70,8 @@ const appRoutes: Routes = [
   {path: 'member/edit-profile', component: EditProfileComponent},
   {path: 'house/edit', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
-  {path: '**', component: HomeComponent}
+  {path: 'house/echange-house', component: EchangeHouseComponent},
+  {path: '*', component: HomeComponent}
 ];
 
 
@@ -96,6 +102,10 @@ const appRoutes: Routes = [
     MemberEditComponent,
     RegisterFromSocialComponent,
     HouseEditComponent,
+    MeteoComponent,
+    TestComponent,
+     EchangeHouseComponent,
+    DetailsHouseSwitchComponent,
   ],
   imports: [
     BrowserModule,
