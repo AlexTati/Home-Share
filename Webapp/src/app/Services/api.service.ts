@@ -8,6 +8,7 @@ import {IHouseType} from '../Interfaces/ihouse-type';
 import {IOptions} from '../Interfaces/ioptions';
 import {IAvailibility} from '../Interfaces/iavailibility';
 import {FileLikeObject} from 'ng2-file-upload';
+import {Account_Types} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -182,10 +183,11 @@ export class APIService {
     return this.http.post<IMembre>(this.UrlBase + '/auth/login', login);
   }
 
-  oauthLogin(email) {
+  oauthLogin(email, accountType: Account_Types) {
     const fd = new FormData();
     fd.append('email', email);
-    return this.http.post<IMembre>(this.UrlBase + '/oauth/login', fd);
+    fd.append('accountType', accountType.toString());
+    return this.http.post<any>(this.UrlBase + '/oauth/login', fd);
   }
 
 

@@ -18,6 +18,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.ANONYMOUS_ONLY);
   }
 
   onsubmit() {

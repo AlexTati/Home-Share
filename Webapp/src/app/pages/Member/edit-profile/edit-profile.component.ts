@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../../Services/auth.service';
+import {Auth_Types, AuthService} from '../../../Services/auth.service';
 import {APIService} from '../../../Services/api.service';
 import {IMembre} from '../../../Interfaces/imembre';
 
@@ -13,6 +13,7 @@ export class EditProfileComponent implements OnInit {
   constructor( private auth: AuthService, private api: APIService) { }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
   }
 
   upadateMember($event: IMembre) {
