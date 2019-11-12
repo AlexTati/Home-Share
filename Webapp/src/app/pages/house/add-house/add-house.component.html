@@ -13,7 +13,8 @@
     </div>
 
     <div class="form-row">
-      <app-house-type-selector (change)="houseTypeChanged($event)"></app-house-type-selector>
+      <label for="inputTitle">Type de bien*</label>
+      <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%"></app-house-type-selector>
     </div>
 
     <div class="form-row">
@@ -41,6 +42,13 @@
     <app-options-selector (change)="optionsChanged($event)"></app-options-selector>
 
     <app-form-address (change)="onAddressChanged($event)"></app-form-address>
+
+    <div class="form-row">
+      <div class="form-group col-md-3" style="align-items: start" >
+        <label for="inputLong_description">Assurance obligatoire ?</label>
+        <input type="checkbox" class="form-control" id="inputInsurance_mandatory" name="inputInsurance_mandatory" [(ngModel)]="localHouse.Insurance_mandatory">
+      </div>
+    </div>
 
     <p>*Champs requis</p>
     <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>
