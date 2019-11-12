@@ -32,17 +32,6 @@ export class FormAddressComponent implements OnInit {
     Box: ''
   };
 
-  countries$: Observable<ICountry[]>;
-  cities$: Observable<ICity[]>;
-
-  selectedCountryId = '0';
-  selectedCityId = 0;
-  selectedZip = '';
-  pays = '';
-  rue = '';
-  numero = '';
-  zip = '';
-  ville = '';
 
   constructor(private dataService: APIService) {
   }
@@ -74,6 +63,7 @@ export class FormAddressComponent implements OnInit {
   }
 
   onZipChanged($event: ICity) {
+
     this.selectedCityId = $event.Id;
     this.localAddress.City_id = $event.Id;
     this.localAddress.City_Name = $event.Name;
