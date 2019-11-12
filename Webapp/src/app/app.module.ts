@@ -37,6 +37,8 @@ import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login'
 import { EditProfileComponent } from './pages/Member/edit-profile/edit-profile.component';
 import { MemberEditComponent } from './Components/member-edit/member-edit.component';
 import { RegisterFromSocialComponent } from './pages/Member/register-from-social/register-from-social.component';
+import { MeteoComponent } from './Components/meteo/meteo.component';
+import { TestComponent } from './pages/test/test.component';
 
 
 const config = new AuthServiceConfig([
@@ -57,6 +59,7 @@ export function provideConfig() {
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'test', component: TestComponent},
   {path: 'member/register', component: RegisterComponent},
   {path: 'member/connexion', component: ConnexionComponent},
   {path: 'member/zone', component: ZoneComponent},
@@ -64,7 +67,7 @@ const appRoutes: Routes = [
   {path: 'member/edit-profile', component: EditProfileComponent},
   {path: 'house/edit', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
-  {path: '**', component: HomeComponent}
+  {path: '*', component: HomeComponent}
 ];
 
 
@@ -94,6 +97,8 @@ const appRoutes: Routes = [
     EditProfileComponent,
     MemberEditComponent,
     RegisterFromSocialComponent,
+    MeteoComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
