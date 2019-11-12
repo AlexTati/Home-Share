@@ -20,7 +20,7 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding: 75% 0 0 0; /* 34.37% = 100 / (w / h) = 100 / (640 / 220) */
+  padding: 90% 0 0 0; /* 34.37% = 100 / (w / h) = 100 / (640 / 220) */
 }
 
 .imgHouse img {
