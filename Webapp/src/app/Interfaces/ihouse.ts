@@ -28,4 +28,6 @@ export interface IHouse {
   options: IOptions[];
   Availabilities: IAvailibility[];
   Owner: IMembre;
+  Lat: string,
+  Lng: string,
 }

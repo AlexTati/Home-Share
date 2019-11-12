@@ -48,12 +48,12 @@
 
   <app-form-address (change)="onAddressChanged($event)"></app-form-address>
 
-  <app-availibilities-manager [editable]="true" (change)="onAvailabilityChanged($event)"></app-availibilities-manager>
+  <app-availibilities-manager [editable]="editMode" (change)="onAvailabilityChanged($event)"></app-availibilities-manager>
 
   <p>*Champs requis</p>
   <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>
   <div class="form-row d-flex justify-content-center">
-    <div class="form-group col-md-2 d-flex align-items-center justify-content-center marg-btn">
+    <div class="form-group col-md-5 d-flex align-items-center justify-content-center marg-btn">
       <button type="submit" class="btn btn-info">Ajouter le bien</button>
     </div>
   </div>

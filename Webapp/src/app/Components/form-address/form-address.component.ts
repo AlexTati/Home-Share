@@ -37,14 +37,16 @@ export class FormAddressComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.countries$ = this.dataService.getCountries();
-    this.localAddress.Street = this.address.Street;
-    this.localAddress.Num = this.address.Num;
-    this.localAddress.Box = this.address.Box;
-    this.selectedCountryId = this.address.Country_id;
-    this.onCountryChanged({Id : this.address.Country_id, Name :this.address.Country_Name});
-    this.selectedCityId = this.address.City_id;
-    this.selectedZip = this.address.City_Zip;
+    if (this.address !== undefined) {
+      this.countries$ = this.dataService.getCountries();
+      this.localAddress.Street = this.address.Street;
+      this.localAddress.Num = this.address.Num;
+      this.localAddress.Box = this.address.Box;
+      this.selectedCountryId = this.address.Country_id;
+      this.onCountryChanged({Id: this.address.Country_id, Name: this.address.Country_Name});
+      this.selectedCityId = this.address.City_id;
+      this.selectedZip = this.address.City_Zip;
+    }
   }
 
   onCountryChanged($event: ICountry) {

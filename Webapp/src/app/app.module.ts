@@ -43,6 +43,9 @@ import { TestComponent } from './pages/test/test.component';
 import { EchangeHouseComponent } from './pages/house/echange-house/echange-house.component';
 import { DetailsHouseSwitchComponent } from './Components/details-house-switch/details-house-switch.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
+import { MapComponent } from './Components/map/map.component';
+import {AgmCoreModule} from '@agm/core';
+import { SearchFormComponent } from './Components/search-form/search-form.component';
 
 
 const config = new AuthServiceConfig([
@@ -108,6 +111,8 @@ const appRoutes: Routes = [
      EchangeHouseComponent,
     DetailsHouseSwitchComponent,
     CarouselComponent,
+    MapComponent,
+    SearchFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,7 +128,10 @@ const appRoutes: Routes = [
     NgxBootstrapSliderModule,
     FileUploadModule,
     NgDateRangePickerModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDRcurFZUO9otEZ1z3C2bMv41lslAWz1FU'
+    })
   ],
   providers: [{
     provide: AuthServiceConfig,

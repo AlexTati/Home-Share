@@ -8,6 +8,7 @@ import {IAvailibility} from '../../Interfaces/iavailibility';
 import {APIService} from '../../Services/api.service';
 import {AuthService} from '../../Services/auth.service';
 import {IMembre} from '../../Interfaces/imembre';
+import {GeocodingService} from '../../Services/geocoding.service';
 
 @Component({
   selector: 'app-house-edit',
@@ -25,10 +26,9 @@ export class HouseEditComponent implements OnInit {
   private editMode = false;
 
   selectedFile: FileLikeObject;
-
   houseType: IHouseType[] = [];
 
-  constructor(private srv: APIService, private auth: AuthService) {
+  constructor(private srv: APIService, private auth: AuthService, private geo: GeocodingService) {
   }
 
   ngOnInit() {
@@ -62,7 +62,9 @@ export class HouseEditComponent implements OnInit {
         Note: null,
         options: [],
         Availabilities: [],
-        Owner: null
+        Owner: null,
+        Lng: undefined,
+        Lat: undefined
       };
     } else {
       this.editMode = true;
@@ -70,9 +72,28 @@ export class HouseEditComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
-      this.houseSuccessfullyCreated.emit(data);
+
+    this.geo.getCoordinates({
+      Street: this.localHouse.Street,
+      Num: this.localHouse.Num,
+      City_Zip: this.localHouse.City_Zip,
+      City_Name: this.localHouse.City_Name,
+      Country_Name: this.localHouse.Country_Name,
+      Box: undefined,
+      City_id: undefined,
+      Country_id: undefined
+    }).subscribe(data => {
+
+      if (data && data[0] && data[0].lat) {
+        this.localHouse.Lat = data[0].lat;
+        this.localHouse.Lng = data[0].lon;
+      }
+      this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
+        this.houseSuccessfullyCreated.emit(data);
+      });
     });
+
+
   }
 
   onAddressChanged($event: Iadress) {
