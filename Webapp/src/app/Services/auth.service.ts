@@ -1,12 +1,14 @@
 import {Injectable} from '@angular/core';
 import {IMembre} from '../Interfaces/imembre';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 import {AuthService as OauthService} from 'angularx-social-login';
 import {SocialUser} from 'angularx-social-login';
 import {FacebookLoginProvider, GoogleLoginProvider} from 'angularx-social-login';
 import {APIService} from './api.service';
 
-
+/**
+ *  TODO ne pas save user google avant d avoir rempli le profil
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -20,12 +22,25 @@ export class AuthService {
   constructor(private router: Router, private oauthService: OauthService, private api: APIService) {
     this.oauthService.authState.subscribe((user) => {
       if (user != null) {
-        this.api.oauthLogin(user.email).subscribe(
+        this.api.oauthLogin(user.email, Account_Types.google).subscribe(
           data => {
-            this.setCurrentUser(data, user, Account_Types.google, false);
+            if (data == false) {
+              console.log('register');
+              const navigationExtras: NavigationExtras = {
+                state: {
+                  email: user.email,
+                  accountType: Account_Types.google
+                }
+              };
+              this.router.navigate(['member/register-social'], navigationExtras)
+              console.log('register');
+            } else {
+              this.setCurrentUser(data, user, Account_Types.google, false);
+            }
           },
           error => {
-            console.log(error);
+            console.log(error.error);
+            this.doLogout();
           }
         );
       }
@@ -44,7 +59,7 @@ export class AuthService {
     this.api.login(fd).subscribe(
       data => {
         this.setCurrentUser(data, undefined, Account_Types.local, rememberMe);
-        //this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home');
       },
       error => {
         console.log(error);
@@ -62,8 +77,6 @@ export class AuthService {
     localStorage.setItem('rememberMe', rememberMe === true ? 'true' : 'false');
     localStorage.setItem('currentUser', JSON.stringify(user));
     localStorage.setItem('loginDate', Date());
-
-    //this.router.navigate(['/member/zone']);
   }
 
   doLogout() {
@@ -75,18 +88,18 @@ export class AuthService {
   }
 
   checkIfLoggedIn() {
-      if (!this.isLogged && localStorage.getItem('loggedIn')) {
-        if (localStorage.getItem('rememberMe') === 'false') {
-          const loginTime = Date.parse(localStorage.getItem('loginDate'));
-          const now = Date.now();
-          const minutes = Math.abs(Math.round(((loginTime - now) / 1000) / 60));
-          if (minutes > 10) {
-            this.doLogout();
-          }
+    if (!this.isLogged && localStorage.getItem('loggedIn')) {
+      if (localStorage.getItem('rememberMe') === 'false') {
+        const loginTime = Date.parse(localStorage.getItem('loginDate'));
+        const now = Date.now();
+        const minutes = Math.abs(Math.round(((loginTime - now) / 1000) / 60));
+        if (minutes > 10) {
+          this.doLogout();
         }
-        this.isLogged = true;
-        this.localUser = JSON.parse(localStorage.getItem('currentUser'));
       }
+      this.isLogged = true;
+      this.localUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
   }
 
   checkAuthorizations(authorizationType: Auth_Types) {
@@ -94,13 +107,13 @@ export class AuthService {
     switch (authorizationType) {
       case Auth_Types.ANONYMOUS_ONLY:
         if (this.isLogged) {
-          //this.router.navigate(['/member/zone']);
+          this.router.navigate(['/member/zone']);
         }
         break;
 
       case Auth_Types.MEMBER_ONLY:
         if (!this.isLogged) {
-          //this.router.navigate(['/member/connexion']);
+          this.router.navigate(['/member/connexion']);
         }
         break;
     }

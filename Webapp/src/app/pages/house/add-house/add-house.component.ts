@@ -47,8 +47,8 @@ export class AddHouseComponent implements OnInit {
     Availabilities: [],
   };
 
-  constructor(private srv: APIService, private auth: AuthService) {
-  }
+  constructor(private srv: APIService, private auth: AuthService) {}
+
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);

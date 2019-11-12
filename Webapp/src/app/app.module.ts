@@ -36,6 +36,7 @@ import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
 import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
 import { EditProfileComponent } from './pages/Member/edit-profile/edit-profile.component';
 import { MemberEditComponent } from './Components/member-edit/member-edit.component';
+import { RegisterFromSocialComponent } from './pages/Member/register-from-social/register-from-social.component';
 
 
 const config = new AuthServiceConfig([
@@ -92,6 +93,7 @@ const appRoutes: Routes = [
     ErrorBannerComponent,
     EditProfileComponent,
     MemberEditComponent,
+    RegisterFromSocialComponent,
   ],
   imports: [
     BrowserModule,

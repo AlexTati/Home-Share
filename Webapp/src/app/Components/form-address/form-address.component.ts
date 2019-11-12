@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ICountry} from '../../interfaces/icountry';
 import {ICity} from '../../interfaces/icity';
@@ -12,8 +12,15 @@ import {Iadress} from '../../Interfaces/iadress';
 })
 export class FormAddressComponent implements OnInit {
 
+  @Input() address: Iadress;
   @Output() change = new EventEmitter<Iadress>();
 
+  countries$: Observable<ICountry[]>;
+  cities$: Observable<ICity[]>;
+
+  selectedCountryId = 0;
+  selectedCityId = 0;
+  selectedZip = '';
   localAddress: Iadress = {
     City_Name: '',
     City_Zip: '',
@@ -25,18 +32,18 @@ export class FormAddressComponent implements OnInit {
     Box: ''
   };
 
-  countries$: Observable<ICountry[]>;
-  cities$: Observable<ICity[]>;
-
-  selectedCountryId = '0';
-  selectedCityId = 0;
-  selectedZip = '';
-
   constructor(private dataService: APIService) {
   }
 
   ngOnInit() {
     this.countries$ = this.dataService.getCountries();
+    this.localAddress.Street = this.address.Street;
+    this.localAddress.Num = this.address.Num;
+    this.localAddress.Box = this.address.Box;
+    this.selectedCountryId = this.address.Country_id;
+    this.onCountryChanged({Id : this.address.Country_id, Name :this.address.Country_Name});
+    this.selectedCityId = this.address.City_id;
+    this.selectedZip = this.address.City_Zip;
   }
 
   onCountryChanged($event: ICountry) {
