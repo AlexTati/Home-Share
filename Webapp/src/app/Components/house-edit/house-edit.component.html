@@ -4,7 +4,7 @@
 
 
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-9">
       <label for="inputTitle">Title*</label>
       <input type="text" class="form-control" required minlength="5" id="inputTitle" name="inputTitle" [(ngModel)]="localHouse.Title" #Title="ngModel" >
       <div *ngIf="Title.invalid && (Title.dirty || Title.touched)" class="alert alert-danger">
@@ -12,12 +12,10 @@
         <div *ngIf="Title.errors.minlength">Le titre doit être compose de 5 lettres minimum</div>
       </div>
     </div>
-  </div>
-
-  <div class="form-row">
-    <label for="inputTitle">Type de bien*</label>
-    <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%"></app-house-type-selector>
-
+    <div class="form-group col-md-3">
+      <label for="inputTitle">Type de bien*</label>
+      <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%"></app-house-type-selector>
+    </div>
   </div>
 
   <div class="form-row">
@@ -40,18 +38,15 @@
       <input type="textArea" class="form-control" id="inputNb_guest" name="inputNb_guest" [(ngModel)]="localHouse.Nb_guest">
       <mv-slider [(value)]="localHouse.Nb_guest" [min]="1" [max]="10"></mv-slider>
     </div>
+    <div class="form-group col-md-3">
+        <label for="inputLong_description">Assurance obligatoire ?</label>
+      <input type="checkbox" style="width: 20px" class="form-control" id="inputInsurance_mandatory" name="inputInsurance_mandatory" [(ngModel)]="localHouse.Insurance_mandatory">
+    </div>
   </div>
 
   <app-options-selector (change)="optionsChanged($event)"></app-options-selector>
 
   <app-form-address (change)="onAddressChanged($event)"></app-form-address>
-
-  <div class="form-row">
-    <div class="form-group col-md-3" style="align-items: start" >
-      <label for="inputLong_description">Assurance obligatoire ?</label>
-      <input type="checkbox" class="form-control" id="inputInsurance_mandatory" name="inputInsurance_mandatory" [(ngModel)]="localHouse.Insurance_mandatory">
-    </div>
-  </div>
 
   <app-availibilities-manager [editable]="true" (change)="onAvailabilityChanged($event)"></app-availibilities-manager>
 

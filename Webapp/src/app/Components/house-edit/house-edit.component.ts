@@ -60,6 +60,7 @@ export class HouseEditComponent implements OnInit {
         Note: null,
         Options: [],
         Availabilities: [],
+        Owner: this.auth.localUser
       };
     } else {
       this.editMode = true;
