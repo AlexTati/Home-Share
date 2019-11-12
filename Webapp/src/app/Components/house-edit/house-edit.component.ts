@@ -20,6 +20,7 @@ export class HouseEditComponent implements OnInit {
 
   @Output() addHouse = new EventEmitter<IHouse>();
   @Output() updateHouse = new EventEmitter<IHouse>();
+  @Output() houseSuccessfullyCreated = new EventEmitter<IHouse>();
 
   private editMode = false;
 
@@ -70,7 +71,7 @@ export class HouseEditComponent implements OnInit {
 
   onFormSubmit() {
     this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
-      console.log(data);
+      this.houseSuccessfullyCreated.emit(data);
     });
   }
 

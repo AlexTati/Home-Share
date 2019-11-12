@@ -42,6 +42,7 @@ import { MeteoComponent } from './Components/meteo/meteo.component';
 import { TestComponent } from './pages/test/test.component';
 import { EchangeHouseComponent } from './pages/house/echange-house/echange-house.component';
 import { DetailsHouseSwitchComponent } from './Components/details-house-switch/details-house-switch.component';
+import { CarouselComponent } from './Components/carousel/carousel.component';
 
 
 const config = new AuthServiceConfig([
@@ -106,6 +107,7 @@ const appRoutes: Routes = [
     TestComponent,
      EchangeHouseComponent,
     DetailsHouseSwitchComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
