@@ -121,7 +121,7 @@ export class APIService {
     if (house.Active) { fd.append('Active', house.Active.toString()); }
     if (house.Deletion_time) { fd.append('Deletion_time', house.Deletion_time.toString()); }
     if (house.Creation_date) { fd.append('Creation_date', house.Creation_date.toString()); }
-    if (house.Insurance_mandatory !== undefined) { fd.append('Insurance_mandatory', house.Insurance_mandatory.toString()); }
+    if (house.Insurance_mandatory !== undefined) { fd.append('Insurance_mandatory', house.Insurance_mandatory ? '1' : '0'); }
     if (house.City_id) { fd.append('City_id', house.City_id.toString()); }
     if (house.Country_id) { fd.append('Country_id', house.Country_id.toString()); }
     if (house.Membre_id) { fd.append('Membre_id', house.Membre_id.toString()); }
