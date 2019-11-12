@@ -15,11 +15,9 @@ export class EchangeHouseComponent implements OnInit {
   constructor(private API: APIService) { }
 
   ngOnInit() {
-
     this.API.getHouse(1).subscribe(data => {
       this.house = data;
-      console.log (data);
-    })
+    });
   }
 
 }

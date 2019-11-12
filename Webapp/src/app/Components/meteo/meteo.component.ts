@@ -20,7 +20,7 @@ export class MeteoComponent implements OnInit {
 
   ngOnInit() {
     if (this.cityName !== undefined) {
-      this.http.get('http://api.worldweatheronline.com/premium/v1/weather.ashx?key=f42afff522464314bed135825191211&q=' +
+      this.http.get<any>('http://api.worldweatheronline.com/premium/v1/weather.ashx?key=f42afff522464314bed135825191211&q=' +
         this.cityName + '&format=json&num_of_days=1&lang=fr').subscribe( data => {
         this.imgSrc = data.data.current_condition[0].weatherIconUrl[0].value;
         this.rCity = data.data.request[0].query;

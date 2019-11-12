@@ -127,7 +127,7 @@ export class APIService {
     if (house.Membre_id) { fd.append('Membre_id', house.Membre_id.toString()); }
     if (house.House_type_id) { fd.append('House_type_id', house.House_type_id.toString()); }
     if (house.Note) { fd.append('Note', house.Note.toString()); }
-    if (house.Options) { fd.append('Options', JSON.stringify(house.Options)); }
+    if (house.options) { fd.append('Options', JSON.stringify(house.options)); }
     if (selectedFile) {
      fd.append('picture', selectedFile.rawFile, selectedFile.name);
     }
@@ -156,7 +156,7 @@ export class APIService {
   }
 
   getHouse(houseId: number){
-    return this.http.get<IHouse>(this.UrlBase + 'houses/' + houseId + '/detailed');
+    return this.http.get<IHouse>(this.UrlBase + '/houses/' + houseId + '/detailed');
   }
 
 

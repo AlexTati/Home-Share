@@ -27,7 +27,8 @@ export class HouseEditComponent implements OnInit {
 
   houseType: IHouseType[] = [];
 
-  constructor(private srv: APIService, private auth: AuthService) { }
+  constructor(private srv: APIService, private auth: AuthService) {
+  }
 
   ngOnInit() {
     this.srv.getHouseType().subscribe(data => {
@@ -58,8 +59,9 @@ export class HouseEditComponent implements OnInit {
         House_type_id: null,
         House_type_name: '',
         Note: null,
-        Options: [],
+        options: [],
         Availabilities: [],
+        Owner: null
       };
     } else {
       this.editMode = true;
@@ -84,7 +86,7 @@ export class HouseEditComponent implements OnInit {
   }
 
   optionsChanged($event: IOptions[]) {
-    this.localHouse.Options = $event;
+    this.localHouse.options = $event;
   }
 
   houseTypeChanged($event: IHouseType) {

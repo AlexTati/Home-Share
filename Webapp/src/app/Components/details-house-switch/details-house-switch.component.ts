@@ -15,6 +15,5 @@ export class DetailsHouseSwitchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.fiche);
   }
 }

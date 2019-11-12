@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IOptions} from '../../Interfaces/ioptions';
 import {IMembre} from '../../Interfaces/imembre';
+import {IHouse} from '../../Interfaces/ihouse';
 
 @Component({
   selector: 'app-options-displayer',
@@ -9,7 +10,7 @@ import {IMembre} from '../../Interfaces/imembre';
 })
 export class OptionsDisplayerComponent implements OnInit {
 
-  @Input() options: IOptions[];
+  @Input() house: IHouse[];
 
   constructor() {
   }
