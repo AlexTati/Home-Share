@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {IHouse} from '../../../Interfaces/ihouse';
+import {APIService} from '../../../Services/api.service';
+import {log} from 'util';
 
 @Component({
   selector: 'app-echange-house',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EchangeHouseComponent implements OnInit {
 
-  constructor() { }
+  house: IHouse;
+
+  constructor(private API: APIService) { }
 
   ngOnInit() {
+
+    this.API.getHouse(1).subscribe(data => {
+      this.house = data;
+      console.log (data);
+    })
   }
 
 }

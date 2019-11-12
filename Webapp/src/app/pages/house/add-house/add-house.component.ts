@@ -45,6 +45,7 @@ export class AddHouseComponent implements OnInit {
     Note: null,
     Options: [],
     Availabilities: [],
+    Owner:undefined
   };
 
   constructor(private srv: APIService, private auth: AuthService) {}
