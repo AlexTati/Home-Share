@@ -50,6 +50,9 @@ export class AddHouseComponent implements OnInit {
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
+
+
+
     this.srv.getHouseType().subscribe(data => {
       this.houseType = data;
     });
