@@ -64,7 +64,7 @@
         <button type="submit" [disabled]="!f.valid" class="btn btn-info">S'inscrire</button>
       </div>
       <div class="form-group col-md-2 d-flex align-items-center justify-content-center marg-btn">
-        <button type="reset" class="btn btn-info">Annuler</button>
+        <button type="button" class="btn btn-info" (click)="back()">Annuler</button>
       </div>
     </div>
   </form>

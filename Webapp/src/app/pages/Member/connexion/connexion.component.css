@@ -11,6 +11,20 @@
   margin-top: 20px;
 }
 
-.marg-btn{
-  margin: 0px;
+.alert-danger{
+  margin-top: 6px !important;
+  padding: 5px !important;
+  font-size: 12px;
+}
+
+.btn-style{
+  height: 40px !important;
+  width: 150px !important;
+  color: white !important;
+
+  padding: 2px !important;
+}
+
+.pad-btn{
+  padding: 0px !important;
 }

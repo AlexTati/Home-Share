@@ -37,6 +37,8 @@ import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login'
 import { EditProfileComponent } from './pages/Member/edit-profile/edit-profile.component';
 import { MemberEditComponent } from './Components/member-edit/member-edit.component';
 import { RegisterFromSocialComponent } from './pages/Member/register-from-social/register-from-social.component';
+import { EchangeHouseComponent } from './pages/house/echange-house/echange-house.component';
+import { DetailsHouseSwitchComponent } from './Components/details-house-switch/details-house-switch.component';
 
 
 const config = new AuthServiceConfig([
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
   {path: 'member/edit-profile', component: EditProfileComponent},
   {path: 'house/edit', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
-  {path: '**', component: HomeComponent}
+  {path: 'house/echange-house', component: EchangeHouseComponent},
+  {path: '*', component: HomeComponent}
 ];
 
 
@@ -94,6 +97,8 @@ const appRoutes: Routes = [
     EditProfileComponent,
     MemberEditComponent,
     RegisterFromSocialComponent,
+    EchangeHouseComponent,
+    DetailsHouseSwitchComponent,
   ],
   imports: [
     BrowserModule,

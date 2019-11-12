@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Iadress} from '../../Interfaces/iadress';
 import {IMembre} from '../../Interfaces/imembre';
+import {Location} from '@angular/common';
 import {Account_Types} from '../../Services/auth.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class MemberEditComponent implements OnInit {
   private editMode = false;
   private passwordConfirm = '';
 
-  constructor() {
+  constructor(private _location: Location) {
 
   }
 
@@ -69,6 +70,7 @@ export class MemberEditComponent implements OnInit {
   }
 
 
-
-
+  back() {
+    this._location.back();
+  }
 }
