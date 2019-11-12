@@ -1,4 +1,5 @@
 import {IOptions} from "./ioptions";
+import {IAvailibility} from "./iavailibility";
 
 export interface IHouse {
   Id: number;
@@ -24,4 +25,5 @@ export interface IHouse {
   House_type_name: string;
   Note: number;
   Options: IOptions[];
+  Availabilities: IAvailibility[];
 }

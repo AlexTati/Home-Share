@@ -111,7 +111,7 @@ export class APIService {
 
   addHouse(house: IHouse, selectedFile: FileLikeObject) {
 
-    console.log('XXX')
+    console.log('XXX');
 
     const fd = new FormData();
 
@@ -170,7 +170,7 @@ export class APIService {
     const fd = new FormData();
     fd.append('Start_date', a.Start_date.toISOString());
     fd.append('End_date', a.End_date.toISOString());
-    fd.append('House_id', a.House_id.toString());
+    if (a.House_id) {fd.append('House_id', a.House_id.toString()); }
     return this.http.post(this.UrlBase + '/availibilities', fd);
   }
 

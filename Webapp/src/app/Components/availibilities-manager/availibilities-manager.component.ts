@@ -21,6 +21,7 @@ export class AvailibilitiesManagerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newAvailibility = {Id: undefined, House_id: undefined, Start_date: undefined, End_date: undefined};
     this.srv.getAvailibilitiesForHouse(this.houseId).subscribe(data => {
       this.availibilities = data;
     });
