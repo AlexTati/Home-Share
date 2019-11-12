@@ -15,6 +15,7 @@ export class MemberEditComponent implements OnInit {
   @Input() membre: IMembre;
 
   private editMode = false;
+  private passwordConfirm = '';
 
   constructor() {
 
@@ -66,4 +67,8 @@ export class MemberEditComponent implements OnInit {
       this.createMember.emit(this.membre);
     }
   }
+
+
+
+
 }

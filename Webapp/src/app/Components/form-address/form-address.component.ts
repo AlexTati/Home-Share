@@ -31,6 +31,11 @@ export class FormAddressComponent implements OnInit {
   selectedCountryId = '0';
   selectedCityId = 0;
   selectedZip = '';
+  pays = '';
+  rue = '';
+  numero = '';
+  zip = '';
+  ville = '';
 
   constructor(private dataService: APIService) {
   }
