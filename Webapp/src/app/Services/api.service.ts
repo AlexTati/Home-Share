@@ -8,6 +8,7 @@ import {IHouseType} from '../Interfaces/ihouse-type';
 import {IOptions} from '../Interfaces/ioptions';
 import {IAvailibility} from '../Interfaces/iavailibility';
 import {FileLikeObject} from 'ng2-file-upload';
+import {Account_Types} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -111,7 +112,7 @@ export class APIService {
 
   addHouse(house: IHouse, selectedFile: FileLikeObject) {
 
-    console.log('XXX')
+    console.log('XXX');
 
     const fd = new FormData();
 
@@ -120,7 +121,7 @@ export class APIService {
     if (house.Active) { fd.append('Active', house.Active.toString()); }
     if (house.Deletion_time) { fd.append('Deletion_time', house.Deletion_time.toString()); }
     if (house.Creation_date) { fd.append('Creation_date', house.Creation_date.toString()); }
-    if (house.Insurance_mandatory !== undefined) { fd.append('Insurance_mandatory', house.Insurance_mandatory.toString()); }
+    if (house.Insurance_mandatory !== undefined) { fd.append('Insurance_mandatory', house.Insurance_mandatory ? '1' : '0'); }
     if (house.City_id) { fd.append('City_id', house.City_id.toString()); }
     if (house.Country_id) { fd.append('Country_id', house.Country_id.toString()); }
     if (house.Membre_id) { fd.append('Membre_id', house.Membre_id.toString()); }
@@ -170,7 +171,7 @@ export class APIService {
     const fd = new FormData();
     fd.append('Start_date', a.Start_date.toISOString());
     fd.append('End_date', a.End_date.toISOString());
-    fd.append('House_id', a.House_id.toString());
+    if (a.House_id) {fd.append('House_id', a.House_id.toString()); }
     return this.http.post(this.UrlBase + '/availibilities', fd);
   }
 
@@ -182,10 +183,11 @@ export class APIService {
     return this.http.post<IMembre>(this.UrlBase + '/auth/login', login);
   }
 
-  oauthLogin(email) {
+  oauthLogin(email, accountType: Account_Types) {
     const fd = new FormData();
     fd.append('email', email);
-    return this.http.post<IMembre>(this.UrlBase + '/oauth/login', fd);
+    fd.append('accountType', accountType.toString());
+    return this.http.post<any>(this.UrlBase + '/oauth/login', fd);
   }
 
 

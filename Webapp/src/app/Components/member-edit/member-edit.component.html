@@ -55,7 +55,7 @@
     </div>
 
 
-    <app-form-address (change)="onAddressChanged($event)"></app-form-address>
+    <app-form-address (change)="onAddressChanged($event)" [address]="{Street: membre.Home_street, Num:membre.Home_num, Box:membre.Home_box, City_id:membre.Home_city_id, Country_id:membre.Home_Country_id}"></app-form-address>
 
     <p>*Champs requis</p>
     <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>

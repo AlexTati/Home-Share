@@ -6,6 +6,7 @@ import {FileLikeObject} from 'ng2-file-upload';
 import {IHouseType} from '../../../Interfaces/ihouse-type';
 import {Auth_Types, AuthService} from '../../../Services/auth.service';
 import {IOptions} from '../../../Interfaces/ioptions';
+import {IAvailibility} from '../../../Interfaces/iavailibility';
 
 // @ts-ignore
 @Component({
@@ -43,10 +44,11 @@ export class AddHouseComponent implements OnInit {
     House_type_name: '',
     Note: null,
     Options: [],
+    Availabilities: [],
   };
 
-  constructor(private srv: APIService, private auth: AuthService) {
-  }
+  constructor(private srv: APIService, private auth: AuthService) {}
+
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
@@ -81,5 +83,9 @@ export class AddHouseComponent implements OnInit {
 
   houseTypeChanged($event: IHouseType) {
     this.localHouse.House_type_id = $event.Id;
+  }
+
+  onAvailabilityChanged($event: IAvailibility[]) {
+    this.localHouse.Availabilities = $event;
   }
 }

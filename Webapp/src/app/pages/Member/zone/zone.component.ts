@@ -11,6 +11,7 @@ export class ZoneComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
   }
 
 }

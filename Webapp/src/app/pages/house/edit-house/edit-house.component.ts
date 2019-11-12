@@ -26,6 +26,7 @@ export class EditHouseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.checkAuthorizations(Auth_Types.PUBLIC);
   }
 
   onFromSubmit() {
