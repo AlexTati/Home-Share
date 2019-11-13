@@ -7,7 +7,7 @@ export class House implements IHouse {
   Id: number;
   Title: string;
   Active: number;
-  Availabilities: IAvailibility[];
+  availabilities: IAvailibility[];
   Box: string;
   City_Name: string;
   City_Zip: string;

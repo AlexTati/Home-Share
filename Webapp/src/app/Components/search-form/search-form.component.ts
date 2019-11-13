@@ -30,7 +30,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   availabilitiesChanged($event) {
-    this.house.Availabilities = $event;
+    this.house.availabilities = $event;
   }
 
   houseTypeChanged($event: IHouseType) {

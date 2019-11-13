@@ -26,7 +26,7 @@ export interface IHouse {
   House_type_name: string;
   Note: number;
   options: IOptions[];
-  Availabilities: IAvailibility[];
+  availabilities: IAvailibility[];
   Owner: IMembre;
   Lat: string,
   Lng: string,

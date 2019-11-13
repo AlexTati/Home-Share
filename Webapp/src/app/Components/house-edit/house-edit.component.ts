@@ -61,7 +61,7 @@ export class HouseEditComponent implements OnInit {
         House_type_name: '',
         Note: null,
         options: [],
-        Availabilities: [],
+        availabilities: [],
         Owner: null,
         Lng: undefined,
         Lat: undefined
@@ -116,6 +116,6 @@ export class HouseEditComponent implements OnInit {
   }
 
   onAvailabilityChanged($event: IAvailibility[]) {
-    this.localHouse.Availabilities = $event;
+    this.localHouse.availabilities = $event;
   }
 }
