@@ -1,16 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <app-details-house-switch [fiche]="house"></app-details-house-switch>
+      <app-details-house-switch></app-details-house-switch>
+      <app-avis-home [AvisHome]="house?.Comment"></app-avis-home>
     </div>
-    <div class="col-md-3 marg-display">
-      <div  style= "max-width: 200px;">
+    <div class="col-md-3 d-flex align-items-center flex-column">
+      <div class="marg-top" style= "max-width: 200px;">
        <app-card-membre [membre]="house?.Owner"></app-card-membre>
       </div>
-      <div >
-        <button routerLink="" type="button" class="btn btn-info btn-lg">Echanger le bien</button>
+      <div class="marg-top">
+        <button routerLink="" type="button" class="btn btn-info btn-lg ">Echanger le bien</button>
       </div>
-      <div style= "max-width: 180px;">
+      <div class="marg-top">
         <app-meteo [cityName]="house?.City_Name"></app-meteo>
       </div>
     </div>

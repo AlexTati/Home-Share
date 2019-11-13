@@ -1,4 +1,8 @@
-.marg-top-card{
+.border-zone{
+  border-style: solid;
+  border-color: lightseagreen;
+  border-width: 1px;
+  padding: 15px;
   margin-top: 35px;
   margin-left: auto;
   margin-right: auto;

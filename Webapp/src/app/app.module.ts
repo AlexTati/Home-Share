@@ -46,6 +46,8 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
 import { MapComponent } from './Components/map/map.component';
 import {AgmCoreModule} from '@agm/core';
 import { SearchFormComponent } from './Components/search-form/search-form.component';
+import { AvisHomeComponent } from './Components/avis-home/avis-home.component';
+import { AvisComponent } from './Components/avis/avis.component';
 
 
 const config = new AuthServiceConfig([
@@ -113,6 +115,8 @@ const appRoutes: Routes = [
     CarouselComponent,
     MapComponent,
     SearchFormComponent,
+    AvisHomeComponent,
+    AvisComponent,
   ],
   imports: [
     BrowserModule,
