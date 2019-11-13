@@ -32,6 +32,6 @@ export class House implements IHouse {
   Short_description: string;
   Street: string;
   options: IOptions[];
-  Comments: IComment[];
+  comments: IComment[];
 
 }

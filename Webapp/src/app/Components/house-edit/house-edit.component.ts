@@ -9,6 +9,7 @@ import {APIService} from '../../Services/api.service';
 import {AuthService} from '../../Services/auth.service';
 import {IMembre} from '../../Interfaces/imembre';
 import {GeocodingService} from '../../Services/geocoding.service';
+import {House} from '../../models/house';
 
 @Component({
   selector: 'app-house-edit',
@@ -37,35 +38,7 @@ export class HouseEditComponent implements OnInit {
     });
 
     if (this.localHouse === undefined) {
-      this.localHouse = {
-        Id: null,
-        Title: '',
-        Short_description: '',
-        Long_description: '',
-        Nb_guest: null,
-        Picture: '',
-        Active: 1,
-        Deletion_time: null,
-        Creation_date: null,
-        Insurance_mandatory: 0,
-        Street: '',
-        Num: '',
-        Box: '',
-        City_id: null,
-        City_Name: '',
-        City_Zip: '',
-        Country_id: null,
-        Country_Name: '',
-        Membre_id: this.auth.localUser.Id,
-        House_type_id: null,
-        House_type_name: '',
-        Note: null,
-        options: [],
-        availabilities: [],
-        Owner: null,
-        Lng: undefined,
-        Lat: undefined
-      };
+      this.localHouse = new House();
     } else {
       this.editMode = true;
     }
