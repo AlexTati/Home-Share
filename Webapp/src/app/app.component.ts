@@ -12,7 +12,7 @@ export class AppComponent {
     auth.checkIfLoggedIn();
   }
 
-  title = 'webapp';
+  title = 'HomeShare';
 
   doLogout() {
     this.auth.doLogout();

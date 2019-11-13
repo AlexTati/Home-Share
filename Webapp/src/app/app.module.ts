@@ -48,6 +48,7 @@ import {AgmCoreModule} from '@agm/core';
 import { SearchFormComponent } from './Components/search-form/search-form.component';
 import { AvisHomeComponent } from './Components/avis-home/avis-home.component';
 import { AvisComponent } from './Components/avis/avis.component';
+import { HouseResultSetComponent } from './Components/house-result-set/house-result-set.component';
 
 
 const config = new AuthServiceConfig([
@@ -117,6 +118,7 @@ const appRoutes: Routes = [
     SearchFormComponent,
     AvisHomeComponent,
     AvisComponent,
+    HouseResultSetComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import {IHouse} from '../../Interfaces/ihouse';
 export class SearchResultCardComponent implements OnInit {
 
   @Input()fiche: IHouse;
-  @Input()editable: boolean;
+  @Input()editable = false;
   private picUrl: string;
 
   constructor() { }

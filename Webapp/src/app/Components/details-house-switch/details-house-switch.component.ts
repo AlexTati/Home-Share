@@ -8,9 +8,7 @@ import {IHouse} from '../../Interfaces/ihouse';
 })
 export class DetailsHouseSwitchComponent implements OnInit {
 
-  @Input()fiche: IHouse;
-
-
+  @Input() fiche: IHouse;
 
   constructor() { }
 

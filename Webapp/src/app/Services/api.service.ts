@@ -190,7 +190,7 @@ export class APIService {
 
     fd.append('query', JSON.stringify(query));
 
-    return this.http.post(this.UrlBase + '/houses/search', fd);
+    return this.http.post<IHouse[]>(this.UrlBase + '/houses/search', fd);
   }
 
 

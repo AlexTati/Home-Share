@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IHouse} from '../../Interfaces/ihouse';
 import {House} from '../../models/house';
 import {IHouseType} from '../../Interfaces/ihouse-type';
@@ -12,6 +12,8 @@ import {APIService} from '../../Services/api.service';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
+
+  @Output() searchDone = new EventEmitter<IHouse[]>();
 
   private advanced = false;
   private house: IHouse;
@@ -30,7 +32,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   availabilitiesChanged($event) {
-    this.house.availabilities = $event;
+    this.house.availabilities = [$event];
   }
 
   houseTypeChanged($event: IHouseType) {
@@ -47,7 +49,7 @@ export class SearchFormComponent implements OnInit {
 
   onSubmit() {
     this.api.searchHouses(this.house).subscribe(data => {
-      console.log(data);
+      this.searchDone.emit(data);
     });
   }
 }

@@ -2,9 +2,9 @@
 
 <form>
   <div class="container">
-    <app-search-form></app-search-form>
+    <app-search-form (searchDone)="showResult($event)"></app-search-form>
     <div class="d-flex flex-wrap justify-content-center">
-
+      <app-search-result-card *ngFor="let house of houses" [fiche]="house"></app-search-result-card>
     </div>
   </div>
 </form>

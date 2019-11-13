@@ -20,7 +20,7 @@
     <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Note}}</p>
 
     <div class="marg-btn d-flex justify-content-center" *ngIf="!editable">
-      <button type="submit" class="btn btn-info">Voir détails</button>
+      <button type="submit" class="btn btn-info" [routerLink]="['/house/echange-house/'+fiche.Id]">Voir détails</button>
     </div>
     <div class="row">
       <div class=" col-md-6 marg-btn d-flex justify-content-center" *ngIf="editable">

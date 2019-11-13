@@ -3,14 +3,14 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-9">
-            <p class="card-title">Firstname {{Avis.Owner.Firstname}}</p>
+            <p class="card-title">Firstname {{Avis?.Owner?.Firstname}}</p>
           </div>
           <div class="col-md-3">
-            <p class="card-text">Ma note: {{Avis.Comment.Note}}</p>
+            <p class="card-text">Ma note: {{Avis?.Comment?.Note}}</p>
           </div>
         </div>
-        <p class="card-text">Comment {{Avis.Comment.Text}}</p>
-        <p class="card-text"><small class="text-muted">Date {{Avis.Comment.Creation_date}}</small></p>
+        <p class="card-text">Comment {{Avis?.Comment?.Text}}</p>
+        <p class="card-text"><small class="text-muted">Date {{Avis?.Comment?.Creation_date}}</small></p>
       </div>
   </div>
 </div>

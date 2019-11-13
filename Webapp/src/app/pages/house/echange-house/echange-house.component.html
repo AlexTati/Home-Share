@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-      <app-details-house-switch></app-details-house-switch>
+      <app-details-house-switch [fiche]="house"></app-details-house-switch>
       <app-avis-home [AvisHome]="house?.Comment"></app-avis-home>
     </div>
     <div class="col-md-3 d-flex align-items-center flex-column">
