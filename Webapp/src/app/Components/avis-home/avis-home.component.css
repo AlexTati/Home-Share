@@ -1,0 +1,10 @@
+.marg-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.couleur{
+  background: #d1ecf1;
+  border-color: #bee5eb;
+  padding: 15px;
+}

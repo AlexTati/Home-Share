@@ -14,7 +14,8 @@ import {House} from '../../../models/house';
 })
 export class EchangeHouseComponent implements OnInit {
 
-  @Input HouseId: number;
+  // @ts-ignore
+  @Input() HouseId: number;
   house: IHouse;
 
   constructor(private API: APIService, private route: ActivatedRoute) {
@@ -24,6 +25,7 @@ export class EchangeHouseComponent implements OnInit {
     // @ts-ignore
 
     this.route.paramMap.subscribe(params => {
+      // @ts-ignore
       const houseId = (params.params.id);
 
       this.API.getHouse(houseId).subscribe(data => {

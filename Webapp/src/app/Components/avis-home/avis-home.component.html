@@ -1,0 +1,22 @@
+<div class="marg-center" style="max-width: 540px;">
+  <h6>Les avis des membres</h6>
+  <app-avis [Avis]="AvisHome"></app-avis>
+      <form class="couleur">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea">Laissez votre avis</label>
+          <textarea class="form-control" id="exampleFormControlTextarea" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="Select">Votre note</label>
+            <select multiple class="form-control " id="Select">
+              <option>1</option><option>2</option>
+              <option>3</option><option>4</option>
+              <option>5</option><option>6</option>
+              <option>7</option><option>8</option>
+              <option>9</option><option>10</option>
+            </select>
+        </div>
+        <br>
+          <button type="submit" class="btn btn-info deco-btn">Valider</button>
+      </form>
+</div>

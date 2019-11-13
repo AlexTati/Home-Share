@@ -1,6 +1,7 @@
 import {IOptions} from "./ioptions";
 import {IAvailibility} from "./iavailibility";
 import {IMembre} from './imembre';
+import {IComment} from './icomment';
 
 export interface IHouse {
   Id: number;
@@ -28,6 +29,7 @@ export interface IHouse {
   options: IOptions[];
   Availabilities: IAvailibility[];
   Owner: IMembre;
-  Lat: string,
-  Lng: string,
+  Lat: string;
+  Lng: string;
+  Comment: IComment;
 }
