@@ -93,7 +93,7 @@ export class AuthService {
         const loginTime = Date.parse(localStorage.getItem('loginDate'));
         const now = Date.now();
         const minutes = Math.abs(Math.round(((loginTime - now) / 1000) / 60));
-        if (minutes > 10) {
+        if (minutes > 120) {
           this.doLogout();
         }
       }
