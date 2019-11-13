@@ -30,10 +30,8 @@ export class EchangeHouseComponent implements OnInit {
 
       this.API.getHouse(houseId).subscribe(data => {
         this.house = data;
-        console.log(this.house);
       });
-
-      });
+    });
 
   }
 

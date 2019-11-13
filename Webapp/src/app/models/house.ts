@@ -27,7 +27,7 @@ export class House implements IHouse {
   Nb_guest: number;
   Note: number;
   Num: string;
-  Owner: IMembre;
+  owner: IMembre;
   Picture: string;
   Short_description: string;
   Street: string;

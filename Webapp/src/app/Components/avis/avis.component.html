@@ -2,11 +2,11 @@
   <div class="row no-gutters">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-9">
-            <p class="card-title">Firstname {{Avis?.Owner?.Firstname}}</p>
+          <div class="col-md-7">
+            <p class="card-title">Firstname {{Avis?.owner?.Firstname}}</p>
           </div>
-          <div class="col-md-3">
-            <p class="card-text">Ma note: {{Avis?.Comment?.Note}}</p>
+          <div class="col-md-5">
+            <app-stars class=" float-right" note="5" [editable]="false"></app-stars>
           </div>
         </div>
         <p class="card-text">Comment {{Avis?.Comment?.Text}}</p>

@@ -16,4 +16,7 @@ export class AvisHomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  starsChanded($event: number) {
+    console.log('Star changed : ' + $event);
+  }
 }

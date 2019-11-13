@@ -49,6 +49,8 @@ import { SearchFormComponent } from './Components/search-form/search-form.compon
 import { AvisHomeComponent } from './Components/avis-home/avis-home.component';
 import { AvisComponent } from './Components/avis/avis.component';
 import { HouseResultSetComponent } from './Components/house-result-set/house-result-set.component';
+import { StarsComponent } from './Components/stars/stars.component';
+import { StarSelectComponent } from './Components/star-select/star-select.component';
 
 
 const config = new AuthServiceConfig([
@@ -119,6 +121,8 @@ const appRoutes: Routes = [
     AvisHomeComponent,
     AvisComponent,
     HouseResultSetComponent,
+    StarsComponent,
+    StarSelectComponent,
   ],
   imports: [
     BrowserModule,

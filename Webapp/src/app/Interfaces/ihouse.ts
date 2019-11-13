@@ -28,7 +28,7 @@ export interface IHouse {
   Note: number;
   options: IOptions[];
   availabilities: IAvailibility[];
-  Owner: IMembre;
+  owner: IMembre;
   Lat: string;
   Lng: string;
   comments: IComment[];

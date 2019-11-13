@@ -9,6 +9,8 @@ import {IOptions} from '../Interfaces/ioptions';
 import {IAvailibility} from '../Interfaces/iavailibility';
 import {FileLikeObject} from 'ng2-file-upload';
 import {Account_Types} from './auth.service';
+import {IComment} from '../Interfaces/icomment';
+import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
 
 @Injectable({
   providedIn: 'root'
@@ -230,6 +232,26 @@ export class APIService {
     return this.http.post<any>(this.UrlBase + '/oauth/login', fd);
   }
 
+
+  /* ------------   COMMENT   -------------- */
+
+  createComment(comment: IComment) {
+    const fd = new FormData();
+
+    if (comment.Note !== undefined) {
+      fd.append('Note', comment.Note.toString());
+    }
+    if (comment.Membre_id !== undefined) {
+      fd.append('Membre_id', comment.Membre_id.toString());
+    }
+    if (comment.House_id !== undefined) {
+      fd.append('House_id', comment.House_id.toString());
+    }
+
+    fd.append('Text', comment.Text);
+
+    return this.http.post<IComment>(this.UrlBase + '/houses/' + comment.House_id + '/comments', fd);
+  }
 
   /* ------------   TEST   -------------- */
 
