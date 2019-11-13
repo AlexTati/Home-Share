@@ -5,6 +5,8 @@ import {IOptions} from '../../../Interfaces/ioptions';
 import {IHouseType} from '../../../Interfaces/ihouse-type';
 import {ICountry} from '../../../Interfaces/Icountry';
 import {Auth_Types, AuthService} from '../../../Services/auth.service';
+import {IHouse} from "../../../Interfaces/ihouse";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-edit-house',
@@ -12,6 +14,9 @@ import {Auth_Types, AuthService} from '../../../Services/auth.service';
   styleUrls: ['./edit-house.component.css']
 })
 export class EditHouseComponent implements OnInit {
+
+  houseId: number;
+  localHouse: IHouse;
 
   selectedFile: FileLikeObject;
   options: IOptions[] = [
@@ -22,10 +27,21 @@ export class EditHouseComponent implements OnInit {
     {Id: 1, Name: 'Sam'},
   ];
 
-  constructor(private api: APIService, private auth: AuthService) {
+  constructor(private api: APIService, private auth: AuthService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    // recup l id
+    // recuperer house (id) -> house
+    this.route.paramMap.subscribe(data => {
+      const houseId = (data.params.id);
+
+      this.api.getHouse(houseId).subscribe(data => {
+        return this.localHouse = data;
+      });
+
+    });
+
     this.auth.checkAuthorizations(Auth_Types.PUBLIC);
   }
 

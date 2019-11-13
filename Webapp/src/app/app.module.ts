@@ -46,6 +46,8 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
 import { MapComponent } from './Components/map/map.component';
 import {AgmCoreModule} from '@agm/core';
 import { SearchFormComponent } from './Components/search-form/search-form.component';
+import { AvisHomeComponent } from './Components/avis-home/avis-home.component';
+import { AvisComponent } from './Components/avis/avis.component';
 
 
 const config = new AuthServiceConfig([
@@ -72,9 +74,9 @@ const appRoutes: Routes = [
   {path: 'member/zone', component: ZoneComponent},
   {path: 'member/listHouse', component: ListHouseComponent},
   {path: 'member/edit-profile', component: EditProfileComponent},
-  {path: 'house/edit', component: EditHouseComponent},
+  {path: 'house/edit/:id', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
-  {path: 'house/echange-house', component: EchangeHouseComponent},
+  {path: 'house/echange-house/:id', component: EchangeHouseComponent},
   {path: '*', component: HomeComponent}
 ];
 
@@ -113,6 +115,8 @@ const appRoutes: Routes = [
     CarouselComponent,
     MapComponent,
     SearchFormComponent,
+    AvisHomeComponent,
+    AvisComponent,
   ],
   imports: [
     BrowserModule,
