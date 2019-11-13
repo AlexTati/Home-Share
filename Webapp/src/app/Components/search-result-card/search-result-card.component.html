@@ -1,6 +1,5 @@
 <div class="card border-zone marg-zone" style="width: 20rem;">
-  <div class="justify-content-center imgHouse">
-    <img src="{{picUrl}}" class="card-img-top" alt="profile">
+  <div [style.background-image]="'url('+picUrl+')'" class="justify-content-center imgHouse">
   </div>
   <div class="card-body">
     <p class="card-text d-flex justify-content-center">{{fiche?.Title}}</p>

@@ -6,7 +6,7 @@
   <div class="form-row">
     <div class="form-group col-md-9">
       <label for="inputTitle">Title*</label>
-      <input type="text" class="form-control" required minlength="5" id="inputTitle" name="inputTitle" [(ngModel)]="localHouse.Title" #Title="ngModel" >
+      <input type="text" class="form-control" id="inputTitle" name="inputTitle" [(ngModel)]="localHouse.Title" required minlength="5" #Title="ngModel" >
       <div *ngIf="Title.invalid && (Title.dirty || Title.touched)" class="alert alert-danger">
         <div *ngIf="Title.errors.required">Le titre est requis</div>
         <div *ngIf="Title.errors.minlength">Le titre doit être compose de 5 lettres minimum</div>
@@ -14,20 +14,24 @@
     </div>
     <div class="form-group col-md-3">
       <label for="inputTitle">Type de bien*</label>
-      <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%"></app-house-type-selector>
+      <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%" ></app-house-type-selector>
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputShort_description">Description résumée*</label>
-      <input type="textArea" class="form-control" id="inputShort_description" name="inputShort_description" [(ngModel)]="localHouse.Short_description">
+      <input type="textArea" class="form-control" id="inputShort_description" name="inputShort_description" [(ngModel)]="localHouse.Short_description" required minlength="16" #ShoDes="ngModel" >
+      <div *ngIf="ShoDes.invalid && (ShoDes.dirty || ShoDes.touched)" class="alert alert-danger">
+        <div *ngIf="ShoDes.errors.required">La description courte est requise</div>
+        <div *ngIf="ShoDes.errors.minlength">La description courte doit faire 16 characteres minimum</div>
+      </div>
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-12">
-      <label for="inputLong_description">Description longue*</label>
+      <label for="inputLong_description">Description longue</label>
       <input type="textArea" class="form-control" id="inputLong_description" name="inputLong_description" [(ngModel)]="localHouse.Long_description">
     </div>
   </div>
@@ -35,8 +39,11 @@
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="inputLong_description">Capacité*</label>
-      <input type="textArea" class="form-control" id="inputNb_guest" name="inputNb_guest" [(ngModel)]="localHouse.Nb_guest">
+      <input type="textArea" class="form-control" id="inputNb_guest" name="inputNb_guest" [(ngModel)]="localHouse.Nb_guest" required #NbGue="ngModel" >
       <mv-slider [(value)]="localHouse.Nb_guest" [min]="1" [max]="10"></mv-slider>
+      <div *ngIf="NbGue.invalid && (NbGue.dirty || NbGue.touched)" class="alert alert-danger">
+        <div *ngIf="NbGue.errors.required">La capacité est requise</div>
+      </div>
     </div>
     <div class="form-group col-md-3">
         <label for="inputLong_description">Assurance obligatoire ?</label>

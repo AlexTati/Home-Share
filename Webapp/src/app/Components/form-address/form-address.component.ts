@@ -37,8 +37,9 @@ export class FormAddressComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.countries$ = this.dataService.getCountries();
+
     if (this.address !== undefined) {
-      this.countries$ = this.dataService.getCountries();
       this.localAddress.Street = this.address.Street;
       this.localAddress.Num = this.address.Num;
       this.localAddress.Box = this.address.Box;

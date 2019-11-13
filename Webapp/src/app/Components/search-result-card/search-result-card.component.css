@@ -20,17 +20,7 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding: 90% 0 0 0; /* 34.37% = 100 / (w / h) = 100 / (640 / 220) */
-}
-
-.imgHouse img {
-  display: block;
-  max-width: 100%;
-  max-height: 75%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  object-fit: cover;
+  padding: 66.66% 0% 0% 0%; /* 34.37% = 100 / (w / h) = 100 / (640 / 220) */
+  overflow: hidden;
+  background-size: cover;
 }
