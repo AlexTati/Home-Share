@@ -4,10 +4,8 @@
   border-width: 1px;
   padding: 15px;
   margin-top: 20px;
-}
-
-.marg-zone{
-  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card-img-top{
