@@ -1,4 +1,19 @@
 <div class="container">
-  <app-details-house-switch [fiche]="house"></app-details-house-switch>
+  <div class="row">
+    <div class="col-md-9">
+      <app-details-house-switch [fiche]="house"></app-details-house-switch>
+    </div>
+    <div class="col-md-3 marg-display">
+      <div  style= "max-width: 200px;">
+       <app-card-membre [membre]="house?.Owner"></app-card-membre>
+      </div>
+      <div >
+        <button routerLink="" type="button" class="btn btn-info btn-lg">Echanger le bien</button>
+      </div>
+      <div style= "max-width: 180px;">
+        <app-meteo [cityName]="house?.City_Name"></app-meteo>
+      </div>
+    </div>
+  </div>
 </div>
 

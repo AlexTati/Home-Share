@@ -1,7 +1,24 @@
 .marg-top-card{
   margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .descri{
   font-size: 14px;
+}
+
+.pad-border{
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+}
+
+.pad-border img{
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  padding-top: 15px !important;
+}
+
+.marg-car{
+  margin: 15px;
 }
