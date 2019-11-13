@@ -72,7 +72,7 @@ const appRoutes: Routes = [
   {path: 'member/zone', component: ZoneComponent},
   {path: 'member/listHouse', component: ListHouseComponent},
   {path: 'member/edit-profile', component: EditProfileComponent},
-  {path: 'house/edit', component: EditHouseComponent},
+  {path: 'house/edit/:id', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
   {path: 'house/echange-house/:id', component: EchangeHouseComponent},
   {path: '*', component: HomeComponent}

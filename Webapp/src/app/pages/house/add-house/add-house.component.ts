@@ -16,7 +16,7 @@ export class AddHouseComponent implements OnInit {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);
   }
 
-  onHoueCreated() {
+  onHouseCreated() {
     this.router.navigate(['/member/listHouse']);
   }
 }
