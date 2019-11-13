@@ -31,5 +31,5 @@ export interface IHouse {
   Owner: IMembre;
   Lat: string;
   Lng: string;
-  Comment: IComment;
+  comments: IComment[];
 }

@@ -2,6 +2,7 @@ import {IHouse} from '../Interfaces/ihouse';
 import {IAvailibility} from '../Interfaces/iavailibility';
 import {IMembre} from '../Interfaces/imembre';
 import {IOptions} from '../Interfaces/ioptions';
+import {IComment} from '../Interfaces/icomment';
 
 export class House implements IHouse {
   Id: number;
@@ -31,4 +32,6 @@ export class House implements IHouse {
   Short_description: string;
   Street: string;
   options: IOptions[];
+  Comments: IComment[];
+
 }

@@ -5,8 +5,8 @@ import {IOptions} from '../../../Interfaces/ioptions';
 import {IHouseType} from '../../../Interfaces/ihouse-type';
 import {ICountry} from '../../../Interfaces/Icountry';
 import {Auth_Types, AuthService} from '../../../Services/auth.service';
-import {IHouse} from "../../../Interfaces/ihouse";
-import {ActivatedRoute} from "@angular/router";
+import {IHouse} from '../../../Interfaces/ihouse';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-edit-house',
@@ -34,10 +34,14 @@ export class EditHouseComponent implements OnInit {
     // recup l id
     // recuperer house (id) -> house
     this.route.paramMap.subscribe(data => {
+      // @ts-ignore
       const houseId = (data.params.id);
 
       this.api.getHouse(houseId).subscribe(data => {
-        return this.localHouse = data;
+
+        // return this.localHouse = data;
+        this.localHouse = data;
+
       });
 
     });
