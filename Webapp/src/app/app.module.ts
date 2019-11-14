@@ -54,6 +54,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepickerModule, RatingModule , BsDatepickerModule  } from 'ngx-bootstrap';
 import { DatePickerComponent } from './Components/date-picker/date-picker.component';
+import { PictureLoaderComponent } from './Components/picture-loader/picture-loader.component';
 
 
 const config = new AuthServiceConfig([
@@ -126,6 +127,7 @@ const appRoutes: Routes = [
     StarsComponent,
     StarSelectComponent,
     DatePickerComponent,
+       PictureLoaderComponent,
   ],
   imports: [
     BrowserModule,
