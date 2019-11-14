@@ -1,16 +1,15 @@
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3" style="max-width: 540px;" *ngFor="let a of avis">
   <div class="row no-gutters">
       <div class="card-body">
         <div class="row">
           <div class="col-md-7">
-            <p class="card-title">Firstname {{Avis?.owner?.Firstname}}</p>
           </div>
           <div class="col-md-5">
-            <app-stars class=" float-right" note="5" [editable]="false"></app-stars>
+            <app-stars class=" float-right" Note="{{a?.Note}}" [editable]="false"></app-stars>
           </div>
         </div>
-        <p class="card-text">Comment {{Avis?.Comment?.Text}}</p>
-        <p class="card-text"><small class="text-muted">Date {{Avis?.Comment?.Creation_date}}</small></p>
+        <p class="card-text">Comment {{a?.Text}}</p>
+        <p class="card-text"><small class="text-muted">Date {{a?.Creation_date}}</small></p>
       </div>
   </div>
 </div>

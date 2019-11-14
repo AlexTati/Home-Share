@@ -29,7 +29,6 @@ import {OptionsDisplayerComponent} from './Components/options-displayer/options-
 import {NgDateRangePickerModule} from 'ng-daterangepicker';
 import {AvailibilitiesManagerComponent} from './Components/availibilities-manager/availibilities-manager.component';
 import {AvailibilityComponent} from './Components/availibility/availibility.component';
-import {AvailibilityPickerComponent} from './Components/availibility-picker/availibility-picker.component';
 import {ErrorBannerComponent} from './Components/error-banner/error-banner.component';
 
 import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
@@ -52,6 +51,9 @@ import { HouseResultSetComponent } from './Components/house-result-set/house-res
 import { StarsComponent } from './Components/stars/stars.component';
 import { StarSelectComponent } from './Components/star-select/star-select.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatepickerModule, RatingModule , BsDatepickerModule  } from 'ngx-bootstrap';
+import { DatePickerComponent } from './Components/date-picker/date-picker.component';
 
 
 const config = new AuthServiceConfig([
@@ -106,7 +108,6 @@ const appRoutes: Routes = [
     OptionsDisplayerComponent,
     AvailibilityComponent,
     AvailibilitiesManagerComponent,
-    AvailibilityPickerComponent,
     ErrorBannerComponent,
     EditProfileComponent,
     MemberEditComponent,
@@ -124,6 +125,7 @@ const appRoutes: Routes = [
     HouseResultSetComponent,
     StarsComponent,
     StarSelectComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -141,9 +143,13 @@ const appRoutes: Routes = [
     NgDateRangePickerModule,
     SocialLoginModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDRcurFZUO9otEZ1z3C2bMv41lslAWz1FU'
+      apiKey: 'AIzaSyBUjosRjk-1v5TM8jf2O4-hwYLgvYpo4d4'
     }),
     AngularFontAwesomeModule,
+    BrowserAnimationsModule,
+    DatepickerModule.forRoot(),
+    RatingModule.forRoot(),
+    BsDatepickerModule.forRoot(),
   ],
   providers: [{
     provide: AuthServiceConfig,

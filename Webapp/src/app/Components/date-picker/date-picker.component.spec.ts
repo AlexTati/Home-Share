@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvailibilityPickerComponent } from './availibility-picker.component';
+import { DatePickerComponent } from './date-picker.component';
 
-describe('AvailibilityPickerComponent', () => {
-  let component: AvailibilityPickerComponent;
-  let fixture: ComponentFixture<AvailibilityPickerComponent>;
+describe('DatePickerComponent', () => {
+  let component: DatePickerComponent;
+  let fixture: ComponentFixture<DatePickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AvailibilityPickerComponent ]
+      declarations: [ DatePickerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvailibilityPickerComponent);
+    fixture = TestBed.createComponent(DatePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

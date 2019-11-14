@@ -1,18 +1,19 @@
 <div class="marg-center" style="max-width: 540px;">
   <h6>Les avis des membres</h6>
-  <app-avis [Avis]="AvisHome"></app-avis>
-      <form class="couleur">
-        <div class="form-group">
-          <label for="exampleFormControlTextarea">Laissez votre avis</label>
-          <textarea class="form-control" id="exampleFormControlTextarea" rows="3"></textarea>
-        </div>
-        <div class="form-group row">
-          <p class="col-md-6" >Votre note</p>
-          <div  class="col-md-6" >
-            <app-stars class="float-right" (selectionChanged)="starsChanded($event)" [editable]="true"></app-stars>
-          </div>
-        </div>
-        <br>
-          <button type="submit" class="btn btn-info deco-btn">Valider</button>
-      </form>
+  <app-avis [avis]="house?.comments"></app-avis>
+
+  <form class="couleur" (ngSubmit)="createAvis()" *ngIf="showNewComment">
+    <div class="form-group">
+      <label for="exampleFormControlTextarea">Laissez votre avis</label>
+      <textarea class="form-control" id="exampleFormControlTextarea" rows="3" [(ngModel)]="newComment.Text" name="text"></textarea>
+    </div>
+    <div class="form-group row">
+      <p class="col-md-6" >Votre note</p>
+      <div  class="col-md-6" >
+        <app-stars class="float-right" (selectionChanged)="starsChanded($event)" [editable]="true"></app-stars>
+      </div>
+    </div>
+    <br>
+      <button type="submit" class="btn btn-info deco-btn">Valider</button>
+  </form>
 </div>

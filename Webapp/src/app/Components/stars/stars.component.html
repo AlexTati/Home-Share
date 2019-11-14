@@ -1,16 +1,1 @@
-<div class="rate" *ngIf="editable">
-  <input type="radio" id="star5" name="rate"/><label for="star5" title="5" (click)="select(5)"  >5 stars</label>
-  <input type="radio" id="star4" name="rate"/><label for="star4" title="4" (click)="select(4)" >4 stars</label>
-  <input type="radio" id="star3" name="rate" /><label for="star3" title="3"(click)="select(3)" >3 stars</label>
-  <input type="radio" id="star2" name="rate"/><label for="star2" title="2" (click)="select(2)"  >2 stars</label>
-  <input type="radio" id="star1" name="rate"/><label for="star1" title="1" (click)="select(1)"  >1 star</label>
-</div>
-
-<div class="rate" *ngIf="!editable" style="position: relative">
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0"></div>
-  <input type="radio" id="star5" name="rate" disabled [checked]="note==5" /><label for="star5" title="5">5 stars</label>
-  <input type="radio" id="star4" name="rate" disabled [checked]="note==4"  /><label for="star4" title="4">4 stars</label>
-  <input type="radio" id="star3" name="rate"  disabled [checked]="note==3"  /><label for="star3" title="3">3 stars</label>
-  <input type="radio" id="star2" name="rate" disabled  [checked]="note==2" /><label for="star2" title="2">2 stars</label>
-  <input type="radio" id="star1" name="rate" disabled [checked]="note==1"  /><label for="star1" title="1">1 star</label>
-</div>
+<rating [(ngModel)]="Note" max="5" [readonly]="!editable" (click)="select()"></rating>

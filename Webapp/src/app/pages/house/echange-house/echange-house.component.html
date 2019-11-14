@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-9">
       <app-details-house-switch [fiche]="house"></app-details-house-switch>
-      <app-avis-home [AvisHome]="house?.Comment"></app-avis-home>
+      <app-avis-home [house]="house"></app-avis-home>
     </div>
     <div class="col-md-3 d-flex align-items-center flex-column">
       <div class="marg-top" style= "max-width: 200px;">
@@ -16,5 +16,6 @@
       </div>
     </div>
   </div>
+  <app-map [house]="house"></app-map>
 </div>
 

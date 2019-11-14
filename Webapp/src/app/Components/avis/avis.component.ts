@@ -9,7 +9,8 @@ import {IComment} from '../../Interfaces/icomment';
 })
 export class AvisComponent implements OnInit {
 
-  @Input() Avis: IHouse;
+  @Input() avis: IComment[];
+
   constructor() { }
 
   ngOnInit() {

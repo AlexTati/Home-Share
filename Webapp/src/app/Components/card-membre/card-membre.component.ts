@@ -13,7 +13,6 @@ export class CardMembreComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.membre);
   }
 
 }

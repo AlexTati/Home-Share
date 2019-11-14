@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IHouse} from '../../Interfaces/ihouse';
-import {IComment} from '../../Interfaces/icomment';
+import {Comment} from '../../models/comment';
+import {APIService} from '../../Services/api.service';
+import {AuthService} from '../../Services/auth.service';
 
 @Component({
   selector: 'app-avis-home',
@@ -9,14 +11,25 @@ import {IComment} from '../../Interfaces/icomment';
 })
 export class AvisHomeComponent implements OnInit {
 
-  @Input() AvisHome: IHouse;
+  @Input() house: IHouse;
 
-  constructor() { }
+  private newComment = new Comment();
+  showNewComment = true
 
-  ngOnInit() {
-  }
+  constructor(private api: APIService, private auth: AuthService) { }
+
+  ngOnInit() { }
 
   starsChanded($event: number) {
-    console.log('Star changed : ' + $event);
+    console.log($event);
+    this.newComment.Note = $event;
+  }
+
+  createAvis() {
+    this.newComment.House_id = this.house.Id;
+    this.newComment.Membre_id = this.auth.localUser.Id;
+    this.api.createComment(this.newComment).subscribe(data=>{
+      this.showNewComment = false
+    })
   }
 }

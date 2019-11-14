@@ -8,7 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class StarsComponent implements OnInit {
 
   @Output() selectionChanged = new EventEmitter<number>();
-  @Input() note: number;
+  @Input() Note: number;
   @Input() editable = false;
 
 
@@ -18,7 +18,7 @@ export class StarsComponent implements OnInit {
   ngOnInit() {
   }
 
-  select(value: number) {
-    this.selectionChanged.emit(value);
+  select() {
+    this.selectionChanged.emit(this.Note);
   }
 }

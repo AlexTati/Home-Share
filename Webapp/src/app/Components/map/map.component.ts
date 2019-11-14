@@ -10,7 +10,17 @@ import {IHouse} from '../../Interfaces/ihouse';
 })
 export class MapComponent implements OnInit {
 
-  @Input() house: IHouse;
+  @Input() set house (h: IHouse){
+    if(h){
+      this.showMap(h);
+    }
+  }
+
+  lat;
+  lng;
+
+
+  private localHouse: IHouse
   query: any;
 
   constructor(private http: HttpClient) {
@@ -18,6 +28,16 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  showMap(house: IHouse){
+    console.log('reload component');
+    this.lat = parseFloat(house.Lat);
+    this.lng = parseFloat(house.Lng);
+    console.log(this.lat);
+    console.log(this.lng);
+
+    this.ngOnInit();
   }
 
 }

@@ -4,7 +4,7 @@
 
   <div class="card bg-light mb-3" *ngIf="showAddPanel">
     <div class="card-body"   style="align-items: center;display: flex;justify-content: space-between;">
-      <app-availibility-picker (change)="newAvailibilityChanged($event)"></app-availibility-picker>
+      <app-date-picker (dateChange)="newAvailibilityChanged($event)" ></app-date-picker>
       <span>
           <button type="button" class="btn btn-info float-right"  style="margin: 0 10px" (click)="togglePannel()">Annuler</button>
           <button type="button" class="btn btn-info float-right"(click)="addAvailibility()">Ajouter</button>

@@ -17,7 +17,7 @@
     </div>
     <hr>
 
-    <div class="card-text d-flex justify-content-center" *ngIf="!editable"><app-stars [editable]="false" [note]="fiche?.Note"></app-stars></div>
+    <div class="card-text d-flex justify-content-center" *ngIf="!editable"><app-stars [editable]="false" [Note]="fiche?.Note"></app-stars></div>
 
     <div class="marg-btn d-flex justify-content-center" *ngIf="!editable">
       <button type="submit" class="btn btn-info" [routerLink]="['/house/echange-house/'+fiche.Id]">Voir détails</button>
