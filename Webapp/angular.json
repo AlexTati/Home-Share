@@ -27,7 +27,8 @@
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/@ng-select/ng-select/themes/default.theme.css",
-              "node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css"
+              "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",

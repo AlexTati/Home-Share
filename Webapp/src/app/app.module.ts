@@ -51,6 +51,7 @@ import { AvisComponent } from './Components/avis/avis.component';
 import { HouseResultSetComponent } from './Components/house-result-set/house-result-set.component';
 import { StarsComponent } from './Components/stars/stars.component';
 import { StarSelectComponent } from './Components/star-select/star-select.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 
 const config = new AuthServiceConfig([
@@ -141,7 +142,8 @@ const appRoutes: Routes = [
     SocialLoginModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDRcurFZUO9otEZ1z3C2bMv41lslAWz1FU'
-    })
+    }),
+    AngularFontAwesomeModule,
   ],
   providers: [{
     provide: AuthServiceConfig,

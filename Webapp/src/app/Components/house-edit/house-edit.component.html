@@ -54,7 +54,7 @@
   <app-options-selector (change)="optionsChanged($event)"></app-options-selector>
 
   <app-form-address (change)="onAddressChanged($event)"></app-form-address>
-  <app-availibilities-manager  *ngIf="localHouse.Id"  [editable]="true" (change)="onAvailabilityChanged($event)"></app-availibilities-manager>
+  <app-availibilities-manager  *ngIf="localHouse.Id"  [editable]="true" (change)="onAvailabilityChanged($event)" [houseId]="localHouse.Id"></app-availibilities-manager>
 
   <p>*Champs requis</p>
   <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>

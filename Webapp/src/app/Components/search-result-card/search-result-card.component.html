@@ -2,22 +2,22 @@
   <div [style.background-image]="'url('+picUrl+')'" class="justify-content-center imgHouse">
   </div>
   <div class="card-body">
-    <p class="card-text d-flex justify-content-center">{{fiche?.Title}}</p>
-    <hr>
+    <h4>{{fiche?.Title}}</h4>
     <p class="card-text d-flex justify-content-center" *ngIf="editable">{{fiche?.Creation_date}}</p>
     <hr *ngIf="editable">
     <p class="card-text d-flex justify-content-center">{{fiche?.Short_description}}</p>
     <hr>
     <div class="row">
       <div class="col-md-6">
-      <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Nb_guest}}</p>
+      <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Nb_guest}} <fa name="user-friends"></fa></p>
       </div>
       <div class="col-md-6">
       <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Country_Name}}</p>
       </div>
     </div>
     <hr>
-    <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Note}}</p>
+
+    <div class="card-text d-flex justify-content-center" *ngIf="!editable"><app-stars [editable]="false" [note]="fiche?.Note"></app-stars></div>
 
     <div class="marg-btn d-flex justify-content-center" *ngIf="!editable">
       <button type="submit" class="btn btn-info" [routerLink]="['/house/echange-house/'+fiche.Id]">Voir détails</button>
