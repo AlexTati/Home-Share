@@ -6,6 +6,8 @@ import {IMembre} from '../../../Interfaces/imembre';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {House} from '../../../models/house';
+import {Booking} from '../../../models/booking';
+import {AuthService} from '../../../Services/auth.service';
 
 @Component({
   selector: 'app-echange-house',
@@ -18,7 +20,7 @@ export class EchangeHouseComponent implements OnInit {
   @Input() HouseId: number;
   house: IHouse;
 
-  constructor(private API: APIService, private route: ActivatedRoute) {
+  constructor(private API: APIService, private route: ActivatedRoute, private auth: AuthService) {
   }
 
   ngOnInit() {
@@ -35,4 +37,16 @@ export class EchangeHouseComponent implements OnInit {
 
   }
 
+  createBooking() {
+    const b = new Booking();
+    b.DateFin = new Date();
+    b.DateDebut = new Date();
+    b.House_id = this.house.Id;
+    b.Membre_id = this.auth.localUser.Id;
+    b.Insurance = 0;
+
+    this.API.createBooking(b).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

@@ -11,6 +11,7 @@ import {FileLikeObject} from 'ng2-file-upload';
 import {Account_Types} from './auth.service';
 import {IComment} from '../Interfaces/icomment';
 import {isNotNullOrUndefined} from 'codelyzer/util/isNotNullOrUndefined';
+import {IBooking} from '../Interfaces/ibooking';
 
 @Injectable({
   providedIn: 'root'
@@ -235,6 +236,7 @@ export class APIService {
 
   /* ------------   COMMENT   -------------- */
 
+
   createComment(comment: IComment) {
     const fd = new FormData();
 
@@ -252,6 +254,23 @@ export class APIService {
 
     return this.http.post<IComment>(this.UrlBase + '/houses/' + comment.House_id + '/comments', fd);
   }
+
+
+  /* ------------   BOOKING   -------------- */
+
+  createBooking(b: IBooking){
+
+    const fd = new FormData();
+    if (b.DateDebut !== undefined) fd.append('DateDebut', b.DateDebut.toISOString());
+    if (b.DateFin !== undefined) fd.append('DateFin', b.DateFin.toISOString());
+    if (b.Insurance !== undefined) fd.append('Insurance', b.Insurance.toString());
+    if (b.Membre_id !== undefined) fd.append('Membre_id', b.Membre_id.toString());
+    if (b.House_id !== undefined) fd.append('House_id', b.House_id.toString());
+
+    return this.http.post<IBooking>(this.UrlBase + '/houses/' + b.House_id + '/booking', fd);
+  }
+
+
 
   /* ------------   TEST   -------------- */
 
