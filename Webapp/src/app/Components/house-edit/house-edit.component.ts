@@ -42,6 +42,9 @@ export class HouseEditComponent implements OnInit {
     } else {
       this.editMode = true;
     }
+
+    console.log("edit");
+    console.log(this.localHouse);
   }
 
   onFormSubmit() {
@@ -61,12 +64,17 @@ export class HouseEditComponent implements OnInit {
         this.localHouse.Lat = data[0].lat;
         this.localHouse.Lng = data[0].lon;
       }
-      this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
-        this.houseSuccessfullyCreated.emit(data);
-      });
+
+      if (this.localHouse.Id) {
+        this.srv.updateHouse(this.localHouse, this.selectedFile).subscribe(data => {
+          this.houseSuccessfullyCreated.emit(data);
+        });
+        } else {
+        this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
+          this.houseSuccessfullyCreated.emit(data);
+        });
+      }
     });
-
-
   }
 
   onAddressChanged($event: Iadress) {

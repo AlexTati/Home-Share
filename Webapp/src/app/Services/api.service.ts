@@ -261,4 +261,66 @@ export class APIService {
   }
 
 
+  updateHouse(house: IHouse, selectedFile: FileLikeObject) {
+
+      const fd = new FormData();
+
+      if (house.Id) {
+        fd.append('Id', house.Id.toString());
+      }
+      if (house.Nb_guest) {
+        fd.append('Nb_guest', house.Nb_guest.toString());
+      }
+      if (house.Active) {
+        fd.append('Active', house.Active.toString());
+      }
+      if (house.Deletion_time) {
+        fd.append('Deletion_time', house.Deletion_time.toString());
+      }
+      if (house.Creation_date) {
+        fd.append('Creation_date', house.Creation_date.toString());
+      }
+      if (house.Insurance_mandatory !== undefined) {
+        fd.append('Insurance_mandatory', house.Insurance_mandatory ? '1' : '0');
+      }
+      if (house.City_id) {
+        fd.append('City_id', house.City_id.toString());
+      }
+      if (house.Country_id) {
+        fd.append('Country_id', house.Country_id.toString());
+      }
+      if (house.Membre_id) {
+        fd.append('Membre_id', house.Membre_id.toString());
+      }
+      if (house.House_type_id) {
+        fd.append('House_type_id', house.House_type_id.toString());
+      }
+      if (house.Note) {
+        fd.append('Note', house.Note.toString());
+      }
+      if (house.options) {
+        fd.append('Options', JSON.stringify(house.options));
+      }
+      if (selectedFile) {
+        fd.append('picture', selectedFile.rawFile, selectedFile.name);
+      }
+
+      fd.append('Title', house.Title);
+      fd.append('Short_description', house.Short_description);
+      fd.append('Long_description', house.Long_description);
+      fd.append('Picture', house.Picture);
+      fd.append('Street', house.Street);
+      fd.append('Num', house.Num);
+      fd.append('Box', house.Box);
+      fd.append('City_Name', house.City_Name);
+      fd.append('City_Zip', house.City_Zip);
+      fd.append('Country_Name', house.Country_Name);
+      fd.append('House_type_name', house.House_type_name);
+
+      fd.append('Lat', house.Lat);
+      fd.append('Lng', house.Lng);
+
+
+      return this.http.post<IHouse>(this.UrlBase + '/houses', fd);
+  }
 }

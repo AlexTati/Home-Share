@@ -1,6 +1,13 @@
 <form #f = "ngForm" class="border-formulaire" (ngSubmit)="onFormSubmit()">
 
-  <app-multi-file-upload (fileChanged)="OnFileSelected($event)"></app-multi-file-upload>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <img class="Picture" src="{{localHouse.Picture}}"/>
+    </div>
+    <div class="form-group col-md-6">
+      <app-multi-file-upload (fileChanged)="OnFileSelected($event)"></app-multi-file-upload>
+    </div>
+  </div>
 
 
   <div class="form-row">
@@ -53,7 +60,8 @@
 
   <app-options-selector (change)="optionsChanged($event)"></app-options-selector>
 
-  <app-form-address (change)="onAddressChanged($event)"></app-form-address>
+  <app-form-address (change)="onAddressChanged($event)" [address]="{Street: localHouse.Street, Num:localHouse.Num, Box:localHouse.Box, City_id:localHouse.City_id, Country_id:localHouse.Country_id}"></app-form-address>
+
   <app-availibilities-manager  *ngIf="localHouse.Id"  [editable]="true" (change)="onAvailabilityChanged($event)" [houseId]="localHouse.Id"></app-availibilities-manager>
 
   <p>*Champs requis</p>
