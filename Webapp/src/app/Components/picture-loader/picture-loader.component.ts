@@ -43,7 +43,7 @@ export class PictureLoaderComponent implements OnInit {
     this.http.post('url/to/your/api', formData)
       .subscribe(res => {
         console.log(res);
-        this.uploadedFilePath = res.data.filePath;
+        //this.uploadedFilePath = res.data.filePath;
         alert('SUCCESS !!');
       });
   }
