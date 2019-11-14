@@ -2,12 +2,12 @@
 
   <div class="form-row">
     <div class="form-group col-md-3 images">
-      <label>Image actuelle</label>
-      <img class="Picture" src="{{localHouse.Picture}}"/>
+      <label *ngIf="localHouse.Id">Image actuelle</label>
+      <img *ngIf="localHouse.Id" class="Picture" src="{{localHouse.Picture}}"/>
     </div>
     <div class="form-group col-md-6 images">
-      <label>Nouvelle image</label>
-      <app-multi-file-upload class="Picture"  (fileChanged)="OnFileSelected($event)"></app-multi-file-upload>
+      <label *ngIf="localHouse.Id">Nouvelle image</label>
+      <app-picture-loader class="Picture"  (fileChanged)="OnFileSelected($event)"></app-picture-loader>
     </div>
   </div>
 
@@ -71,7 +71,8 @@
   <p>Conditions TODO!!!!!!!!!!!!!!!!!!!</p>
   <div class="form-row d-flex justify-content-center">
     <div class="form-group col-md-5 d-flex align-items-center justify-content-center marg-btn">
-      <button type="submit" class="btn btn-info">Ajouter le bien</button>
+      <button *ngIf="localHouse.Id" type="submit" class="btn btn-info">Modifier ce bien</button>
+      <button *ngIf="!localHouse.Id" type="submit" class="btn btn-info">Ajouter ce bien</button>
     </div>
   </div>
 </form>

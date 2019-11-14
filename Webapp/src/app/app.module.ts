@@ -52,6 +52,7 @@ import { HouseResultSetComponent } from './Components/house-result-set/house-res
 import { StarsComponent } from './Components/stars/stars.component';
 import { StarSelectComponent } from './Components/star-select/star-select.component';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import { PictureLoaderComponent } from './Components/picture-loader/picture-loader.component';
 
 
 const config = new AuthServiceConfig([
@@ -124,6 +125,7 @@ const appRoutes: Routes = [
     HouseResultSetComponent,
     StarsComponent,
     StarSelectComponent,
+    PictureLoaderComponent,
   ],
   imports: [
     BrowserModule,
