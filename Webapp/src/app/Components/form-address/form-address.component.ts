@@ -24,6 +24,12 @@ export class FormAddressComponent implements OnInit {
 
   ngOnInit() {
     this.countries$ = this.dataService.getCountries();
+    this.countries$.subscribe( data => {})
+    setTimeout(() => {
+      if (this.address.Country_id !== undefined){
+        this.cities$ = this.dataService.getCities(this.address.Country_id);
+      }
+    }, 100);
   }
 
   onCountryChanged($event: ICountry) {
