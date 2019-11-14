@@ -46,7 +46,6 @@ export class MemberEditComponent implements OnInit {
     } else {
       this.editMode = true;
     }
-
     console.log(this.membre);
   }
 
