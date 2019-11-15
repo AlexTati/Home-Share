@@ -13,7 +13,7 @@ import {IHouse} from '../../Interfaces/ihouse';
 })
 export class HomeComponent implements OnInit {
 
-  private houses: IHouse[];
+  public houses: IHouse[];
 
   constructor(private dataService: APIService, private auth: AuthService) {
   }

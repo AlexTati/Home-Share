@@ -13,7 +13,7 @@ export class FileUploadComponent implements OnInit {
 
   public uploader: FileUploader = new FileUploader({});
   public hasBaseDropZoneOver = false;
-  private url: any = ''
+  public url: any = ''
 
   constructor() {}
 

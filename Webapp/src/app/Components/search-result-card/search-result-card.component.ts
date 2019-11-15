@@ -10,7 +10,7 @@ export class SearchResultCardComponent implements OnInit {
 
   @Input()fiche: IHouse;
   @Input()editable = false;
-  private picUrl: string;
+  public picUrl: string;
 
   constructor() { }
 

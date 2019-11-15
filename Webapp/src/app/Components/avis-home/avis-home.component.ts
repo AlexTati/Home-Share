@@ -13,7 +13,7 @@ export class AvisHomeComponent implements OnInit {
 
   @Input() house: IHouse;
 
-  private newComment = new Comment();
+  public newComment = new Comment();
   showNewComment = true
 
   constructor(private api: APIService, private auth: AuthService) { }

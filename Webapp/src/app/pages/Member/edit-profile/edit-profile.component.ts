@@ -10,7 +10,7 @@ import {IMembre} from '../../../Interfaces/imembre';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor( private auth: AuthService, private api: APIService) { }
+  constructor( public auth: AuthService, private api: APIService) { }
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);

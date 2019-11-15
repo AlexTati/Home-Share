@@ -15,8 +15,8 @@ export class SearchFormComponent implements OnInit {
 
   @Output() searchDone = new EventEmitter<IHouse[]>();
 
-  private advanced = false;
-  private house: IHouse;
+  public advanced = false;
+  public house: IHouse;
 
   constructor(private api: APIService) {
   }
