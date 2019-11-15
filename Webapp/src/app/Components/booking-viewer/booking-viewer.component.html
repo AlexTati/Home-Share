@@ -1,0 +1,17 @@
+<div class="card border-info mb-3">
+  <div class="card-body text-info" >
+    <div class="card-text row">
+      <div class="col-md-3">
+        <img src="{{localHouse?.Picture}}" alt="" width="100%">
+      </div>
+      <div class="col-md-9">
+        du {{ localBooking?.DateDebut | date: 'fullDate'}} au {{ localBooking?.DateFin | date: 'fullDate' }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button type="button"  class="float-right btn btn-info" (click)="acceptBooking()">Accepter</button>
+      </div>
+    </div>
+  </div>
+</div>

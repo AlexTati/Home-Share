@@ -55,6 +55,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepickerModule, RatingModule , BsDatepickerModule  } from 'ngx-bootstrap';
 import { DatePickerComponent } from './Components/date-picker/date-picker.component';
 import { PictureLoaderComponent } from './Components/picture-loader/picture-loader.component';
+import { BookingsComponent } from './pages/Member/bookings/bookings.component';
+import { BookingViewerComponent } from './Components/booking-viewer/booking-viewer.component';
 
 
 const config = new AuthServiceConfig([
@@ -80,6 +82,7 @@ const appRoutes: Routes = [
   {path: 'member/connexion', component: ConnexionComponent},
   {path: 'member/zone', component: ZoneComponent},
   {path: 'member/listHouse', component: ListHouseComponent},
+  {path: 'member/bookings', component: BookingsComponent},
   {path: 'member/edit-profile', component: EditProfileComponent},
   {path: 'house/edit/:id', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
@@ -128,6 +131,8 @@ const appRoutes: Routes = [
     StarSelectComponent,
     DatePickerComponent,
        PictureLoaderComponent,
+       BookingsComponent,
+       BookingViewerComponent,
   ],
   imports: [
     BrowserModule,

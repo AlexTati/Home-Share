@@ -1,0 +1,12 @@
+
+<div class="container">
+  <div class="row">
+    <div class=" col-md-9">
+      <h1>Echanges en attente</h1>
+      <app-booking-viewer *ngFor="let b of bookings" [booking]="b" (bookingAccepted)="refreshContent()"></app-booking-viewer>
+    </div>
+    <div class=" col-md-3 d-flex justify-content-center">
+      <app-card-membre [membre]="auth.localUser"></app-card-membre>
+    </div>
+  </div>
+</div>

@@ -270,6 +270,14 @@ export class APIService {
     return this.http.post<IBooking>(this.UrlBase + '/houses/' + b.House_id + '/booking', fd);
   }
 
+  getBookingsForMember (memberId){
+    return this.http.get<IBooking[]>(this.UrlBase + '/members/' + memberId + '/bookings');
+  }
+
+  acceptBooking (bookingId){
+    return this.http.get<any>(this.UrlBase + '/bookings/' + bookingId + '/accept');
+  }
+
 
 
   /* ------------   TEST   -------------- */
