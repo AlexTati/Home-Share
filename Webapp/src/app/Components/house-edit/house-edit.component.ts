@@ -10,6 +10,7 @@ import {AuthService} from '../../Services/auth.service';
 import {IMembre} from '../../Interfaces/imembre';
 import {GeocodingService} from '../../Services/geocoding.service';
 import {House} from '../../models/house';
+import {Address} from '../../models/address';
 
 @Component({
   selector: 'app-house-edit',
@@ -18,7 +19,23 @@ import {House} from '../../models/house';
 })
 export class HouseEditComponent implements OnInit {
 
-  @Input() localHouse: IHouse;
+  @Input() set house ( h: IHouse){
+    if (!h) return;
+
+    this.localHouse = h;
+    this.localAddress = {
+      Street : this.localHouse.Street,
+      Num : this.localHouse.Num,
+      Box : this.localHouse.Box,
+      City_id : this.localHouse.City_id,
+      City_Zip: this.localHouse.City_Zip,
+      Country_id: this.localHouse.Country_id,
+      Country_Name: this.localHouse.Country_Name,
+      City_Name: this.localHouse.City_Name
+    };
+    this.editMode = true;
+
+  }
 
   @Output() addHouse = new EventEmitter<IHouse>();
   @Output() updateHouse = new EventEmitter<IHouse>();
@@ -28,7 +45,8 @@ export class HouseEditComponent implements OnInit {
 
   selectedFile: FileLikeObject;
   houseType: IHouseType[] = [];
-  localAddress: Iadress;
+  localAddress: Iadress = new Address();
+  localHouse: IHouse = new House();
 
   constructor(private srv: APIService, private auth: AuthService, private geo: GeocodingService) {
   }
@@ -37,22 +55,6 @@ export class HouseEditComponent implements OnInit {
     this.srv.getHouseType().subscribe(data => {
       this.houseType = data;
     });
-
-    if (this.localHouse === undefined) {
-      this.localHouse = new House();
-    } else {
-      this.editMode = true;
-      this.localAddress = {
-        Street : this.localHouse.Street,
-        Num : this.localHouse.Num,
-        Box : this.localHouse.Box,
-        City_id : this.localHouse.City_id,
-        City_Zip: this.localHouse.City_Zip,
-        Country_id: this.localHouse.Country_id,
-        Country_Name: this.localHouse.Country_Name,
-        City_Name: this.localHouse.City_Name
-      }
-    }
   }
 
   onFormSubmit() {
