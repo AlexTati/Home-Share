@@ -10,7 +10,7 @@ import {AuthService} from '../../../Services/auth.service';
 })
 export class BookingsComponent implements OnInit {
 
-  private bookings: IBooking[];
+  public bookings: IBooking[];
 
   constructor(private API: APIService, private auth: AuthService) { }
 

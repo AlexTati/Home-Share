@@ -13,48 +13,49 @@ import {Address} from '../../models/address';
 })
 export class FormAddressComponent implements OnInit {
 
-  @Input() address: Iadress = new Address();
+  @Input() set address (a: Iadress){
+    if (!a || !a.Country_id) return;
+
+    this.cities$ = this.dataService.getCities(a.Country_id);
+    this.localAddress = a;
+  }
+
   @Output() change = new EventEmitter<Iadress>();
 
   countries$: Observable<ICountry[]>;
   cities$: Observable<ICity[]>;
+  localAddress: Iadress;
 
   constructor(private dataService: APIService) {
   }
 
   ngOnInit() {
     this.countries$ = this.dataService.getCountries();
-    this.countries$.subscribe( data => {})
-    setTimeout(() => {
-      if (this.address.Country_id !== undefined){
-        this.cities$ = this.dataService.getCities(this.address.Country_id);
-      }
-    }, 100);
   }
 
   onCountryChanged($event: ICountry) {
-    this.cities$ = this.dataService.getCities(this.address.Country_id);
-    this.address.Country_Name = $event.Name;
-    this.address.Country_id = $event.Id;
+    this.cities$ = this.dataService.getCities(this.localAddress.Country_id);
+    this.localAddress.Country_Name = $event.Name;
+    this.localAddress.Country_id = $event.Id;
     this.dataChanged();
   }
 
   OnCityChanged(event: ICity) {
-    this.address.City_id = event.Id;
-    this.address.City_Name = event.Name;
-    this.address.City_id = event.Id;
+    this.localAddress.City_id = event.Id;
+    this.localAddress.City_Name = event.Name;
+    this.localAddress.City_id = event.Id;
     this.dataChanged();
   }
 
   onZipChanged($event: ICity) {
-    this.address.City_id = $event.Id;
-    this.address.City_Name = $event.Name;
-    this.address.City_id = $event.Id;
+    this.localAddress.City_id = $event.Id;
+    this.localAddress.City_Name = $event.Name;
+    this.localAddress.City_id = $event.Id;
     this.dataChanged();
   }
 
   dataChanged() {
-    this.change.emit(this.address);
+    this.change.emit(this.localAddress);
   }
 
 }
