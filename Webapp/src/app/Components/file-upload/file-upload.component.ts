@@ -13,11 +13,11 @@ export class FileUploadComponent implements OnInit {
 
   public uploader: FileUploader = new FileUploader({});
   public hasBaseDropZoneOver = false;
-  public url: any = ''
+  private url: any = ''
 
   constructor() {}
 
-  ngOnInit(){}
+  ngOnInit() {}
 
   fileOverBase(ev): void {
     this.hasBaseDropZoneOver = ev;

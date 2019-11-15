@@ -12,7 +12,7 @@ export class PictureLoaderComponent implements OnInit {
   @Output() fileChanged = new EventEmitter<FileLikeObject>();
 
   public uploader: FileUploader = new FileUploader({});
-  private url: string = ''
+  private url = '';
 
   constructor() { }
 
@@ -41,10 +41,4 @@ export class PictureLoaderComponent implements OnInit {
       this.previewUrl = reader.result;
     };
   }
-
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.fileData);
-  }
-
 }
