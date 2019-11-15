@@ -42,4 +42,9 @@ export class FileUploadComponent implements OnInit {
       this.url = reader.result;
     }
   }
+
+  resetWidget() {
+    this.url = undefined
+    this.uploader.queue.pop();
+  }
 }

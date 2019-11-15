@@ -1,15 +1,1 @@
-.images {
-  height: 25vh;
-  padding-top: 24px;
-  align-content: center;
-  justify-content: center;
-}
 
-.Picture {
-  max-height: 20vh;
-  max-width: 100%;
-}
-
-app-multi-file-upload {
-  max-height: 10vh
-}
