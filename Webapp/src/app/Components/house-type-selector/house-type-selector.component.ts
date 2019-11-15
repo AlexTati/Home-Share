@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IHouseType} from '../../Interfaces/ihouse-type';
 import {APIService} from '../../Services/api.service';
 import {Observable} from 'rxjs';
@@ -13,9 +13,18 @@ export class HouseTypeSelectorComponent implements OnInit {
 
   @Output() change = new EventEmitter<IHouseType>();
 
+  @Input() set houseTypeId(ht: number) {
+    if (!ht) {
+      return;
+    }
+    this.localHouseTypeId = ht;
+  }
+
+  localHouseTypeId: number;
   houseTypes$: Observable<IHouseType[]>;
 
-  constructor(private dataService: APIService) {  }
+  constructor(private dataService: APIService) {
+  }
 
   ngOnInit() {
     this.houseTypes$ = this.dataService.getHouseType();
@@ -23,7 +32,6 @@ export class HouseTypeSelectorComponent implements OnInit {
 
   onChange($event) {
     this.change.emit($event);
-
   }
 
 }

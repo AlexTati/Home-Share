@@ -361,6 +361,6 @@ export class APIService {
     fd.append('Lng', house.Lng);
 
 
-    return this.http.post<IHouse>(this.UrlBase + '/houses', fd);
+    return this.http.post<IHouse>(this.UrlBase + '/houses/' + house.Id, fd);
   }
 }

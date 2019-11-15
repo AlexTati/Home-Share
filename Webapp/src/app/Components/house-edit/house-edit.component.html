@@ -24,7 +24,7 @@
     </div>
     <div class="form-group col-md-3">
       <label for="inputTitle">Type de bien*</label>
-      <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%" ></app-house-type-selector>
+      <app-house-type-selector (change)="houseTypeChanged($event)" style="width: 100%" [houseTypeId]="localHouse.House_type_id" ></app-house-type-selector>
     </div>
   </div>
 

@@ -19,15 +19,17 @@ import {Address} from '../../models/address';
 })
 export class HouseEditComponent implements OnInit {
 
-  @Input() set house ( h: IHouse){
-    if (!h) return;
+  @Input() set house(h: IHouse) {
+    if (!h) {
+      return;
+    }
 
     this.localHouse = h;
     this.localAddress = {
-      Street : this.localHouse.Street,
-      Num : this.localHouse.Num,
-      Box : this.localHouse.Box,
-      City_id : this.localHouse.City_id,
+      Street: this.localHouse.Street,
+      Num: this.localHouse.Num,
+      Box: this.localHouse.Box,
+      City_id: this.localHouse.City_id,
       City_Zip: this.localHouse.City_Zip,
       Country_id: this.localHouse.Country_id,
       Country_Name: this.localHouse.Country_Name,
@@ -38,7 +40,7 @@ export class HouseEditComponent implements OnInit {
   }
 
   @Output() addHouse = new EventEmitter<IHouse>();
-  @Output() updateHouse = new EventEmitter<IHouse>();
+  @Output() houseSuccessfullyUpdated = new EventEmitter<IHouse>();
   @Output() houseSuccessfullyCreated = new EventEmitter<IHouse>();
 
   private editMode = false;
@@ -59,16 +61,19 @@ export class HouseEditComponent implements OnInit {
 
   onFormSubmit() {
 
-    this.geo.getCoordinates({
-      Street: this.localHouse.Street,
-      Num: this.localHouse.Num,
-      City_Zip: this.localHouse.City_Zip,
-      City_Name: this.localHouse.City_Name,
-      Country_Name: this.localHouse.Country_Name,
-      Box: undefined,
-      City_id: undefined,
-      Country_id: undefined
-    }).subscribe(data => {
+    this.localHouse.Street = this.localAddress.Street;
+    this.localHouse.Num = this.localAddress.Num;
+    this.localHouse.Box = this.localAddress.Box;
+    this.localHouse.City_id = this.localAddress.City_id;
+
+    const addresToGeocode = new Address();
+    addresToGeocode.Street = this.localHouse.Street;
+    addresToGeocode.Num = this.localHouse.Num;
+    addresToGeocode.City_Zip = this.localHouse.City_Zip;
+    addresToGeocode.City_Name = this.localHouse.City_Name;
+    addresToGeocode.Country_Name = this.localHouse.Country_Name;
+
+    this.geo.getCoordinates(addresToGeocode).subscribe(data => {
 
       if (data && data[0] && data[0].lat) {
         this.localHouse.Lat = data[0].lat;
@@ -77,9 +82,9 @@ export class HouseEditComponent implements OnInit {
 
       if (this.localHouse.Id) {
         this.srv.updateHouse(this.localHouse, this.selectedFile).subscribe(data => {
-          this.houseSuccessfullyCreated.emit(data);
+          this.houseSuccessfullyUpdated.emit(data);
         });
-        } else {
+      } else {
         this.srv.addHouse(this.localHouse, this.selectedFile).subscribe(data => {
           this.houseSuccessfullyCreated.emit(data);
         });

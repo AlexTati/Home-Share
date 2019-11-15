@@ -13,12 +13,11 @@ import {Address} from '../../models/address';
 })
 export class FormAddressComponent implements OnInit {
 
-  @Input() set address (a: Iadress){
+  @Input() set address(a: Iadress) {
 
-    console.log('form address');
-    console.log(a);
-
-    if (!a) return;
+    if (!a) {
+      return;
+    }
 
     if (a.Country_id) {
       this.cities$ = this.dataService.getCities(a.Country_id);
@@ -31,7 +30,7 @@ export class FormAddressComponent implements OnInit {
 
   countries$: Observable<ICountry[]>;
   cities$: Observable<ICity[]>;
-  localAddress: Iadress= new Address();
+  localAddress: Iadress = new Address();
 
   constructor(private dataService: APIService) {
   }
