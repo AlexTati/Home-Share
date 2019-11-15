@@ -16,7 +16,7 @@ export class MemberEditComponent implements OnInit {
   @Input() membre: IMembre;
 
   private editMode = false;
-  private passwordConfirm = '';
+  public passwordConfirm = '';
 
   constructor(private _location: Location) {
 

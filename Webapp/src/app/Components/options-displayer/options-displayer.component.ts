@@ -11,7 +11,6 @@ import {IHouse} from '../../Interfaces/ihouse';
 export class OptionsDisplayerComponent implements OnInit {
 
   @Input() house: IHouse;
-
   constructor() {
   }
 

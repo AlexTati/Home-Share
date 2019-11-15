@@ -8,7 +8,7 @@ import {Auth_Types, AuthService} from '../../../Services/auth.service';
 })
 export class ZoneComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);

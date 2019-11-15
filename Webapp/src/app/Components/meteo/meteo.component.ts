@@ -22,10 +22,10 @@ export class MeteoComponent implements OnInit {
 
   }
 
-  private rCity;
-  private rTemp;
-  private rDesc;
-  private imgSrc;
+  public rCity;
+  public rTemp;
+  public rDesc;
+  public imgSrc;
 
   constructor(private http: HttpClient) { }
 

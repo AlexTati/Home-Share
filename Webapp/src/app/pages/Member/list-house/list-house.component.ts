@@ -11,7 +11,7 @@ import {Auth_Types, AuthService} from '../../../Services/auth.service';
 export class ListHouseComponent implements OnInit {
 
   houseListe: IHouse[] = [];
-  constructor(private dataService: APIService, private auth: AuthService) { }
+  constructor(private dataService: APIService, public auth: AuthService) { }
 
   ngOnInit() {
     this.auth.checkAuthorizations(Auth_Types.MEMBER_ONLY);

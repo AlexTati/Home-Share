@@ -5,9 +5,6 @@
       <div class="form-group">
         <input type="file" name="image" (change)="fileProgress($event)" />
       </div>
-      <div *ngIf="fileUploadProgress">
-        Upload progress: {{ fileUploadProgress }}
-      </div>
       <div class="image-preview mb-3" *ngIf="previewUrl">
         <img [src]="previewUrl" height="300" />
       </div>

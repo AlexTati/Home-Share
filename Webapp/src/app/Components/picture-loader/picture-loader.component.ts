@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {FileLikeObject, FileUploader} from 'ng2-file-upload';
 
 @Component({
   selector: 'app-picture-loader',
@@ -8,11 +9,15 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PictureLoaderComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  @Output() fileChanged = new EventEmitter<FileLikeObject>();
+
+  public uploader: FileUploader = new FileUploader({});
+  private url: string = ''
+
+  constructor() { }
 
   fileData: File = null;
   previewUrl: any = null;
-  fileUploadProgress: string = null;
   uploadedFilePath: string = null;
 
   ngOnInit() {
@@ -40,12 +45,6 @@ export class PictureLoaderComponent implements OnInit {
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.fileData);
-    this.http.post('url/to/your/api', formData)
-      .subscribe(res => {
-        console.log(res);
-        //this.uploadedFilePath = res.data.filePath;
-        alert('SUCCESS !!');
-      });
   }
 
 }
