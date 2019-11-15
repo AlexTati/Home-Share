@@ -14,6 +14,10 @@ import {Address} from '../../models/address';
 export class FormAddressComponent implements OnInit {
 
   @Input() set address (a: Iadress){
+
+    console.log('form address');
+    console.log(a);
+
     if (!a) return;
 
     if (a.Country_id) {
@@ -27,14 +31,13 @@ export class FormAddressComponent implements OnInit {
 
   countries$: Observable<ICountry[]>;
   cities$: Observable<ICity[]>;
-  localAddress: Iadress;
+  localAddress: Iadress= new Address();
 
   constructor(private dataService: APIService) {
   }
 
   ngOnInit() {
     this.countries$ = this.dataService.getCountries();
-    if (!this.localAddress) this.localAddress = new Address()
   }
 
   onCountryChanged($event: ICountry) {
