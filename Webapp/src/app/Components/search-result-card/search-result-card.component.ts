@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IHouse} from '../../Interfaces/ihouse';
+import {APIService} from '../../Services/api.service';
 
 @Component({
   selector: 'app-search-result-card',
@@ -10,9 +11,10 @@ export class SearchResultCardComponent implements OnInit {
 
   @Input()fiche: IHouse;
   @Input()editable = false;
+  @Output() houseDeleted = new EventEmitter();
   public picUrl: string;
 
-  constructor() { }
+  constructor(private api: APIService) { }
 
   ngOnInit() {
     console.log(this.fiche.Picture);
@@ -24,4 +26,9 @@ export class SearchResultCardComponent implements OnInit {
     }
   }
 
+  deleteHouse() {
+    this.api.deleteHouse(this.fiche.Id).subscribe( data => {
+      this.houseDeleted.emit();
+    });
+  }
 }

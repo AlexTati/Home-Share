@@ -20,4 +20,7 @@ export class ListHouseComponent implements OnInit {
     });
   }
 
+  refresh() {
+    this.ngOnInit();
+  }
 }
