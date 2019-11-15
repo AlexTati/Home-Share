@@ -63,7 +63,7 @@
 
   <app-options-selector (change)="optionsChanged($event)"></app-options-selector>
 
-  <app-form-address (change)="onAddressChanged($event)" [address]="{Street: localHouse.Street, Num:localHouse.Num, Box:localHouse.Box, City_id:localHouse.City_id, Country_id:localHouse.Country_id}"></app-form-address>
+  <app-form-address (change)="onAddressChanged($event)" [address]="localAddress"></app-form-address>
 
   <app-availibilities-manager  *ngIf="localHouse.Id"  [editable]="true" (change)="onAvailabilityChanged($event)" [houseId]="localHouse.Id"></app-availibilities-manager>
 

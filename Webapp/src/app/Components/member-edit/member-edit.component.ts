@@ -17,6 +17,7 @@ export class MemberEditComponent implements OnInit {
 
   private editMode = false;
   public passwordConfirm = '';
+  localAddress: Iadress;
 
   constructor(private _location: Location) {
 
@@ -45,6 +46,16 @@ export class MemberEditComponent implements OnInit {
       };
     } else {
       this.editMode = true;
+      this.localAddress = {
+        Street : this.membre.Home_street,
+        Num : this.membre.Home_num,
+        Box : this.membre.Home_box,
+        City_id : this.membre.Home_city_id,
+        City_Zip: this.membre.Home_City_Zip,
+        Country_id: this.membre.Home_Country_id,
+        Country_Name: this.membre.Home_Country_Name,
+        City_Name: this.membre.Home_City_Name
+      }
     }
     console.log(this.membre);
   }

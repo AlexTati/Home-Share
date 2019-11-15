@@ -14,10 +14,13 @@ import {Address} from '../../models/address';
 export class FormAddressComponent implements OnInit {
 
   @Input() set address (a: Iadress){
-    if (!a || !a.Country_id) return;
+    if (!a) return;
 
-    this.cities$ = this.dataService.getCities(a.Country_id);
-    this.localAddress = a;
+    if (a.Country_id) {
+      this.cities$ = this.dataService.getCities(a.Country_id);
+      this.localAddress = a;
+    }
+
   }
 
   @Output() change = new EventEmitter<Iadress>();
@@ -31,6 +34,7 @@ export class FormAddressComponent implements OnInit {
 
   ngOnInit() {
     this.countries$ = this.dataService.getCountries();
+    if (!this.localAddress) this.localAddress = new Address()
   }
 
   onCountryChanged($event: ICountry) {

@@ -28,6 +28,7 @@ export class HouseEditComponent implements OnInit {
 
   selectedFile: FileLikeObject;
   houseType: IHouseType[] = [];
+  localAddress: Iadress;
 
   constructor(private srv: APIService, private auth: AuthService, private geo: GeocodingService) {
   }
@@ -41,10 +42,17 @@ export class HouseEditComponent implements OnInit {
       this.localHouse = new House();
     } else {
       this.editMode = true;
+      this.localAddress = {
+        Street : this.localHouse.Street,
+        Num : this.localHouse.Num,
+        Box : this.localHouse.Box,
+        City_id : this.localHouse.City_id,
+        City_Zip: this.localHouse.City_Zip,
+        Country_id: this.localHouse.Country_id,
+        Country_Name: this.localHouse.Country_Name,
+        City_Name: this.localHouse.City_Name
+      }
     }
-
-    console.log("edit");
-    console.log(this.localHouse);
   }
 
   onFormSubmit() {
