@@ -6,7 +6,7 @@
              autofocus
              bindValue="Id"
              (change)="onCountryChanged($event)"
-             [(ngModel)]="address.Country_id">
+             [(ngModel)]="localAddress.Country_id">
   </ng-select>
   <div *ngIf="Pays.invalid && (Pays.dirty)" class="alert alert-danger">
     <div *ngIf="Pays.errors.required">Le pays est requis</div>
@@ -16,7 +16,7 @@
 <div class="form-row">
   <div class="form-group col-md-8">
     <label for="street">Rue*</label>
-    <input class="form-control" type="text" required #Rue="ngModel"  name="street" id="street" [(ngModel)]="address.Street" (change)="dataChanged()">
+    <input class="form-control" type="text" required #Rue="ngModel"  name="street" id="street" [(ngModel)]="localAddress.Street" (change)="dataChanged()">
     <div *ngIf="Rue.invalid && (Rue.dirty || Rue.touched)" class="alert alert-danger">
       <div *ngIf="Rue.errors.required">La rue est requis</div>
     </div>
@@ -25,7 +25,7 @@
 
   <div class="form-group col-md-2">
     <label for="num">Numéro*</label>
-    <input class="form-control" type="text" required #Numero="ngModel"  name="num" id="num" [(ngModel)]="address.Num" (change)="dataChanged()">
+    <input class="form-control" type="text" required #Numero="ngModel"  name="num" id="num" [(ngModel)]="localAddress.Num" (change)="dataChanged()">
     <div *ngIf="Numero.invalid && (Numero.dirty || Numero.touched)" class="alert alert-danger">
       <div *ngIf="Numero.errors.required">Le numéro est requis</div>
     </div>
@@ -34,7 +34,7 @@
 
   <div class="form-group col-md-2">
     <label for="box">Boîte</label>
-    <input class="form-control" type="text" name="box" id="box" [(ngModel)]="address.Box" (change)="dataChanged()">
+    <input class="form-control" type="text" name="box" id="box" [(ngModel)]="localAddress.Box" (change)="dataChanged()">
   </div>
 </div>
 <div class="form-row">
@@ -45,7 +45,7 @@
                autofocus
                bindValue="Id"
                (change)="onZipChanged($event)"
-               [(ngModel)]="address.City_id">
+               [(ngModel)]="localAddress.City_id">
     </ng-select>
     <div *ngIf="Zip.invalid && (Zip.dirty)" class="alert alert-danger">
       <div *ngIf="Zip.errors.required">Le code postal est requis</div>
@@ -60,7 +60,7 @@
                autofocus
                bindValue="Id"
                (change)="OnCityChanged($event)"
-               [(ngModel)]="address.City_id">
+               [(ngModel)]="localAddress.City_id">
     </ng-select>
     <div *ngIf="Ville.invalid && (Ville.dirty)" class="alert alert-danger">
       <div *ngIf="Ville.errors.required">La ville est requise</div>
