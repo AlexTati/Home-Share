@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FileUploader, FileLikeObject } from 'ng2-file-upload';
 import {IMembre} from '../../Interfaces/imembre';
 
@@ -10,10 +10,10 @@ import {IMembre} from '../../Interfaces/imembre';
 export class FileUploadComponent implements OnInit {
 
   @Output() fileChanged = new EventEmitter<FileLikeObject>();
+  @Input() imageSrc: string
 
   public uploader: FileUploader = new FileUploader({});
   public hasBaseDropZoneOver = false;
-  private url: any = ''
 
   constructor() {}
 
@@ -39,12 +39,12 @@ export class FileUploadComponent implements OnInit {
     var reader = new FileReader();
     reader.readAsDataURL(fileData);
     reader.onload = (_event) => {
-      this.url = reader.result;
+      this.imageSrc = reader.result;
     }
   }
 
   resetWidget() {
-    this.url = undefined
+    this.imageSrc = undefined
     this.uploader.queue.pop();
   }
 }
