@@ -42,6 +42,7 @@ export class HouseEditComponent implements OnInit {
   @Output() addHouse = new EventEmitter<IHouse>();
   @Output() houseSuccessfullyUpdated = new EventEmitter<IHouse>();
   @Output() houseSuccessfullyCreated = new EventEmitter<IHouse>();
+  @Output() canceled = new EventEmitter();
 
   private editMode = false;
 
@@ -65,6 +66,7 @@ export class HouseEditComponent implements OnInit {
     this.localHouse.Num = this.localAddress.Num;
     this.localHouse.Box = this.localAddress.Box;
     this.localHouse.City_id = this.localAddress.City_id;
+    this.localHouse.Membre_id = this.auth.localUser.Id;
 
     const addresToGeocode = new Address();
     addresToGeocode.Street = this.localHouse.Street;
@@ -80,6 +82,8 @@ export class HouseEditComponent implements OnInit {
         this.localHouse.Lng = data[0].lon;
       }
 
+      console.log(this.selectedFile);
+
       if (this.localHouse.Id) {
         this.srv.updateHouse(this.localHouse, this.selectedFile).subscribe(data => {
           this.houseSuccessfullyUpdated.emit(data);
@@ -93,10 +97,10 @@ export class HouseEditComponent implements OnInit {
   }
 
   onAddressChanged($event: Iadress) {
-    this.localHouse.Street = $event.Street;
-    this.localHouse.Num = $event.Num;
-    this.localHouse.Box = $event.Box;
-    this.localHouse.City_id = $event.City_id;
+    this.localAddress.Street = $event.Street;
+    this.localAddress.Num = $event.Num;
+    this.localAddress.Box = $event.Box;
+    this.localAddress.City_id = $event.City_id;
   }
 
   OnFileSelected($event: FileLikeObject) {
@@ -105,13 +109,18 @@ export class HouseEditComponent implements OnInit {
 
   optionsChanged($event: IOptions[]) {
     this.localHouse.options = $event;
+
   }
 
   houseTypeChanged($event: IHouseType) {
     this.localHouse.House_type_id = $event.Id;
+
   }
 
   onAvailabilityChanged($event: IAvailibility[]) {
     this.localHouse.availabilities = $event;
+  }
+
+  cancel() {
   }
 }

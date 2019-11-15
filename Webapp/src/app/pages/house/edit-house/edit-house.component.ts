@@ -38,4 +38,8 @@ export class EditHouseComponent implements OnInit {
   houseUpdated() {
     this.router.navigate(['/member/listHouse']);
   }
+
+  cancel() {
+
+  }
 }

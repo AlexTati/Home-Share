@@ -3,19 +3,19 @@
   </div>
   <div class="card-body">
     <h4>{{fiche?.Title}}</h4>
-    <p class="card-text d-flex justify-content-center" *ngIf="editable">{{fiche?.Creation_date}}</p>
+    <p class="card-text d-flex justify-content-center" *ngIf="editable">{{fiche?.Creation_date | date: 'fullDate'}}</p>
     <hr *ngIf="editable">
     <p class="card-text d-flex justify-content-center">{{fiche?.Short_description}}</p>
     <hr>
-    <div class="row">
+    <div class="row"*ngIf="!editable">
       <div class="col-md-6">
-      <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Nb_guest}} <fa name="user-friends"></fa></p>
+      <p class="card-text d-flex justify-content-center" >{{fiche?.Nb_guest}} <fa name="user-friends"></fa></p>
       </div>
       <div class="col-md-6">
-      <p class="card-text d-flex justify-content-center" *ngIf="!editable">{{fiche?.Country_Name}}</p>
+      <p class="card-text d-flex justify-content-center" >{{fiche?.Country_Name}}</p>
       </div>
+      <hr>
     </div>
-    <hr>
 
     <div class="card-text d-flex justify-content-center" *ngIf="!editable"><app-stars [editable]="false" [Note]="fiche?.Note"></app-stars></div>
 
