@@ -41,7 +41,7 @@ export class FileUploadComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(fileData);
     reader.onload = (_event) => {
-      //this.imageSrc = reader.result;
+      this.imageSrc = reader.result.toString();
     };
   }
 
