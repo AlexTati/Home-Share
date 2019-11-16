@@ -18,7 +18,7 @@ import {IBooking} from '../Interfaces/ibooking';
 })
 export class APIService {
 
-  UrlBase = 'http://sam.ovh:3000';
+  UrlBase = 'https://sam.ovh:3333';
 
   constructor(private http: HttpClient) {
   }
