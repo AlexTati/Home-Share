@@ -5,17 +5,20 @@
       <app-avis-home [house]="house"></app-avis-home>
     </div>
     <div class="col-md-3 d-flex align-items-center flex-column">
-      <div class="marg-top" style= "max-width: 200px;">
+      <div class="marg-top" style="width: 100%;">
        <app-card-membre [membre]="house?.owner"></app-card-membre>
       </div>
       <div class="marg-top">
         <button routerLink="" type="button" class="btn btn-info btn-lg " (click)="createBooking()">Echanger le bien</button>
       </div>
-      <div class="marg-top">
+      <div class="marg-top" style="width: 100%;">
         <app-meteo [location]="[house?.City_Name, house?.Country_Name]"></app-meteo>
       </div>
     </div>
   </div>
-  <app-map [house]="house"></app-map>
 </div>
 
+<div style="margin-top: 20px" >
+  <app-map [house]="house"></app-map>
+
+</div>

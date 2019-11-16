@@ -3,7 +3,9 @@
   <div class="form-row d-flex align-items-center">
     <div class="col-md-3">
       <app-card-membre [membre]="auth.localUser"></app-card-membre>
-      <a routerLink="/member/edit-profile" class="btn btn-info btn-block marg-top-btn ">Modifier</a>
+      <button routerLink="/member/edit-profile" class="btn btn-info btn-lg btn-block">Modifier</button>
+      <br>
+
     </div>
     <div class="col-md-9">
       <button routerLink="/member/listHouse" type="button" class="btn btn-info btn-lg btn-block">Mes biens</button>

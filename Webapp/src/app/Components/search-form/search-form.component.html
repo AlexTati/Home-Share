@@ -34,9 +34,9 @@
 
 
     </div>
-    <div class="form-row" style="    justify-content: flex-end;">
-      <button type="" (click)="toggleAdvanced()" class="btn btn-info" *ngIf="!advanced">Plus d'options</button>
-      <button type="" (click)="toggleAdvanced()" class="btn btn-info"  *ngIf="advanced">Moins d'options</button>
+    <div class="form-row justify-content-center justify-content-sm-end" >
+      <button (click)="toggleAdvanced()" class="btn btn-info" *ngIf="!advanced">Plus d'options</button>
+      <button (click)="toggleAdvanced()" class="btn btn-info"  *ngIf="advanced">Moins d'options</button>
       <button type="submit" class="btn btn-info">Démarer ma rechercher</button>
     </div>
   </div>
