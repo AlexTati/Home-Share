@@ -87,7 +87,7 @@ const appRoutes: Routes = [
   {path: 'house/edit/:id', component: EditHouseComponent},
   {path: 'house/add-house', component: AddHouseComponent},
   {path: 'house/echange-house/:id', component: EchangeHouseComponent},
-  {path: '*', component: HomeComponent}
+  {path: '', component: HomeComponent}
 ];
 
 

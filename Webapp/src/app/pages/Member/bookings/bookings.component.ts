@@ -12,7 +12,7 @@ export class BookingsComponent implements OnInit {
 
   public bookings: IBooking[];
 
-  constructor(private API: APIService, private auth: AuthService) { }
+  constructor(public API: APIService, public auth: AuthService) { }
 
   ngOnInit() {
     console.log('booking init');
